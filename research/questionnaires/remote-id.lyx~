@@ -1,0 +1,575 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass tufte-handout
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Questionnaire on Remote ID"
+\pdf_author "UTM Working Group"
+\pdf_subject "Remote Identification for Unmanned Aircraft Systems"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Questionnaire on Remote ID
+\end_layout
+
+\begin_layout Standard
+UTM Working Group
+\begin_inset Flex Marginnote
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Website"
+target "https://groups.google.com/forum/#!forum/utm-wg"
+
+\end_inset
+
+; Address feedback and comments to 
+\begin_inset CommandInset href
+LatexCommand href
+name "sayandeep@deepcyan.ai"
+target "sayandeep@deepcyan.ai"
+type "mailto:"
+
+\end_inset
+
+ or 
+\begin_inset CommandInset href
+LatexCommand href
+name "abhiroop@algopixel.tech"
+target "abhiroop@algopixel.tech"
+type "mailto:"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+This handout lists the open decision items for our upcoming publication
+ 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+Remote Identification for Unmanned Aircraft Systems
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+.
+ The purpose is to gather feedback from (non-member) industry participants
+ on key issues pertaining to hardware, architecture and adoption of Remote
+ ID technology in the Indian UAS ecosystem.
+ 
+\end_layout
+
+\begin_layout Full Width
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Architecture
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+ID
+\family default
+ field of Remote ID data proposals
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+UIN
+\family default
+, 
+\family typewriter
+DAN 
+\family default
+with 
+\family typewriter
+ID Type
+\family default
+ Field 
+\family typewriter
+0
+\family default
+ for UIN, 
+\family typewriter
+1
+\family default
+ for 
+\family typewriter
+DAN
+\end_layout
+
+\begin_layout Enumerate
+Unique ID decoupled from 
+\family typewriter
+UIN
+\family default
+/
+\family typewriter
+DAN
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Non-NPNT Compliant drones
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Are non-NPNT drones with DANs to be phased out, so pilots can be retrained
+ on NPNT compliant UASs?
+\end_layout
+
+\begin_layout Enumerate
+Is there a purpose to NPNT when we are allowing DAN-registered UASs to fly?
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Network ID: UTM-SP Discovery and Data Submission
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+See Tech Report (draft) Section 2.1.6.1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Forwarding
+\end_layout
+
+\begin_layout Enumerate
+DSS + P2P
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Network ID: General availability of Telemtery data
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+See Tech Report (draft) Section 2.1.6.2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+no
+\end_layout
+
+\begin_layout Enumerate
+restrict to 50m radius around actor
+\end_layout
+
+\begin_layout Enumerate
+no restrictions
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Use cases
+\end_layout
+
+\begin_layout Enumerate
+For each case
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+See Tech Report (draft) sections 2.1.5.1, 2.1.6.1
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+What should be the interaction flow?
+\end_layout
+
+\begin_layout Enumerate
+Request-Response or PubSub?
+\end_layout
+
+\begin_layout Enumerate
+What messaging protocol to use?
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Possible options: MQTT, XMPP, others
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+What network layer protocol to use?
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Possible options: TCP/IP, UDP, others
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+What should be the data format?
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Possible options: JSON, XML, Thrift, Protobuf, others
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+What data or part thereof should be signed and how?
+\end_layout
+
+\begin_layout Enumerate
+What data or part thereof should be encrypted and how? 
+\end_layout
+
+\begin_layout Enumerate
+Single/Multi UTM-SP in same operational volume
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Which uses cases have any ramifications
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Privacy
+\end_layout
+
+\begin_layout Enumerate
+Which Operational use cases
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+See Tech Report (draft) Appendix 3.2
+\end_layout
+
+\end_inset
+
+ or Operational scenarios
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+See Tech Report (draft) Appendix 3.1
+\end_layout
+
+\end_inset
+
+ require encryption beyond
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+End-to-end encryption, etc.
+\end_layout
+
+\end_inset
+
+ channel encryption between UAS and UTM/DCSP already mandated by ASTM?
+\end_layout
+
+\begin_layout Subsection
+Security
+\end_layout
+
+\begin_layout Enumerate
+Programmability: proposals
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Auditable programming process
+\end_layout
+
+\begin_layout Enumerate
+Cryptographically secure programming process
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+Similar to NPNT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Programmability: Who should/should not be able to program the remote ID
+ into hardware
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Remote ID Manufacturer
+\end_layout
+
+\begin_layout Enumerate
+UAS Manufacturer
+\end_layout
+
+\begin_layout Enumerate
+Operator
+\end_layout
+
+\begin_layout Enumerate
+Pilot
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Adoption
+\end_layout
+
+\begin_layout Enumerate
+How would existing drones without any compliant RemoteID hardware become
+ compliant?
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Integrating with Remote ID hardware on market (to be imported, integrated
+ and tested)
+\end_layout
+
+\begin_layout Enumerate
+development of Remote ID chip/board in-house (open-sourced designs 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+insert cfs.
+\end_layout
+
+\end_inset
+
+ are available) & integration
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+What should the timeline by stakeholder be
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+UAS Manufacturers
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+6 months: product development/integration, testing
+\end_layout
+
+\begin_layout Enumerate
+3 months compliance testing & approval
+\end_layout
+
+\begin_layout Enumerate
+Leeway: 3 months
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+UFII-UTM infrastructure for enablement
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+development of interfaces/protocols (2 months)
+\end_layout
+
+\begin_layout Enumerate
+implementation (6 months)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Operators & Pilots
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Training
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Law Enforcement
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Additional Hardware (?? months)
+\end_layout
+
+\begin_layout Enumerate
+DSP integration (?? months)
+\end_layout
+
+\begin_layout Enumerate
+Training (3 months - 2 years)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Supplementary issues
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comments
+\end_layout
+
+\begin_layout Full Width
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100text%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
