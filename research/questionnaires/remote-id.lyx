@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,6 +21,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -62,6 +64,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -70,7 +73,10 @@
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -97,6 +103,7 @@ status open
 LatexCommand href
 name "Website"
 target "https://groups.google.com/forum/#!forum/utm-wg"
+literal "false"
 
 \end_inset
 
@@ -106,6 +113,7 @@ LatexCommand href
 name "sayandeep@deepcyan.ai"
 target "sayandeep@deepcyan.ai"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -115,6 +123,7 @@ LatexCommand href
 name "abhiroop@algopixel.tech"
 target "abhiroop@algopixel.tech"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -168,7 +177,17 @@ Architecture
 \family typewriter
 ID
 \family default
- field of Remote ID data proposals
+ field of Remote ID data proposals 
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+See Tech Report (draft) Section 2.1.1.2
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -211,6 +230,16 @@ DAN
 \end_deeper
 \begin_layout Enumerate
 Non-NPNT Compliant drones
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+See Tech Report (draft) Section 2.1.3
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -255,6 +284,34 @@ status open
 
 \begin_layout Plain Layout
 See Tech Report (draft) Section 2.1.6.2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+no
+\end_layout
+
+\begin_layout Enumerate
+restrict to 50m radius around actor
+\end_layout
+
+\begin_layout Enumerate
+no restrictions
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Network ID: General availability of Operational Data or Authorisation data
+\begin_inset Flex Sidenote
+status open
+
+\begin_layout Plain Layout
+See Tech Report (draft) Section 2.1.6.3
 \end_layout
 
 \end_inset

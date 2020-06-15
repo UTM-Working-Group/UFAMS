@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -10,9 +10,6 @@
 \usepackage[caption=false,font=footnotesize]{subfig}
 %\usepackage{wasysym}
 \usepackage{mathtools}
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
 \usepackage{lipsum}  
 \end_preamble
 \options journal
@@ -32,6 +29,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -75,6 +74,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -83,7 +83,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 2
 \papersides 1
 \paperpagestyle default
@@ -169,6 +172,7 @@ This report describes a Remote Identification Scheme for Unmanned Aircraft
 LatexCommand nomenclature
 symbol "ASTM"
 description "American Society for Testing and Materials"
+literal "true"
 
 \end_inset
 
@@ -563,6 +567,7 @@ Standards Track
 LatexCommand href
 name "Meet"
 target "https://meet.google.com/urz-pekp-rwr"
+literal "false"
 
 \end_inset
 
@@ -599,6 +604,7 @@ Research Track
 LatexCommand href
 name "Skype"
 target "https://join.skype.com/RkNeUB8wNvzx"
+literal "false"
 
 \end_inset
 
@@ -735,6 +741,7 @@ LatexCommand href
 name "abhiroop@algopixel.tech"
 target "abhiroop@algopixel.tech"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -787,6 +794,7 @@ LatexCommand href
 name "sayandeep@deepcyan.ai"
 target "sayandeep@deepcyan.ai"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -824,6 +832,7 @@ LatexCommand href
 name "rakesh.vohra@unifly.aero"
 target "rakesh.vohra@unifly.aero"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -861,6 +870,7 @@ LatexCommand href
 name "nihalm@skylarkdrones.com"
 target "nihalm@skylarkdrones.com"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -898,6 +908,7 @@ LatexCommand href
 name "shravan@avianco.in"
 target "shravan@avianco.in"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -935,6 +946,7 @@ LatexCommand href
 name "smit@dronefederation.in"
 target "smit@dronefederation.in"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -1040,6 +1052,7 @@ NPNT
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RPASGM2020"
+literal "true"
 
 \end_inset
 
@@ -1051,6 +1064,7 @@ ASTM Remote ID Specification
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ASTM:F3411:19"
+literal "true"
 
 \end_inset
 
@@ -1397,6 +1411,7 @@ The NPRM
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FAA-2019-1100"
+literal "true"
 
 \end_inset
 
@@ -1907,67 +1922,6 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Rakesh Start
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-While the ASTM standard defines the minimum fields, in practice and to adhere
- to other prevailing ( e.g.
- telecom) regulation a typical Network Remote ID transmitter could (does)
- broadcast several fields through which the identity of the UAS and its
- operator can be quickly obtained :
-\end_layout
-
-\begin_layout Enumerate
-A UAS ID, typically assigned by the authorities.
- In India this could be the UIN or the DAN 
-\end_layout
-
-\begin_layout Enumerate
-A unique Operator ID, typically assigned by the authorities.
- In India this could be Aadhar / Udyog Aadhar / ROC CIN or UAOP (delinked
- from UIN/NPNT).
- 
-\end_layout
-
-\begin_layout Enumerate
-A unique serial number, based on the Mac Address of the BLE chipset in the
- Broadcast/Network Remote ID device.
- 
-\end_layout
-
-\begin_layout Enumerate
-IMEI of the LTE device (only over Network).
- 
-\end_layout
-
-\begin_layout Enumerate
-IMSI of the SIM Card in the LTE device (only over Network).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Rakesh End
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsubsection
 Proposal #1
 \begin_inset CommandInset label
@@ -2008,6 +1962,13 @@ reference "subsec:Lifetime"
 
 \begin_layout Subsubsection
 Proposal #2
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:id-proposal-2"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2015,6 +1976,33 @@ ID data for Remote ID should be akin to MAC for network hardware, which
  is decoupled from UIN/DAN, etc.
  Then within the DSP-UFII architecture, remote ID hardware will have to
  be linked to UIN or DAN registry.
+ Options include
+\end_layout
+
+\begin_layout Enumerate
+UUIDv4
+\end_layout
+
+\begin_layout Enumerate
+UAOP: A unique Operator ID, typically assigned by the authorities.
+ In India this could be Aadhar / Udyog Aadhar / ROC CIN or UAOP (delinked
+ from UIN/NPNT).
+ 
+\end_layout
+
+\begin_layout Enumerate
+BLE: A unique serial number, based on the Mac Address of the BLE chipset
+ in the Broadcast/Network Remote ID device.
+ 
+\end_layout
+
+\begin_layout Enumerate
+IMEI of the LTE device (only over Network).
+ 
+\end_layout
+
+\begin_layout Enumerate
+IMSI of the SIM Card in the LTE device (only over Network).
 \end_layout
 
 \begin_layout Subparagraph
@@ -2025,7 +2013,7 @@ Pros
 A Drone could potentially have multiple RemoteIDs devices for redundancy
  or with differing operating parameters.
  One-time programming works, a lot of security problems averted.
- UUIDv4 would ensure no conflict.
+ Any of ablove would ensure no conflict.
  How many bits is it? A new RId module will need to be registered against
  UIN in case of replacement.
 \end_layout
@@ -2056,7 +2044,7 @@ Technically, there is no need for UIN to change during the lifetime of a
 \end_layout
 
 \begin_layout Enumerate
-how should “lifetime” be defined: bases
+how should “lifetime” be defined: options for basis
 \end_layout
 
 \begin_deeper
@@ -2079,7 +2067,17 @@ Manufacturer Serial no (akin to chassis no.)
 \end_layout
 
 \begin_layout Enumerate
-Physical unclonable function (PUF) or alternatives
+Physical unclonable function
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Not currently realistic
+\end_layout
+
+\end_inset
+
+ (PUF) or alternatives
 \end_layout
 
 \end_deeper
@@ -2108,7 +2106,7 @@ reference "subsec:id-proposal-1"
 )
 \end_layout
 
-\begin_layout Subparagraph
+\begin_layout Paragraph
 Open questions
 \end_layout
 
@@ -2116,6 +2114,21 @@ Open questions
 Are non-NPNT drones with DANs to be phased out, so pilots can be retrained
  on NPNT compliant UASs? Is there a purpose to NPNT when we are allowing
  DAN-registered UASs to fly?
+\end_layout
+
+\begin_layout Paragraph
+Alternate scenario
+\end_layout
+
+\begin_layout Standard
+What happens for Proposal #2 (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:id-proposal-2"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
@@ -2163,17 +2176,12 @@ status open
 Privacy
 \end_layout
 
-\begin_layout Standard
-There is a provision for defence agencies to switch off Remote Id Broadcast.
- 
-\end_layout
-
 \begin_layout Subsubsection
 Data collection, storage, transmission
 \end_layout
 
 \begin_layout Standard
-Who gets to do what?
+Who gets to do what? See DCSP discussion.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2186,6 +2194,11 @@ Civilian
 
 \begin_layout Subsubsection
 Defence and Law Enforcement
+\end_layout
+
+\begin_layout Standard
+There is a provision for defence agencies to switch off Remote Id Broadcast.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2237,25 +2250,6 @@ Network ID
 There is a provision for defence agencies to switch off Network Remoted
  Id.
  Needs role based access for operational info.
- 
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-Need to finalize information flow from Drone/GCS 
-\begin_inset Formula $\rightarrow$
-\end_inset
-
- DSP 
-\begin_inset Formula $\rightarrow$
-\end_inset
-
- UFII
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -2304,7 +2298,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/sayandeep/Code/drone/UFAMS/research/images/nrid-uc01.png
+	filename ../images/nrid-uc01.png
 	height 20theight%
 
 \end_inset
@@ -2341,12 +2335,12 @@ name "nrid-uc01"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/sayandeep/Code/drone/UFAMS/research/images/nrid-uc02.png
+	filename ../images/nrid-uc02.png
 	height 20theight%
 
 \end_inset
@@ -2383,12 +2377,12 @@ name "nrid-uc02"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/sayandeep/Code/drone/UFAMS/research/images/norid-uc01.png
+	filename ../images/norid-uc01.png
 	height 20theight%
 
 \end_inset
@@ -2602,7 +2596,7 @@ no restrictions
 \end_layout
 
 \begin_layout Subsubsection
-General availability of Operational Data
+General availability of Operational Authorisation or Data
 \end_layout
 
 \begin_layout Standard
@@ -2910,12 +2904,12 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/sayandeep/Code/drone/UFAMS/research/images/brid-uc01.png
+	filename ../images/brid-uc01.png
 	height 20theight%
 
 \end_inset
