@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -11,6 +11,12 @@
 %\usepackage{wasysym}
 \usepackage{mathtools}
 \usepackage{lipsum}  
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
+
+\usepackage{concmath}
+\usepackage[T1]{fontenc}
 \end_preamble
 \options journal
 \use_default_options false
@@ -29,8 +35,6 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -74,7 +78,6 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -83,10 +86,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 2
 \papersides 1
 \paperpagestyle default
@@ -172,13 +172,12 @@ This report describes a Remote Identification Scheme for Unmanned Aircraft
 LatexCommand nomenclature
 symbol "ASTM"
 description "American Society for Testing and Materials"
-literal "true"
 
 \end_inset
 
  RemoteID Specification and the NPNT Regulation in India.
- It focuses on the way forward for Indian UAS Manufacturers to enable remote
- identification of their systems by law enforcement and other third parties.
+ It focuses on the way forward for stakeholders to enable remote identification
+ of their systems by law enforcement and other third parties.
 \end_layout
 
 \begin_layout Abstract
@@ -567,7 +566,6 @@ Standards Track
 LatexCommand href
 name "Meet"
 target "https://meet.google.com/urz-pekp-rwr"
-literal "false"
 
 \end_inset
 
@@ -604,7 +602,6 @@ Research Track
 LatexCommand href
 name "Skype"
 target "https://join.skype.com/RkNeUB8wNvzx"
-literal "false"
 
 \end_inset
 
@@ -741,7 +738,6 @@ LatexCommand href
 name "abhiroop@algopixel.tech"
 target "abhiroop@algopixel.tech"
 type "mailto:"
-literal "false"
 
 \end_inset
 
@@ -794,7 +790,6 @@ LatexCommand href
 name "sayandeep@deepcyan.ai"
 target "sayandeep@deepcyan.ai"
 type "mailto:"
-literal "false"
 
 \end_inset
 
@@ -832,7 +827,6 @@ LatexCommand href
 name "rakesh.vohra@unifly.aero"
 target "rakesh.vohra@unifly.aero"
 type "mailto:"
-literal "false"
 
 \end_inset
 
@@ -870,7 +864,6 @@ LatexCommand href
 name "nihalm@skylarkdrones.com"
 target "nihalm@skylarkdrones.com"
 type "mailto:"
-literal "false"
 
 \end_inset
 
@@ -908,7 +901,6 @@ LatexCommand href
 name "shravan@avianco.in"
 target "shravan@avianco.in"
 type "mailto:"
-literal "false"
 
 \end_inset
 
@@ -946,7 +938,6 @@ LatexCommand href
 name "smit@dronefederation.in"
 target "smit@dronefederation.in"
 type "mailto:"
-literal "false"
 
 \end_inset
 
@@ -1052,7 +1043,6 @@ NPNT
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RPASGM2020"
-literal "true"
 
 \end_inset
 
@@ -1064,7 +1054,6 @@ ASTM Remote ID Specification
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ASTM:F3411:19"
-literal "true"
 
 \end_inset
 
@@ -1411,7 +1400,6 @@ The NPRM
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FAA-2019-1100"
-literal "true"
 
 \end_inset
 
