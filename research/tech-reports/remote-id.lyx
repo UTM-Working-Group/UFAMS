@@ -10,15 +10,32 @@
 \usepackage[caption=false,font=footnotesize]{subfig}
 %\usepackage{wasysym}
 \usepackage{mathtools}
-\usepackage{lipsum}  
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
 
 \usepackage{concmath}
 \usepackage[T1]{fontenc}
+\def\nompreamble{\addcontentsline{toc}{section}{\nomname}\markboth{\nomname}{\nomname}}
+
+\usepackage{inconsolata}
+\usepackage{draftwatermark}
+\SetWatermarkScale{1}
+\SetWatermarkText{\tt DRAFT}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\rhead[UTM Working Group]{Technical Report: Remote ID and Tracking}
+\lhead[Technical Report: Remote ID and Tracking]{UTM Working Group}
+\rfoot[]{{\tt UTMWG/TR/1}}
+\lfoot[{\tt UTMWG/TR/1}]{}
+% \cfoot[{\tt \thepage}]{\tt \thepage}
+\definecolor{cyanprocess}{rgb}{0.0, 0.72, 0.92}
+\hypersetup{urlcolor=cyanprocess,linkcolor=cyanprocess,filecolor=cyanprocess,citecolor=cyanprocess}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
+\usepackage{xypic}
 \end_preamble
-\options journal
+\options journal,twoside
 \use_default_options false
 \maintain_unincluded_children false
 \language english
@@ -44,9 +61,9 @@
 \paperfontsize default
 \spacing single
 \use_hyperref true
-\pdf_title "Remote Identification for Unmanned Aircraft Systems"
+\pdf_title "Remote Identification and Tracking for Unmanned Aircraft Systems"
 \pdf_author "UTM Working Group"
-\pdf_subject "Remote Identification for Unmanned Aircraft Systems"
+\pdf_subject "Remote Identification and Tracking for Unmanned Aircraft Systems"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered true
 \pdf_bookmarksopen true
@@ -158,30 +175,46 @@ http://mirror.ctan.org/macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf
 \end_layout
 
 \begin_layout Title
-Remote Identification for Unmanned Aircraft Systems
+Remote Identification and Tracking for Unmanned Aircraft Systems
 \end_layout
 
 \begin_layout Author
 UTM Working Group
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Abstract
-This report describes a Remote Identification Scheme for Unmanned Aircraft
- Systems in the context of 
+This report describes a consensus based Remote Identification and Tracking
+ Standard for Unmanned Aircraft Systems in India in the context of ASTM
+ 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "ASTM"
-description "American Society for Testing and Materials"
+description "ASTM International, formerly American Society for Testing and Materials; an international standards organization that develops and publishes consensus technical standards for a wide range of materials, products, systems, and services."
 
 \end_inset
 
- RemoteID Specification and the NPNT Regulation in India.
+ Remote ID Specification and the NPNT 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "NPNT"
+description "No Permission No Take-off; a cryptographically secure process for programming and flying UASs in India"
+
+\end_inset
+
+Regulation in India.
  It focuses on the way forward for stakeholders to enable remote identification
  of their systems by law enforcement and other third parties.
 \end_layout
 
 \begin_layout Abstract
-Keywords: Unmanned Aviation, Unmanned Aircraft Systems, Identification,
+Keywords: Unmanned Aviation, Unmanned Aircraft Systems, Drones, Identification,
  Risk Assessment, Law Enforcement, Counter-UAS
 \end_layout
 
@@ -196,21 +229,255 @@ LatexCommand tableofcontents
 
 \begin_layout Chapter*
 Working Group
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:wg"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Paragraph*
-Overview 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+nameref{sec:wg}}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 This working group meets almost weekly to discuss the roles, responsibilities
  and activities to be performed by a Unmanned Traffic Management Service
- Provider (UTM-SP) in the context of Indian drone industry.
- It also aims to document the ways in which a DSP interacts with other stakehold
-ers in the industry, namely, manufacturers, operators, pilots, UFII, DGCA,
- and so forth.
- The documentation would be put through as recommendations to DGCA, iSpirt,
+ Provider (UTM-SP)
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DSP"
+description "DigitalSky Service Provider; used interchangeably with UTM-SP"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UTM"
+description "Unmanned Traffic Management; an activity similar to Air Traffic Management for manned flights"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UTM-SP"
+description "UTM Service Provider; an organisation providing UTM services, including but not limited to Remote Identification and Tracking of UASs; used interchangeably with DSP"
+
+\end_inset
+
+ in the context of Indian drone industry.
+ It also aims to document the ways in which a UTM-SP interacts with other
+ stakeholders in the industry, namely, manufacturers, operators, pilots,
+ UFII, and so forth.
+ The documentation would be put through as recommendations to DGCA
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DGCA"
+description "Directorate General of Civil Aviation, MoCA"
+
+\end_inset
+
+, MoCA,
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "MoCA"
+description "Ministry of Civil Aviation, Government of India"
+
+\end_inset
+
  and other relevant parties as it matures.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\backslash
+tt
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfil 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+xymatrix{ & 
+\backslash
+txt{DFI} 
+\backslash
+ar[dr] & 
+\backslash
+txt{MoCA} 
+\backslash
+ar[d] & 
+\backslash
+cdots 
+\backslash
+ar[dl] & 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& & 
+\backslash
+txt{UA Society} 
+\backslash
+ar[d] & & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& & 
+\backslash
+txt{Steering 
+\backslash
+
+\backslash
+Committee} 
+\backslash
+ar[dl] 
+\backslash
+ar[dr] & & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+txt{Working Groups} 
+\backslash
+ar[dl] 
+\backslash
+ar[d] & & 
+\backslash
+txt{Research Groups} 
+\backslash
+ar[dl] 
+\backslash
+ar[d] 
+\backslash
+ar[dr] & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cdots 
+\backslash
+ar[r] & *+[F]{
+\backslash
+txt{UTM}} 
+\backslash
+ar[l] 
+\backslash
+ar[r] & 
+\backslash
+txt{Risk} 
+\backslash
+ar[l] 
+\backslash
+ar[r] & 
+\backslash
+txt{Deconfliction} 
+\backslash
+ar[l] 
+\backslash
+ar[r] & 
+\backslash
+cdots 
+\backslash
+ar[l] }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfil 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The UTM Working Group and others
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
@@ -531,8 +798,7 @@ Topics
 \end_layout
 
 \begin_layout Standard
-Regulation, policy making, risk assessment & reduction, deconfliction, operation
-al transparency, management and privacy in unmanned aviation.
+Standardisation, regulation, policy making in unmanned aviation.
  
 \end_layout
 
@@ -661,6 +927,31 @@ https://groups.google.com/forum/#!contactowner/utm-wg
 
 \begin_layout Chapter*
 Authors
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:authors"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+nameref{sec:authors}}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -733,6 +1024,8 @@ footnotemark
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset CommandInset href
 LatexCommand href
 name "abhiroop@algopixel.tech"
@@ -785,6 +1078,8 @@ value{footnote}]
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset CommandInset href
 LatexCommand href
 name "sayandeep@deepcyan.ai"
@@ -822,6 +1117,8 @@ Rakesh Vohra
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset CommandInset href
 LatexCommand href
 name "rakesh.vohra@unifly.aero"
@@ -859,6 +1156,8 @@ Nihal Mohan
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset CommandInset href
 LatexCommand href
 name "nihalm@skylarkdrones.com"
@@ -896,6 +1195,8 @@ Shravan Vatambeti
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset CommandInset href
 LatexCommand href
 name "shravan@avianco.in"
@@ -933,6 +1234,8 @@ Smit Shah
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset CommandInset href
 LatexCommand href
 name "smit@dronefederation.in"
@@ -987,6 +1290,10 @@ set_width "auto"
 \end_inset
 
 
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -994,138 +1301,350 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Here is the text text text text text text text text text text text text
- text text text text.
+
+\end_layout
+
+\begin_layout Standard
+One of the major goals of aviation has been that of safe and secure flights,
+ and consequently a significant amount of work has gone into establishing
+ best practices that ensure risk reduction.
+ In recent years, regulation and policy making for unmanned aviation has
+ gathered momentum across the world in preparation for a growth spurt in
+ the coming decades.
+ In India, the unmanned aviation regulation and policy-making established
+ a cryptographically secure process termed No Permission No Take-off (NPNT)
+ for UAS registration and operations, and while the public infrastructure,
+ namely the Unified Flight Information Interface (UFII)
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UFII"
+description "Unified Flight Information Interface; public infrastructure managed by AAI to allow information for manned and unmanned aviation to be made accessible to stakeholders for safer flight operations"
+
+\end_inset
+
+ for this is currently being built, the focus of this working group is to
+ aid in formulation and adoption of improving technical standards in the
+ domain of unmanned aviation.
+\end_layout
+
+\begin_layout Standard
+In this report, the we present a viable roadmap for adoption of Remote Identific
+ation and Tracking technologies in the Indian unmanned aviation sector consideri
+ng the larger goals of secure and safe operations.
 \end_layout
 
 \begin_layout Section
-Scope & Goals 
+Outline, Scope & Goals 
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-lipsum[1]
-\end_layout
-
-\end_inset
-
-
+In this chapter, the concept of Remote ID is introduced and previous regulation
+ and standardisation efforts reviewed.
+ The emerging need for identification and tracking is discussed.
+ The chapter concludes with note on the architecture of upcoming UFII infrastruc
+ture and the DigitalSky ecosystem in India.
+ 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Enumerate
-pros/cons of ASTM
-\end_layout
-
-\begin_layout Enumerate
-comparison with other RemoteIDs
-\end_layout
-
-\begin_layout Enumerate
-overlaps between NPNT & ASTM
-\end_layout
-
-\begin_layout Enumerate
-Proposed changes to NPNT/DSP ecosystem
-\end_layout
-
-\begin_layout Plain Layout
-NPNT
-\begin_inset CommandInset citation
-LatexCommand cite
-key "RPASGM2020"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-ASTM Remote ID Specification
+The subsequent chapter presents Remote ID technology in more detail, with
+ the recently published ASTM standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ASTM:F3411:19"
 
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Plain Layout
-Benefits of adopting ASTM; changes to the existing DSP/UFII architecture
- to work with ASTM.
-\end_layout
+ as a primary reference.
+ Given the idosyncrasies of the DigitalSky/UFII architecture
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RPASGM2020"
 
 \end_inset
 
-
+, the adoption of the technology is discussed from technical, policy making
+ and regulatory perspectives.
+ Several organisations, including some who have already used Remote ID or
+ have been involved in standardisation efforts in the past, were consulted
+ on the issues identified.
+ Individual proposals and the consensus opinions of these organisations
+ are presented herein.
+ The consensus opinion will also be published as a position paper supplementing
+ this document.
+ In the final chapter, recommendations for technical standardisation, future
+ policy making and regulation are discussed.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-4-6 weeks
+The scope of this effort is limited to commercial unmanned aviation activities,
+ and has been guided by the two major goals.
+ The short term goal is to enable identification and tracking of UASs by
+ law enforcement.
+ A medium to long term goal is to allow tactical deconfliction of UAS operations
+ in the Indian unmanned aviation ecosystem.
+ Both these would serve the greater aims of safer and more secure skies.
+ Some of the specific objectives include
 \end_layout
 
-\end_inset
-
-
+\begin_layout Enumerate
+gathering the technical requirements for the system for identifying and
+ tracking UAS by other parties
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- todo -- 
+\begin_layout Enumerate
+describing the architecture that addresses the technical requirements
 \end_layout
 
-\begin_layout Plain Layout
-What is Remote Id 
-\end_layout
-
-\begin_layout Plain Layout
-What is Broadcast-based Remote Id and Network-based Remote Id 
-\end_layout
-
-\begin_layout Plain Layout
-Role of USS/DSP 
-\end_layout
-
-\begin_layout Plain Layout
-Additional hardware requirements 
-\end_layout
-
-\end_inset
-
-
+\begin_layout Enumerate
+developing industry standard protocols to allow easy adoption by stakeholders
 \end_layout
 
 \begin_layout Section
-Remote ID
+Previous work
+\end_layout
+
+\begin_layout Standard
+Remote ID is a relatively new compared with other surveillance technologies
+ such as Automatic Dependent Surveillance - Broadcast (ADS-B),
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ADS-B"
+description "Automatic Dependent Surveillance - Broadcast; a broadcast tracking technology for manned aircraft that operates via radio frequencies"
+
+\end_inset
+
+ and is specifically targeted for Unmanned Aircraft Systems.
+ While individual manufacturers have had proprietary solutions to date,
+ standardisation has been attempted via a few organisations to allow scaling
+ up operations, ASTM International
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+https://www.astm.org
+\end_layout
+
+\end_inset
+
+, the Internet Engineering Task Force (IETF)
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "IETF"
+description "Internet Engineering Task Force; a standards body formulating and maintain Internet related standards and protocols"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+https://ietf.org
+\end_layout
+
+\end_inset
+
+ and SAE International
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+https://www.sae.org/standardsdev/news/tracking_standard.htm
+\end_layout
+
+\end_inset
+
+, being some of them.
+ While most of these are still being drafted 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "IETF-DRIP-arch-draft,IETF-DRIP-reqs-draft,IETF-crowd-sourced-rid-draft,IETF-uas-rid-draft,IETF-drip-identity-draft,IETF-drip-operator-privacy-draft,IETF-drip-secure-transport-draft,IETF-drip-auth-draft"
+
+\end_inset
+
+, ASTM International has published its standard specification
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ASTM:F3411:19"
+
+\end_inset
+
+ recently.
+ The European Committee for Standardization (CEN) 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CEN"
+description "European Committee for Standardisation; consensus standards body with 34 member European countries"
+
+\end_inset
+
+, through ASD-STAN
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+https://asd-stan.org
+\end_layout
+
+\end_inset
+
+ is also working on a standards document for the European Union, which is
+ likely to closely resemble 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ASTM:F3411:19"
+
+\end_inset
+
+.
+ Simulateously, policy makers have ongoing efforts to regulate the industry
+ especially since there a lot of primary users would be law enforcement
+ bodies for counter-UAS activity.
+ The Federal Aviation Administration (FAA)
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "FAA"
+description "Federal Aviation Administration; the Civil Aviation Authority for the United States of America"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+https://www.faa.gov
+\end_layout
+
+\end_inset
+
+ published a Notice for Proposed Rulemaking (NPRM)
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "NPRM"
+description "Notice for Proposed Rulemaking; a public notice issued corresponding to addition, removal, or change of United States rule or regulation"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FAA-NPRM-2019-1100"
+
+\end_inset
+
+ in 2019.
+ 
+\end_layout
+
+\begin_layout Standard
+After an overview of the benefits of Remote ID and Tracking and types thereof,
+ a review of previous publications is presented in the subsequent sections.
 \end_layout
 
 \begin_layout Subsection
-Introduction
+Need and benefits
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
+The prima facie stakeholders in an unmanned ecosystem are UAS manufacturers,
+ Operators, UTM Service Providers, Civil Aviation Authorities and Law Enforcemen
+t bodies.
+ With more and more UAS operations taking place every day, the need emerged
+ for technologies that allow awareness of nearby aircraft, both manned and
+ unmanned.
+ 
+\end_layout
+
+\begin_layout Standard
+While manufacturers might not benefit directly, increased safety in UAS
+ operations would certainly drive the growth of the industry.
+ Adoption of a worldwide standard for Remote ID would also enable targeting
+ international markets for product lines.
+ For Operators, real time tracking information, once it is shared within
+ a UTM network, immediately allows risk reduction operations by enabling
+ situational (or flight) awareness, tactical deconfliction and compliance
+ monitoring.
+ In the medium to long term, this would also enable operations over people
+ (OOP)
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "OOP"
+description "Operations Over People; UAS operations in which flight plans are executed in populated areas directly overhead people"
+
+\end_inset
+
+ once the flight risks are identified and mitigated.
+ Separation management in realtime would also be possible during flight
+ where multiple UASs can receive identity and tracking information with
+ each other and coordinate safe separation strategies using industry-standardise
+d protocols.
+ Operational categories with higher risk than Visual Line of Sight (VLoS),
+ particularly Beyond Visual Line of Sight (BVLoS
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "BVLoS"
+description "Beyond Visual Line of Sight; a category of UAS operations, where the flight plan may extend well beyond visually observable range of the pilot."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "VLoS"
+description "Visual Line of Sight; a category of UAS operations, where the flight plan may not extend beyond visually observable range of the pilot."
+
+\end_inset
+
+) and completely autonomous operations, would rely heavily on situational
+ awareness made possible using Remote ID hardware modules.
+\end_layout
+
+\begin_layout Standard
+UTM Service Providers and Civil Aviation Authorities having a direct access
+ with tracking and identification information will be in a position to identify
+ high risk and non-conformant activity in the airspace and notify relevant
+ parties as to possible mitigation strategies.
+ It also allows the development of improved deconfliction between manned
+ and unmanned aircraft operations.
+ 
+\end_layout
+
+\begin_layout Standard
+The last link in the chain of safety and security is that of Law Enforcement
+ bodies.
+ Identification and tracking data from compliant systems allows Counter-UAS
+ (CUAS
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CUAS"
+description "Counter Unmanned Aircraft System; a system designed to detect, locate, track, identify and take down UASs."
+
+\end_inset
+
+) activity a reliable source of truth for eliminating approved flights with
+ ease and focus their surveillance on rogue or malicious activity instead.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-@Abhiroop Start
+
+\series bold
+This point onward not merged properly.
 \end_layout
 
 \end_inset
@@ -1133,65 +1652,60 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-Globally, there are two standards proposed till date on remote identification
- of unmanned aircrafts.
- The first is a Notice for Proposed Rulemaking (NPRM) released by Federal
- Aviation Authority (FAA) of the USA.
- The second one is published by ASTM International, an international standards
- organization.
- We'll provide a brief description of both the proposals, comparing the
- similarities and differences.
+\begin_layout Paragraph
+India specific benefits
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-@Abhiroop End
+Needs review
 \end_layout
 
 \end_inset
 
+A high percentage of drones in India fly under the radar, without any registrati
+on, as their design is non NPNT compliant.
+ These non-registered drones pose a huge challenge to safety and national
+ security.
+ A well thought out Network Remote ID programme could bring all drones under
+ the purview of the regulatory authorities and lead to enhanced safety and
+ security for all.
+ There could be several ways of reaching this objective, using for example
+ DAN, SIM Card number…Whether such registration would be considered as full
+ compliance to CAR would be a policy matter, but at least the Registration
+ would be a big step forward.
+ 
+\end_layout
 
+\begin_layout Standard
+Through such a programme India could achieve Real time availability of location
+ and tracking information, even for non-NPNT compliant UAS.
+ 
+\end_layout
+
+\begin_layout Standard
+In the next subsection, the two types of Remote ID are discussed in some
+ detail pay attention to how the above needs are addressed by the particular
+ .
 \end_layout
 
 \begin_layout Subsection
-Use cases
+Types
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Rakesh Start
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-Brief description and Use Cases
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-There are two types of Remote ID: Broadcast Remote ID and Network Remote
- ID, with differences in the underlying technologies and use cases.
+Remote identification of UASs may be performed via two modes: broadcast
+ and network, with differences in the underlying message formats, transmission
+ methods, and use cases.
  The two are not mutually exclusive – UAS with Networked Remote ID are usually
  (but not necessarily) expected to broadcast their ID as well.
+\end_layout
+
+\begin_layout Subsubsection
+Broadcast
 \end_layout
 
 \begin_layout Standard
@@ -1207,6 +1721,10 @@ Broadcast Remote ID refers to the transmission of (mainly identification)
  Intel..
  DSSPs ..interoperable ..
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -1218,6 +1736,15 @@ To be done - distinguish between how/what the general public and authorities
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Network
 \end_layout
 
 \begin_layout Standard
@@ -1240,149 +1767,15 @@ Network Remote ID refers to the transmission of (identification, location,
 More details of the data typically broadcast are indicated in Annexure …
 \end_layout
 
-\begin_layout Subsubsection
-Broadcast Remote ID
-\end_layout
-
-\begin_layout Itemize
-Government and Civil identification of UAS for safety, security and compliance.
-\end_layout
-
-\begin_layout Itemize
-Increase UAS remote pilot accountability by removing anonymity 
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-while preserving operational privacy
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Enabler of operations over people, addresses citizen concerns about over
- flying UAS.
-\end_layout
-
-\begin_layout Subsubsection
-Network Remote ID
-\end_layout
-
-\begin_layout Itemize
-Real time availability of current location and tracking information.
-\end_layout
-
-\begin_layout Itemize
-Automated Flight Logging.
- (= powerful incentive for the pilot to ensure that the UAS is used in a
- compliant and legal manner).
-\end_layout
-
-\begin_layout Itemize
-Automatic Compliance Management: in case of violation, error messages could
- be automatically generated.
-\end_layout
-
-\begin_layout Itemize
-Connection with ATM.
- A feed of planned and actual UAS positions could be sent to the Civil and
- Military ATM for situational awareness for their use.
-\end_layout
-
-\begin_layout Itemize
-Tactical deconfliction.
- Data on planned and actual UAS position is needed for tactical deconfliction.
- Warning alerts could be generated in case the separation is likely to be
- inadequate.
-\end_layout
-
-\begin_layout Itemize
-Enabling BVLOS ,automated and autonomous operations.
- In order to perform BVLOS, automated and autonomous operations, which normally
- involve flying beyond the range of the GCS link, in a safe way, real time
- situational awareness is needed, which can be provided through Network
- Remote ID based on telecom.
- This is fundamentally far more robust and with a more viable range than
- via a GCS based solution…
-\end_layout
-
-\begin_layout Itemize
-C-UAS.
- For effective C-UAS around sensitive installations, (Airports, Defence
- installations…), Network Remote ID enables Friend/Foe identification in
- real time.
-\end_layout
-
-\begin_layout Itemize
-Black box functionality – even in the situation that the UAS were to be
- lost or destroyed, vital data would be accessible.
-\end_layout
-
-\begin_layout Itemize
-Ease of differentiation between manned aircraft and UAS.
- At the ICAO conference in Montreal in 2019 ICAO safety experts announced
- that due to safety considerations, the use of ADS-B out should be reserved
- for manned aircraft, while LTE/5G and BLE can be safely used for UAS.
-\end_layout
-
-\begin_layout Itemize
-Data security.
- If required, the tracking information could be kept entirely within the
- implementing country (cf tracking via GCS, where there is no easy method
- of knowing where the information resides abroad).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Refer to Shravan's email regarding corrections to para.
-\end_layout
-
-\end_inset
-
- There are also some additional India specific benefits.
- A high percentage of drones in India fly under the radar, without any registrat
-ion, as their design is non NPNT compliant.
- These non-registered drones pose a huge challenge to safety and national
- security.
- A well thought out Network Remote ID programme could bring all drones under
- the purview of the regulatory authorities and lead to enhanced safety and
- security for all.
- There could be several ways of reaching this objective, using for example
- DAN , SIM Card number…Whether such registration would be considered as
- full compliance to CAR would be a policy matter, but at least the Registration
- would be a big step forward.
-\end_layout
-
-\begin_layout Standard
-Through such a programme India could achieve Real time availability of location
- and tracking information, even for non-NPNT compliant UAS.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Rakesh End
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
-FAA NPRM on Remote Identification of Unmanned Aircraft Systems 
+FAA NPRM
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -1395,11 +1788,16 @@ status open
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 The NPRM
 \begin_inset CommandInset citation
 LatexCommand cite
-key "FAA-2019-1100"
+key "FAA-NPRM-2019-1100"
 
 \end_inset
 
@@ -1497,12 +1895,25 @@ Manufacturers of Standard and Limited Capability Unmanned Aircrafts will
 Usage of ADS-B out is strictly prohibited
 \end_layout
 
+\begin_layout Itemize
+At the ICAO conference in Montreal in 2019 ICAO safety experts announced
+ that due to safety considerations, the use of ADS-B out should be reserved
+ for manned aircraft, while LTE/5G and BLE can be safely used for UAS.
+\end_layout
+
 \begin_layout Subsection
-ASTM Standard Specification for Remote Id and Tracking (F3411-19) 
+ASTM Standard Specification
 \end_layout
 
 \begin_layout Standard
-This standard was released for public in February 2020.
+This specification for Remote Id and Tracking (F3411-19) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ASTM:F3411:19"
+
+\end_inset
+
+ was released for public in February 2020.
  Unlike the NPRM, which is a regulatory framework, this document is meant
  to be a technical standard and it leaves regulatory aspects for the ANSPs
  to figure out.
@@ -1515,8 +1926,8 @@ Allows for using both Broadcast-based Remote Id and Network-based Remote
 \end_layout
 
 \begin_layout Itemize
-Broadcast-based Remote Id should transmit data using Bluetooth or Wi-fi
- advertisements
+Broadcast-based Remote Id should transmit data using Bluetooth or WiFi advertise
+ments
 \end_layout
 
 \begin_layout Itemize
@@ -1535,7 +1946,7 @@ Network Remote Id Service Providers are entities which will be responsible
 \end_layout
 
 \begin_layout Itemize
-Discovery and Synchronization Service(DSS) entities will be responsible
+Discovery and Synchronization Service (DSS) entities will be responsible
  for maintaining airspace representation with respect to Net-RID Service
  Providers
 \end_layout
@@ -1557,7 +1968,7 @@ UAS ID: This can be Serial Number, Registration Id or any other system-generated
 \end_layout
 
 \begin_layout Itemize
-UA Type: Fixed-wing, Rotary etc.
+UAS Type: Fixed-wing, Rotary etc.
 \end_layout
 
 \begin_layout Itemize
@@ -1598,6 +2009,10 @@ Vertical Speed
 
 \end_deeper
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -1610,12 +2025,17 @@ status open
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
 \begin_layout Plain Layout
 @Rakesh Start
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1639,7 +2059,33 @@ ASTM (American Society for Testing and Materials) is an international standards
 \begin_layout Standard
 In this context we would like to mention that Intel Corporation, which has
  been one of the contributors to arriving at the ASTM standard, has made
- available the source code of its Open Drone ID app.
+ available the source code of its Open Drone ID application
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Website: 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.opendroneid.org/"
+target "https://www.opendroneid.org/"
+
+\end_inset
+
+; Source code: 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://github.com/opendroneid/receiver-android"
+target "https://github.com/opendroneid/receiver-android"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
  Using apps based on this open source code, any citizen can scan her environment
  and learn the BLE address ( serial number ) of a nearby UAS which is equipped
  with an ASTM compliant transmitter.
@@ -1647,8 +2093,33 @@ In this context we would like to mention that Intel Corporation, which has
  ASTM compliant.
  This development will help to ensure that open source, ASTM compliant UAS
  and add-on transmitters are truly interoperable.
- (Links https://www.opendroneid.org/ and https://github.com/opendroneid/receiver-an
-droid ).
+ (Links and ).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+@Rakesh End
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+IETF Specification drafts
 \end_layout
 
 \begin_layout Standard
@@ -1656,7 +2127,15 @@ droid ).
 status open
 
 \begin_layout Plain Layout
-@Rakesh End
+TBD.
+ Cite 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "IETF-DRIP-arch-draft,IETF-DRIP-reqs-draft,IETF-crowd-sourced-rid-draft,IETF-uas-rid-draft,IETF-drip-identity-draft,IETF-drip-operator-privacy-draft,IETF-drip-secure-transport-draft,IETF-drip-auth-draft"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1680,62 +2159,16 @@ Comparison
 status open
 
 \begin_layout Plain Layout
-Abhiroop's PR#1
+Either 
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Why ASTM?
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
 
 \begin_layout Plain Layout
-@Rakesh Start
+1 include note about why we are not comparing with IETF spec drafts
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Which standard - should India adopt the ASTM standard?
-\end_layout
-
-\begin_layout Standard
-The ASTM standard is currently the only published standard.
- It has also received support from ICAO.
-\end_layout
-
-\begin_layout Standard
-The standard has been published after several years of study and meets the
- need of inducting UAS in a safe way.
- It is therefore proposed that, unless there are strong reasons to deviate,
- the ASTM standard should be adopted in India.
- For India, some of the advantages of adopting the ASTM standard are speed
- and international interoperability.
-\end_layout
-
-\begin_layout Standard
-It is understood that European Committee for Standardization (CEN), through
- ASD-STAN is also working on a standard which is likely to closely resemble
- the ASTM.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
 
 \begin_layout Plain Layout
-@Rakesh End
+2.
+ compare with IETF spec drafts
 \end_layout
 
 \end_inset
@@ -1744,17 +2177,35 @@ status open
 \end_layout
 
 \begin_layout Section
-UFII/DSP/NPNT ecosystem 
+Indian umanned aviation
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UA"
+description "Unmanned Aviation"
+
+\end_inset
+
+ ecosystem 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:ua-ecosystem"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The mission of Digital Sky is to create a completely digital, paperless,
- and presenceless process, thus fast-forwarding to a future of on-demand
- seamless permissions for RPAS, operators, and pilots.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+intro line
 \end_layout
 
-\begin_layout Subsection
-Overview
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1762,9 +2213,17 @@ UFII
 \end_layout
 
 \begin_layout Standard
-The Unified Flight Information Interface is an effort to integrate the airspaces
- of manned and unmanned aircraft systems at the governmental level under
- the auspices of the Airports Authority of India (AAI).
+The provisionally named Unified Flight Information Interface (UFII) is an
+ effort to integrate the airspaces of manned and unmanned aircraft systems
+ at the governmental level under the auspices of the Airports Authority
+ of India (AAI).
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "AAI"
+description "Airports Authority of India, MoCA"
+
+\end_inset
+
  This interface would coordinate data exchange between various security
  agencies, the DGCA, the Aeronautical Telecommunication Network, the Aeronautica
 l Fixed Telecommunication Network, the Air Defense Units, etc.
@@ -1775,27 +2234,28 @@ l Fixed Telecommunication Network, the Air Defense Units, etc.
 \begin_layout Standard
 The UFII will enable private innovators to provide services for unmanned
  air traffic management.
- Such innovators are termed as DigitalSky Service Providers (DSP).
- DSPs would in their regions of operation coordinate with RPAS manufacturers,
- operators and the RPAS’s wherever possible to maintain conformance with
- Civil Aviation Requirements and RPAS Guidance Manual.
+ Such innovators are termed as Unmanned Traffic Management Service Providers
+ (UTM-SP).
+ UTM-SPs would in their regions of operation coordinate with UAS manufacturers,
+ operators, pilots and the UAS’s wherever possible to maintain conformance
+ with Civil Aviation Requirements and RPAS (UAS) Guidance Manual.
  The UFII would also define the data exchange formats for communication
- between itself and DSPs and between DSPs for various scenarios to ensure
- interoperability.
+ between itself and UTM-SPs and between UTM-SPs for various scenarios to
+ ensure interoperability.
 \end_layout
 
 \begin_layout Subsection
-DigitalSky Service Providers
+UTM/DigitalSky Service Providers
 \end_layout
 
 \begin_layout Standard
 While the final decisions for most critical processes such as Flight Plan
  approval, etc.
- would rest with the UFII, DSPs would provide a valuable intermediate layer
- by enabling informed flight planning and operations by assessing risks
- associated with flight plans, providing terrain, mapping & weather data,
- providing realtime information about constraints, directives, notifications,
- non-conformance, active operations, and so forth.
+ would rest with the UFII, UTM-SPs would provide a valuable intermediate
+ layer by enabling informed flight planning and operations by assessing
+ risks associated with flight plans, providing terrain, mapping & weather
+ data, providing realtime information about constraints, directives, notificatio
+ns, non-conformance, active operations, and so forth.
  They may also provide ancillary services enabling registration for RPAS
  Manufacturers, Pilots, Operators and RPAS units.
 \end_layout
@@ -1805,139 +2265,372 @@ DigitalSky
 \end_layout
 
 \begin_layout Standard
-The DigitalSky portal is the DigitalSky Service Provider portal that would
- be operated by the AAI as a standard bearer for DSPs.
+The DigitalSky portal is the UTM/DigitalSky Service Provider portal that
+ would be operated by the AAI as a standard bearer for UTM-SPs.
+ The mission of DigitalSky is to create a completely digital, paperless,
+ and presenceless process, thus fast-forwarding to a future of on-demand
+ seamless permissions for UAS/RPAS
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RPAS"
+description "Remotely Piloted Aircraft System; used interchangeably with UAS"
+
+\end_inset
+
+, operators, and pilots.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+outro line
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\backslash
+tt
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfil 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+xymatrix{ &  & 
+\backslash
+txt{UFII} 
+\backslash
+ar[dll] 
+\backslash
+ar[d] 
+\backslash
+ar[drr] & & 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+txt{UTM}_
+\backslash
+txt{DigitalSky} & 
+\backslash
+cdots & 
+\backslash
+txt{UTM}_{i} 
+\backslash
+ar[d] 
+\backslash
+ar[dl] 
+\backslash
+ar[dr] & 
+\backslash
+cdots & 
+\backslash
+txt{UTM}_n 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+cdots & 
+\backslash
+txt{Operator}_j 
+\backslash
+ar[d] 
+\backslash
+ar[dl] 
+\backslash
+ar[dr] & 
+\backslash
+cdots & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+cdots & 
+\backslash
+txt{Operation}_k 
+\backslash
+ar[d] 
+\backslash
+ar[dl] 
+\backslash
+ar[dr] & 
+\backslash
+cdots &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+cdots & 
+\backslash
+txt{Pilot}_l 
+\backslash
+ar[d] 
+\backslash
+ar[dl] 
+\backslash
+ar[dl] 
+\backslash
+ar[dr] & 
+\backslash
+cdots & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+txt{UAS}_1 
+\backslash
+ar[r] & 
+\backslash
+txt{UAS}_2 
+\backslash
+ar[l] 
+\backslash
+ar[r] & 
+\backslash
+cdots 
+\backslash
+ar[l] & }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfil 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ecosystem hierarchy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
-Integrating ASTM Remote ID
+Adoption
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
+This chapter focuses on establishing a viable way for the Indian unmannedaviatio
+n industry to adopt Remote Identification and Tracking technology.
+ As mentioned in the section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:ua-ecosystem"
+
+\end_inset
+
+, the UA ecosystem in India is functionally different from the way in which
+ the ecosystems in the United States or the European Union work, these being
+ more federated.
+ The Indian ecosystem works on a centralised model, where there will always
+ be a government operated infrastructure, DigitalSky
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-@Nihal Start
+https://digitalsky.dgca.gov.in
 \end_layout
 
 \end_inset
 
-
+, that can be used to verify identity of pilots and operators, and operational
+ authorisation of UASs.
 \end_layout
 
 \begin_layout Standard
-The presence of Digital Sky in the Indian UAV ecosystem provides several
- benefits and eases some of the problems that Remote ID tries to address.
- Since the Digital Sky ecosystem has NPNT, every flight is notified to Digital
- Sky.
- This provides situational awareness before every flight of a compliant
- UAS.
- 
-\end_layout
+Currently, the ASTM International stamdard specification for Remote ID 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ASTM:F3411:19"
 
-\begin_layout Standard
-UAS that do not adhere to the Digital Sky framework are outside the information
- system available.
- The most common scenario of identifying a UAS flying overhead can be done
- using Digital Sky without any modification to an NPNT compliant UAS, as
- every flight is notified before takeoff and Digital sky can provide information
- on flights happening overhead which have been planned.
- Flights outside of the Digital Sky Ecosystem (illegal ones according to
- the UAS regulations) will fail to be identified this way.
- Such drones will require a more complete Remote ID solution and their complianc
-e to any future remote ID regulations is a policy enforcement issue.
- 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-It should however be noted that when considering BVLOS operations, broadcast
- remote ID will play a more important role in aiding deconfliction, and
- is essential for operating in remote Areas where Network Remote ID is not
- available.
- 
-\end_layout
+ is the only publication by an internationally recognised standards body.
+ It has received support from International Civil Aviation Organization
+ (ICAO
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ICAO"
+description "International Civil Aviation Organization"
 
-\begin_layout Standard
-\begin_inset Note Greyedout
+\end_inset
+
+)
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-@Nihal End
+Needs citation
 \end_layout
 
 \end_inset
 
+.
+ The standard has been published after several years of study and meets
+ the need of inducting UASs in a safe way.
+ In the following sections, we analyse the identification and tracking use-cases
+, with attention to how 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ASTM:F3411:19"
 
+\end_inset
+
+ would work in practice.
 \end_layout
 
 \begin_layout Section
-Architecture
-\end_layout
-
-\begin_layout Subsection
-ID
+Identification
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Abhiroop
-\end_layout
+The three fields for identity information defined on 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "p10"
+key "ASTM:F3411:19"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-ID Field of Remote ID message should be programmed in with a registered
- unique ID.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Abhiroop End
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Proposal #1
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:id-proposal-1"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Options for ID:
+ are:
 \end_layout
 
 \begin_layout Enumerate
-UIN
+
+\family typewriter
+UAS ID
+\family default
+ should be programmed in with a unique ID that can be traced back to the
+ pilot, operator and/or flight authorisation by authorised roles.
 \end_layout
 
 \begin_layout Enumerate
-DAN
+
+\family typewriter
+UAS ID Type
+\family default
+ to allow for multiple types of identification data
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+Operator ID
+\family default
+ with the format 
+\family typewriter
+<ICAO Nationality Mark A>.<CAA-issued ID for the remote pilot or operator>
+\family default
+, so 
+\family typewriter
+VN.<UAOP>
 \end_layout
 
 \begin_layout Standard
-with a ID Type header specifying what type it is.
- I believe there is a ID Type field already.
- The UAS must transmit Network RId packets to a DSP using APIs.
- This allows airspace awareness.
+
+\family typewriter
+UAS ID
+\family default
+ may be populated using as follows.
  See also 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1948,39 +2641,102 @@ reference "subsec:Lifetime"
 
 \end_layout
 
-\begin_layout Subsubsection
-Proposal #2
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:id-proposal-2"
+\begin_layout Enumerate
+Serial Number with 
+\family typewriter
+UAS ID Type 1
+\family default
+ formatted as in ANSI/CTA-2063-A
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://webstore.ansi.org/Standards/ANSI/CTA20632017ANSI
+\end_layout
+
+\end_inset
+
+, or instance 
+\family typewriter
+MFR1C123456789ABC
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:ANSI-CTA-2063-A"
+
+\end_inset
+
+.
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Enumerate
+CAA
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CAA"
+description "Civil Aviation Authority; DGCA in India"
+
+\end_inset
+
+ Registration ID with 
+\family typewriter
+UAS ID Type 
+\family default
+2: formatted as 
+\family typewriter
+<ICAO Nationality Mark>.<CAA Assigned ID>
+\family default
+.
+ So for UAS registered with DigitalSky or an equivalent Indian UTM, 
+\family typewriter
+VT.<UIN>
+\end_layout
+
+\begin_layout Enumerate
+UTM issued session-linked ID with 
+\family typewriter
+UAS ID Type 3
+\family default
+: 128-bit UUID binary encoded, Network Byte Order
+\end_layout
+
 \begin_layout Standard
-ID data for Remote ID should be akin to MAC for network hardware, which
- is decoupled from UIN/DAN, etc.
- Then within the DSP-UFII architecture, remote ID hardware will have to
- be linked to UIN or DAN registry.
- Options include
+It should be noted that operational privacy is preserved in all these cases.
+ Other (non-standard) options raised during preliminary discussions include
 \end_layout
 
 \begin_layout Enumerate
+DAN: For non-NPNT compliant drones
+\end_layout
+
+\begin_layout Enumerate
+A static (one-time-programmed) unique ID, maybe 
+\family typewriter
 UUIDv4
+\family default
+ (random), akin MAC for network hardware, which is decoupled from UIN/DAN,
+ etc.
+ Within the UTM-SP/UFII architecture, this ID would be registered against
+ UIN or DAN registry.
 \end_layout
 
 \begin_layout Enumerate
-UAOP: A unique Operator ID, typically assigned by the authorities.
- In India this could be Aadhar / Udyog Aadhar / ROC CIN or UAOP (delinked
- from UIN/NPNT).
+Pilot ID or Operator ID: In India this could be Aadhar / Udyog Aadhar /
+ ROC CIN or UAOP (delinked from UIN/NPNT).
  
 \end_layout
 
 \begin_layout Enumerate
-BLE: A unique serial number, based on the Mac Address of the BLE chipset
- in the Broadcast/Network Remote ID device.
+BLE MAC Address.
  
 \end_layout
 
@@ -1990,136 +2746,93 @@ IMEI of the LTE device (only over Network).
 \end_layout
 
 \begin_layout Enumerate
-IMSI of the SIM Card in the LTE device (only over Network).
+IMSI of the SIM Card in the LTE device (only over Network)
 \end_layout
 
 \begin_layout Subparagraph
-Pros
+Considerations
 \end_layout
 
-\begin_layout Standard
-A Drone could potentially have multiple RemoteIDs devices for redundancy
- or with differing operating parameters.
- One-time programming works, a lot of security problems averted.
- Any of ablove would ensure no conflict.
- How many bits is it? A new RId module will need to be registered against
- UIN in case of replacement.
-\end_layout
-
-\begin_layout Subparagraph
-Cons
-\end_layout
-
-\begin_layout Standard
-TBD
-\end_layout
-
-\begin_layout Subsection
-Lifetime
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Lifetime"
-
+\begin_layout Itemize
+Reprogrammability
+\begin_inset Newline newline
 \end_inset
 
-
+The ASTM model of reprogramming devices, potentially as frequently as each
+ for UTM session, means the process for reprogramming requires extra scrutiny.
+ One-time programming averts a lot of security complexities, but would limit
+ reuse/repurposing: RId modules will need to be registered against UIN in
+ case of replacement.
 \end_layout
 
-\begin_layout Standard
-Technically, there is no need for UIN to change during the lifetime of a
- drone.
- Questions arise as to
+\begin_layout Itemize
+Redundancy: In the future, a UAS could potentially have multiple RemoteIDs
+ devices for redundancy or with differing capabilties/operating parameters.
+ 
 \end_layout
 
-\begin_layout Enumerate
-how should “lifetime” be defined: options for basis
-\end_layout
+\begin_layout Itemize
+Non NPNT-compliant drones
+\begin_inset Newline newline
+\end_inset
 
-\begin_deeper
-\begin_layout Enumerate
-flight controller board or PKI/X.509
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-multiple PKI/X.509 per UAS 
-\end_layout
-
-\begin_layout Enumerate
-replacement of PKI/X.509 in case of key compromise
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Manufacturer Serial no (akin to chassis no.)
-\end_layout
-
-\begin_layout Enumerate
-Physical unclonable function
+DAN is potentially a valid CAA-issued ID and could be used in the UAS ID.
+ The policy of allowing non-NPNT compliant drones that have been issued
+ with DANs to fly on a case-by-case exemption basis is the current best
+ practice for the industry.
+ If this is not likely to change for a significant duration
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Not currently realistic
+Upward of 3 months
 \end_layout
 
 \end_inset
 
- (PUF) or alternatives
+ after the adoption period set forth for Remote ID, DAN based Remote ID
+ may also be used directly, iff UINs and DANs do not conflict.
+ If a conflict-free assignment strategy is not feasible, a more systemic
+ solution would be required.
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-how should component changes by manufacturer or owner be treated
+\begin_layout Section
+Tracking
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-should scheduled maintenance/parts replacement be reported to UFII?
-\end_layout
-
-\end_deeper
 \begin_layout Subsection
-Non NPNT-compliant drones
+Operational Privacy
 \end_layout
 
 \begin_layout Standard
-Assuming Proposal #1 (see 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:id-proposal-1"
+It must be noted that operational privacy is ensured in the ASTM model by
+ ensuring that either the identification data refers to the device (read
+ UIN) or a UTM session, the Operator ID field being an optional field.
+ There has been provision made for UAS not equipped with Remote ID modules.
+ Ultimately even for equipped UASs, the Remote ID functionality itself may
+ be switched off for sensitive operations elevating the associated risk.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+This point onward not merged properly.
+\end_layout
 
 \end_inset
 
-)
-\end_layout
 
-\begin_layout Paragraph
-Open questions
 \end_layout
 
 \begin_layout Standard
-Are non-NPNT drones with DANs to be phased out, so pilots can be retrained
- on NPNT compliant UASs? Is there a purpose to NPNT when we are allowing
- DAN-registered UASs to fly?
-\end_layout
+\begin_inset Note Note
+status open
 
-\begin_layout Paragraph
-Alternate scenario
-\end_layout
-
-\begin_layout Standard
-What happens for Proposal #2 (see 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:id-proposal-2"
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -2130,71 +2843,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Possibility of provision of Remote ID for non-NPNT compliant drones.
-\end_layout
-
-\begin_layout Standard
-It is strongly recommended that the concepts of compliance and identification
- should be separately tracked.
- A comparison would be: a car on the road must have always a licence plate
- (identity); if it does not pass a pollution control, or has faulty brakes,
- it is not compliant to traffic rules.
- Broadcast, and in particular Network Remote ID is inclusive rather than
- exclusive.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Rakesh End
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Privacy
-\end_layout
-
-\begin_layout Subsubsection
-Data collection, storage, transmission
-\end_layout
-
-\begin_layout Standard
-Who gets to do what? See DCSP discussion.
-\end_layout
-
-\begin_layout Subsubsection
-Civilian
-\end_layout
-
-\begin_layout Standard
-@See appendix
-\end_layout
-
-\begin_layout Subsubsection
-Defence and Law Enforcement
-\end_layout
-
-\begin_layout Standard
-There is a provision for defence agencies to switch off Remote Id Broadcast.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Rakesh Start
 \end_layout
 
 \end_inset
@@ -2204,8 +2852,16 @@ status open
 
 \begin_layout Standard
 It is very possible that Defence UAVs may be fitted with Network Remote
- ID for facilitating identification of Friend/Foe, tracking of Defence Drones
- for Defence purposes, tactical deconfliction, etc.
+ ID for facilitating Identification of Friend/Foe (IFF
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "IFF"
+description "Identification of Friend/Foe"
+
+\end_inset
+
+), tracking of Defence Drones for internal purposes, tactical deconfliction,
+ etc.
  In such situations the provision typically exists for the Defence operator
  to either switch off the transmission altogether ( = no visibility of the
  UAS ) or to have tracking data of Defence UAVs filtered out from civilian
@@ -2218,6 +2874,10 @@ It is very possible that Defence UAVs may be fitted with Network Remote
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -2230,21 +2890,73 @@ status open
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+Subsectino on Data collection, storage, transmission
+\end_layout
+
+\begin_layout Plain Layout
+Who gets to do what? See DCSP discussion.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Network ID
 \end_layout
 
 \begin_layout Standard
-There is a provision for defence agencies to switch off Network Remoted
- Id.
- Needs role based access for operational info.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Needs rewrite
 \end_layout
 
-\begin_layout Subsubsection
-Use cases
+\end_inset
+
+ Network Remote ID also includes provisions for participation in Remote
+ ID by non-equipped   UAS (that is, UAS that are neither broadcast capable
+ nor equipped to communicate with a Remote ID Service Provider during flight,
+ such as most radio-controlled model aircraft).
+ These non-equipped network participants report their operations (for example,
+ aircraft ID, location in terms of a volume of airspace, operating times)
+ in advance during preflight approval phase.
+ The information then may be used by Remote ID or DigitalSky service providers
+ to display the operational volume and the identity of the UAS.
+ Needs role based access for operational info.
+ 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Use cases
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -2257,7 +2969,7 @@ status open
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -2270,11 +2982,16 @@ status open
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2497,11 +3214,90 @@ Store Flight Plan (UTM SP -> UFII)
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
 \begin_layout Plain Layout
 @Abhiroop End
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Non-equipped UAS
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+@Nihal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+UAS that do not adhere to the Digital Sky framework are outside the information
+ system available.
+ The most common scenario of identifying a UAS flying overhead can be done
+ using Digital Sky without any modification to an NPNT compliant UAS, as
+ every flight is notified before takeoff and Digital sky can provide information
+ on flights happening overhead which have been planned.
+ Flights outside of the Digital Sky Ecosystem (illegal ones according to
+ the UAS regulations) will fail to be identified this way.
+ Such drones will require a more complete Remote ID solution and their complianc
+e to any future remote ID regulations is a policy enforcement issue.
+ 
+\end_layout
+
+\begin_layout Standard
+It should however be noted that when considering BVLOS operations, broadcast
+ remote ID will play a more important role in aiding deconfliction, and
+ is essential for operating in remote Areas where Network Remote ID is not
+ available.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+@Nihal
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2533,8 +3329,8 @@ DSS + P2P
 
 \begin_layout Standard
 UFII and/or DigitalSky should provide a Discovery and Synchronisation Service
- that allows Operators/Pilots/UASs to discover DSPs in the region of operation
- and their messaging API endpoints.
+ that allows Operators/Pilots/UASs to discover UTM-SPs in the region of
+ operation and their messaging API endpoints.
  Following 
 \begin_inset Quotes eld
 \end_inset
@@ -2558,7 +3354,7 @@ Use-case:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-General\ Public\ensuremath{\xrightarrow{\text{query UAS/Network RId+telemetry}}}DSP
+\text{General Public}\ensuremath{\xrightarrow{\text{query UAS/Network RId+telemetry}}}\text{UTM SP}
 \]
 
 \end_inset
@@ -2594,7 +3390,7 @@ Is the use-case:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-General\ Public\ensuremath{\xrightarrow{\text{query UAS/Operation Data or Authorisation by Network RId}}}DSP
+\text{General Public}\ensuremath{\xrightarrow{\text{query UAS/Operation Data or Authorisation by Network RId}}}\text{UTM SP}
 \]
 
 \end_inset
@@ -2664,7 +3460,7 @@ What should be the interaction flow?
 \end_layout
 
 \begin_layout Enumerate
-Request-Response or PubSub?
+Request-Response or Publish-Subscribe?
 \end_layout
 
 \begin_layout Enumerate
@@ -2720,11 +3516,6 @@ Remote ID Data
 \end_layout
 
 \begin_layout Enumerate
-UAS Id Type should be Registration Id.
- It can be UIN for NPNT-compliant drones or DAN for non-NPNT compliant drones
-\end_layout
-
-\begin_layout Enumerate
 By default, all fields as listed in Table 1 of ASTM Remote Id Spec can be
  public.
  Possible exceptions could be Operator Position and Identity.
@@ -2744,6 +3535,10 @@ If encryption, who is the intended recipient?
 
 \end_deeper
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -2756,17 +3551,13 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-an extension to the Digital Sky concept.
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-How would an ASTM based Network Remote ID work with the existing DSP/UFII
- architecture?
-\end_layout
-
-\begin_layout Standard
-The basic architecture of a viable solution would require:
+\begin_layout Paragraph
+Hardware
 \end_layout
 
 \begin_layout Itemize
@@ -2791,13 +3582,23 @@ Facilitating regulation which would require all UAS (or all UAS fulfilling
  the device to be actually transmitting.
  In the United States, the FAA in its draft Regulation has proposed that
  virtually all UAS should be covered, which perhaps goes too far.
- A proposed approach for India is indicated elsewhere in this article in
- Section … 
+ A
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ proposed approach for India is indicated elsewhere in this article in Section
+ … 
 \begin_inset Note Greyedout
 status open
 
 \begin_layout Plain Layout
 tbd and w
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2815,14 +3616,13 @@ Facilitating regulation which would govern the activities of the location
  Such regulation would also need to take into consideration possible business
  models which would enable the smooth running of the Network Remote ID /
  Tracking infrastructure.
- A possible outline of a business model and associated regulation would
- be the subject matter of 
-\begin_inset Note Greyedout
-status collapsed
+ 
+\begin_inset Note Note
+status open
 
 \begin_layout Plain Layout
-a forthcoming article/ is indicated elsewhere in this article in Section
- … tbd and w
+A possible outline of a business model and associated regulation would be
+ the subject matter of 
 \end_layout
 
 \end_inset
@@ -2831,11 +3631,20 @@ a forthcoming article/ is indicated elsewhere in this article in Section
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
 \begin_layout Plain Layout
 @Rakesh End
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2851,11 +3660,24 @@ Broadcast ID
 The broadcast protocol can be adopted as is from the ASTM standard
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Use cases
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -2868,12 +3690,17 @@ status open
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
 \begin_layout Plain Layout
 @Abhiroop Use case diagrams and descriptions
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2947,6 +3774,10 @@ Broadcast Remote ID Use cases
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -2959,59 +3790,17 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Hardware
 \end_layout
 
-\begin_layout Subsubsection
-Bluetooth & WiFi
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Rakesh Start
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-For the BLE broadcast, the protocol can be adopted as-is from the ASTM standard.
-\end_layout
-
-\begin_layout Standard
-For telecom transmission protocol (LTE and SatCom), AES-128 encryption of
- the UDP datagram is typically used.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Rakesh End
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-4G/LTE
-\end_layout
-
-\begin_layout Subsubsection
-Security aspects
-\end_layout
-
-\begin_layout Paragraph
-Programmability
+\begin_layout Subsection
+Security aspects: Programmability
 \end_layout
 
 \begin_layout Enumerate
@@ -3040,7 +3829,7 @@ Is it possible to have a cryptographically secure process for this similar
  to NPNT?
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Adoption
 \end_layout
 
@@ -3056,12 +3845,12 @@ Integrating with Remote ID hardware on market (to be imported, integrated
 \end_layout
 
 \begin_layout Enumerate
-development of Remote ID chip/board in-house (open-sourced designs 
-\begin_inset Note Greyedout
+development of Remote ID chip/board in-house (open-sourced designs
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-insert cfs.
+Needs citation
 \end_layout
 
 \end_inset
@@ -3127,7 +3916,7 @@ Additional Hardware (?? months)
 \end_layout
 
 \begin_layout Enumerate
-DSP integration (?? months)
+UTM-SP/UFII integration (?? months)
 \end_layout
 
 \begin_layout Enumerate
@@ -3160,6 +3949,1171 @@ Compliances & Import costs
 \end_layout
 
 \end_deeper
+\begin_layout Section
+Conclusions and Future work
+\end_layout
+
+\begin_layout Standard
+We have outlined the ways in which Remote ID could by realistically adopted
+ in India.
+ Unless there are strong reasons to deviate, the ASTM standard should be
+ adopted in India.
+ While this chapter details the technical standardisation effort to date,
+ specific recommendations for future policy making and regulation for unmanned
+ aviation are noted in the following chapter.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Recommendations
+\end_layout
+
+\begin_layout Section
+Regulation
+\end_layout
+
+\begin_layout Standard
+TBD
+\end_layout
+
+\begin_layout Section
+Policy making
+\end_layout
+
+\begin_layout Standard
+TBD
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Appendix
+\end_layout
+
+\begin_layout Section
+General notes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+@Rakesh Start
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Possibility of provision of Remote ID for non-NPNT compliant drones.
+\end_layout
+
+\begin_layout Standard
+It is strongly recommended that the concepts of compliance and identification
+ should be separately tracked.
+ A comparison would be: a car on the road must have always a licence plate
+ (identity); if it does not pass a pollution control, or has faulty brakes,
+ it is not compliant to traffic rules.
+ Broadcast, and in particular Network Remote ID is inclusive rather than
+ exclusive.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+@Rakesh End
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Supplementary benefits of Remote ID
+\end_layout
+
+\begin_layout Itemize
+Increase UAS remote pilot accountability by removing anonymity
+\end_layout
+
+\begin_layout Itemize
+Data security.
+ If required, the tracking information could be kept entirely within the
+ implementing country (cf tracking via GCS, where there is no easy method
+ of knowing where the information resides abroad).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+Not really a benefit; more a implementation detail
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsection
+Serial Number format ANSI/CTA-2063-A
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:ANSI-CTA-2063-A"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A Serial number 
+\family typewriter
+MFR1C123456789ABC
+\family default
+ may be interpreted as 
+\end_layout
+
+\begin_layout Description
+Manufacturer
+\begin_inset space ~
+\end_inset
+
+Code 
+\family typewriter
+MFR1
+\family default
+, first 4 characters
+\end_layout
+
+\begin_layout Description
+Length
+\begin_inset space ~
+\end_inset
+
+Code 
+\family typewriter
+C
+\family default
+, signifying the following 12 characters are the unit serial number
+\end_layout
+
+\begin_layout Description
+Unit
+\begin_inset space ~
+\end_inset
+
+Serial
+\begin_inset space ~
+\end_inset
+
+Number 
+\family typewriter
+123456789ABC
+\end_layout
+
+\begin_layout Section
+Operational Scenarios
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+@Sayandeep: Include from 
+\end_layout
+
+\begin_layout Plain Layout
+EU: EASA Opinion Paper 05/2019
+\end_layout
+
+\begin_layout Plain Layout
+NASA: https://drive.google.com/file/d/1OzQeRPdMM7s51fZJxoNRIl_G-0QeHiTw/view?usp=s
+haring p48
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+#
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Cf.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SORA/STS01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VLoS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SORA/STS02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BVLoS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FAA/V2-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nominal UTM Operations in Uncontrolled and Controlled Airspace
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FAA/V2-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UVRs and Associated Operational Impacts
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FAA/V2-3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Interactions between UAS and Manned Aircraft at Low Altitudes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FAA/V2-4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Use of UTM to Remotely Identify UAS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S07
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FAA/V2-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Federal Public Safety Request for UTM Information
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+EASA/STS-01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\equiv$
+\end_inset
+
+S01
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+EASA/STS-02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\equiv$
+\end_inset
+
+S02
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Operational Scenarios
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+@Sayandeep: Missing Scenarios
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ Malicious Pilot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Operational Use cases
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="19" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+#
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL1-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Two VLOS Operations with Voluntary Use of UTM for Coordination
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL2-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+One BVLOS Operation, One VLOS Operation with Voluntary UTM Participation
+ for Coordination
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL2-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Two BVLOS Operations near an Airport in Uncontrolled Airspace
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL2-3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Priority Operation – Emergency Medical Aircraft in Uncontrolled Airspace
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL2-4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BVLOS Operation Conformance Violation from Uncontrolled Airspace into Class
+ D Airspace
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL3-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+One-Way BVLOS Flight, Separate Landing/Take-Off Locations
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL3-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Negotiation versus Prioritization between Operators Due to Dynamic Restriction
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL3-3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UAS Interaction with Manned Aircraft in Low-Altitude Uncontrolled Airspace
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL3-4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BVLOS Operation Lost-Link Event
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL3-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+High Density UTM Operations in Uncontrolled Airspace
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL3-6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Last-Mile Rural Deliveries in Uncontrolled Airspace under the Mode C Veil
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL3-7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UAS Operator Loss of Performance Capabilities in Uncontrolled Airspace
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL4-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BVLOS UTM Operation within UAS Facility Maps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL4-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Historical UTM Information Queries by Authorized Entities
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL4-3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UAS Urgency/Distress Condition with Alternate Landing and UTM Coordination
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL4-4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UAS Volume Reservation in Controlled Airspace
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCL4-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Report to FAA due to UAS Flight Incident
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Night-time VLoS/BVLoS
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+@Sayandeep: Include from
+\end_layout
+
+\begin_layout Plain Layout
+NASA: https://drive.google.com/file/d/1OzQeRPdMM7s51fZJxoNRIl_G-0QeHiTw/view?usp=s
+haring pp79-80
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Scenario/use-case wise data compliance requirements
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float table
 wide false
@@ -3921,34 +5875,74 @@ Recommended,
 \end_layout
 
 \begin_layout Section
-Recommendations
+Supplementary Comments
 \end_layout
 
 \begin_layout Subsection
-Regulation
+Lifetime
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Lifetime"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-TBD
+Technically, there is no need for UIN to change during the lifetime of a
+ drone.
+ Questions arise as to
 \end_layout
 
-\begin_layout Subsection
-Standardisation
+\begin_layout Enumerate
+how should “lifetime” be defined: options for basis
 \end_layout
 
-\begin_layout Standard
-Network Remote ID Protocol and Interface needs to be standardised and used
- by DSP/UFII architecture and individual DSPs for:
+\begin_deeper
+\begin_layout Enumerate
+flight controller board or PKI/X.509
 \end_layout
 
-\begin_layout Subsection
-Policy making
+\begin_deeper
+\begin_layout Enumerate
+multiple PKI/X.509 per UAS 
 \end_layout
 
-\begin_layout Standard
-TBD
+\begin_layout Enumerate
+replacement of PKI/X.509 in case of key compromise
 \end_layout
 
+\end_deeper
+\begin_layout Enumerate
+Manufacturer Serial no (akin to chassis no.)
+\end_layout
+
+\begin_layout Enumerate
+Physical unclonable function
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Not currently realistic
+\end_layout
+
+\end_inset
+
+ (PUF) or alternatives
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+how should component changes by manufacturer or owner be treated
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+should scheduled maintenance/parts replacement be reported to UFII?
+\end_layout
+
+\end_deeper
 \begin_layout Paragraph
 Hobbyist and research sector
 \end_layout
@@ -3971,921 +5965,6 @@ summarise applicability, etc.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Chapter
-Appendix
-\end_layout
-
-\begin_layout Section
-Operational Scenarios
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Sayandeep: Include from 
-\end_layout
-
-\begin_layout Plain Layout
-EU: EASA Opinion Paper 05/2019
-\end_layout
-
-\begin_layout Plain Layout
-NASA: https://drive.google.com/file/d/1OzQeRPdMM7s51fZJxoNRIl_G-0QeHiTw/view?usp=s
-haring p48
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="4">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-#
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Cf.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S01
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SORA/STS01
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-VLoS
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S02
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SORA/STS02
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-BVLoS
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S03
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-FAA/V2-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Nominal UTM Operations in Uncontrolled and Controlled Airspace
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S04
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-FAA/V2-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-UVRs and Associated Operational Impacts
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S05
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-FAA/V2-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Interactions between UAS and Manned Aircraft at Low Altitudes
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S06
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-FAA/V2-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Use of UTM to Remotely Identify UAS
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S07
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-FAA/V2-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Federal Public Safety Request for UTM Information
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-EASA/STS-01
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\equiv$
-\end_inset
-
-S01
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-EASA/STS-02
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\equiv$
-\end_inset
-
-S02
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Operational Scenarios
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Sayandeep: Missing Scenarios
-\end_layout
-
-\begin_layout Plain Layout
-1.
- Malicious Pilot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Operational Use cases
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="18" columns="2">
-<features tabularvalignment="middle">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-#
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Description
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL1-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Two VLOS Operations with Voluntary Use of UTM for Coordination
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL2-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-One BVLOS Operation, One VLOS Operation with Voluntary UTM Participation
- for Coordination
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL2-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Two BVLOS Operations near an Airport in Uncontrolled Airspace
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL2-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Priority Operation – Emergency Medical Aircraft in Uncontrolled Airspace
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL2-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-BVLOS Operation Conformance Violation from Uncontrolled Airspace into Class
- D Airspace
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL3-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-One-Way BVLOS Flight, Separate Landing/Take-Off Locations
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL3-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negotiation versus Prioritization between Operators Due to Dynamic Restriction
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL3-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-UAS Interaction with Manned Aircraft in Low-Altitude Uncontrolled Airspace
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL3-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-BVLOS Operation Lost-Link Event
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL3-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-High Density UTM Operations in Uncontrolled Airspace
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL3-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Last-Mile Rural Deliveries in Uncontrolled Airspace under the Mode C Veil
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL3-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-UAS Operator Loss of Performance Capabilities in Uncontrolled Airspace
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL4-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-BVLOS UTM Operation within UAS Facility Maps
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL4-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Historical UTM Information Queries by Authorized Entities
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL4-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-UAS Urgency/Distress Condition with Alternate Landing and UTM Coordination
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL4-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-UAS Volume Reservation in Controlled Airspace
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TCL4-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Report to FAA due to UAS Flight Incident
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-@Sayandeep: Include from
-\end_layout
-
-\begin_layout Plain Layout
-NASA: https://drive.google.com/file/d/1OzQeRPdMM7s51fZJxoNRIl_G-0QeHiTw/view?usp=s
-haring pp79-80
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Supplementary Comments
-\end_layout
-
-\begin_layout Standard
-TBD
 \end_layout
 
 \begin_layout Section*
