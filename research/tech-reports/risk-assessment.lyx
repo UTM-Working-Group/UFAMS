@@ -23,10 +23,10 @@
 \usepackage{fancyhdr}
 \setlength{\headheight}{15.2pt}
 \pagestyle{fancy}
-\rhead[UTM Working Group]{Technical Report: Remote ID and Tracking}
-\lhead[Technical Report: Remote ID and Tracking]{UTM Working Group}
-\rfoot[]{{\tt UTMWG/TR/1}}
-\lfoot[{\tt UTMWG/TR/1}]{}
+\rhead[UA Risk Research Group]{Technical Report: Risk Assessment}
+\lhead[Technical Report: Risk Assessment]{UA Risk Research Group}
+\rfoot[]{{\tt UARRG/TR/1}}
+\lfoot[{\tt UARRG/TR/1}]{}
 % \cfoot[{\tt \thepage}]{\tt \thepage}
 \definecolor{cyanprocess}{rgb}{0.0, 0.72, 0.92}
 \hypersetup{urlcolor=cyanprocess,linkcolor=cyanprocess,filecolor=cyanprocess,citecolor=cyanprocess}
