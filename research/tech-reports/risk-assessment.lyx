@@ -8,6 +8,29 @@
 \begin_preamble
 % for subfigures/subtables
 \usepackage[caption=false,font=footnotesize]{subfig}
+%\usepackage{wasysym}
+\usepackage{mathtools}
+
+\usepackage{concmath}
+\usepackage[T1]{fontenc}
+\def\nompreamble{\addcontentsline{toc}{section}{\nomname}\markboth{\nomname}{\nomname}}
+
+\usepackage{inconsolata}
+\usepackage{draftwatermark}
+\SetWatermarkScale{1}
+\SetWatermarkText{\tt DRAFT}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\rhead[UTM Working Group]{Technical Report: Remote ID and Tracking}
+\lhead[Technical Report: Remote ID and Tracking]{UTM Working Group}
+\rfoot[]{{\tt UTMWG/TR/1}}
+\lfoot[{\tt UTMWG/TR/1}]{}
+% \cfoot[{\tt \thepage}]{\tt \thepage}
+\definecolor{cyanprocess}{rgb}{0.0, 0.72, 0.92}
+\hypersetup{urlcolor=cyanprocess,linkcolor=cyanprocess,filecolor=cyanprocess,citecolor=cyanprocess}
+\usepackage{xypic}
 \end_preamble
 \options journal
 \use_default_options false
