@@ -158,85 +158,7 @@ Risk Assessment for Unmanned Aircraft Systems
 \end_layout
 
 \begin_layout Author
-Sayandeep Purkayasth
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Sayandeep Purkayasth is with the Deepcyan Software, India, e-mail: 
-\begin_inset CommandInset href
-LatexCommand href
-name "sayandeep@deepcyan.ai"
-target "sayandeep@deepcyan.ai"
-type "mailto:"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-, Second
-\begin_inset space ~
-\end_inset
-
-Name
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Second
-\begin_inset space ~
-\end_inset
-
-Name is with the Department of ..., ...
- Institute of ..., City, Country, e-mail: 
-\begin_inset CommandInset href
-LatexCommand href
-target "xxx@xxx.xxx"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-, and
-\begin_inset space ~
-\end_inset
-
-Third
-\begin_inset space ~
-\end_inset
-
-Name
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Third
-\begin_inset space ~
-\end_inset
-
-Name is with the Department of ..., ...
- Institute of ..., City, Country, e-mail: 
-\begin_inset CommandInset href
-LatexCommand href
-target "xxx@xxx.xxx"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
+Risk Research Group
 \end_layout
 
 \begin_layout Abstract
@@ -255,51 +177,268 @@ Keywords: simplicity, beauty, elegance
 \end_layout
 
 \begin_layout Chapter*
-Working Group
+Risk Research Group
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:wg"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Paragraph*
-Overview 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+nameref{sec:wg}}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 This working group meets almost weekly to discuss the roles, responsibilities
- and activities to be performed by a DigitalSky Service Provider (DSP) in
- the context of Indian drone industry.
- It also aims to document the ways in which a DSP interacts with other stakehold
-ers in the industry, namely, manufacturers, operators, pilots, UFII, DGCA,
- and so forth.
- The documentation would be put through as recommendations to DGCA, iSpirt,
+ and activities to be performed by a Unmanned Traffic Management Service
+ Provider (UTM-SP)
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DSP"
+description "DigitalSky Service Provider; used interchangeably with UTM-SP"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UTM"
+description "Unmanned Traffic Management; an activity similar to Air Traffic Management for manned flights"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UTM-SP"
+description "UTM Service Provider; an organisation providing UTM services, including but not limited to Remote Identification and Tracking of UASs; used interchangeably with DSP"
+literal "true"
+
+\end_inset
+
+ in the context of Indian drone industry.
+ It also aims to document the ways in which a UTM-SP interacts with other
+ stakeholders in the industry, namely, manufacturers, operators, pilots,
+ UFII, and so forth.
+ The documentation would be put through as recommendations to DGCA
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DGCA"
+description "Directorate General of Civil Aviation, MoCA"
+literal "true"
+
+\end_inset
+
+, MoCA,
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "MoCA"
+description "Ministry of Civil Aviation, Government of India"
+literal "true"
+
+\end_inset
+
  and other relevant parties as it matures.
 \end_layout
 
-\begin_layout Paragraph*
-Membership
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Views expressed in published materials may not represent the views of organisati
-ons except for those marked by 
-\begin_inset Formula $\dagger$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-\begin_inset Float table
-placement H
+\begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\backslash
+tt
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfil 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+xymatrix{ & 
+\backslash
+txt{DFI} 
+\backslash
+ar[dr] & 
+\backslash
+txt{MoCA} 
+\backslash
+ar[d] & 
+\backslash
+cdots 
+\backslash
+ar[dl] & 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& & 
+\backslash
+txt{UA Society} 
+\backslash
+ar[d] & & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& & 
+\backslash
+txt{Steering 
+\backslash
+
+\backslash
+Committee} 
+\backslash
+ar[dl] 
+\backslash
+ar[dr] & & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+txt{Working Groups} 
+\backslash
+ar[dl] 
+\backslash
+ar[d] & & 
+\backslash
+txt{Research Groups} 
+\backslash
+ar[dl] 
+\backslash
+ar[d] 
+\backslash
+ar[dr] & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cdots 
+\backslash
+ar[r] & {
+\backslash
+txt{UTM}} 
+\backslash
+ar[l] 
+\backslash
+ar[r] & *+[F]{
+\backslash
+txt{Risk}} 
+\backslash
+ar[l] 
+\backslash
+ar[r] & 
+\backslash
+txt{Deconfliction} 
+\backslash
+ar[l] 
+\backslash
+ar[r] & 
+\backslash
+cdots 
+\backslash
+ar[l] }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfil 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The Risk Research Group and others
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Membership
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="9" columns="2">
@@ -311,8 +450,6 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 iSpirt, India
 \end_layout
 
@@ -322,8 +459,6 @@ iSpirt, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Asteria, India
 \end_layout
 
@@ -335,15 +470,7 @@ Asteria, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Algopixel Technologies, India
-\family default
-
-\begin_inset Formula $^{\dagger}$
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -352,8 +479,6 @@ Algopixel Technologies, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 HexCod, India
 \end_layout
 
@@ -365,15 +490,7 @@ HexCod, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Deepcyan Software, India
-\family default
-
-\begin_inset Formula $^{\dagger}$
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -382,8 +499,6 @@ Deepcyan Software, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Curl Analytics, India
 \end_layout
 
@@ -395,15 +510,7 @@ Curl Analytics, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Skylark Drones, India
-\family default
-
-\begin_inset Formula $^{\dagger}$
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -412,15 +519,7 @@ Skylark Drones, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Avianco, India
-\family default
-
-\begin_inset Formula $^{\dagger}$
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -431,15 +530,7 @@ Avianco, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Drone Federation of India, India
-\family default
-
-\begin_inset Formula $^{\dagger}$
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -448,8 +539,6 @@ Drone Federation of India, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 IdeaForge, India
 \end_layout
 
@@ -461,15 +550,7 @@ IdeaForge, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 UniFly, Belgium
-\family default
-
-\begin_inset Formula $^{\dagger}$
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -478,8 +559,6 @@ UniFly, Belgium
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 AUS, India
 \end_layout
 
@@ -491,8 +570,6 @@ AUS, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Drone Aerospace, India
 \end_layout
 
@@ -502,8 +579,6 @@ Drone Aerospace, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Omnipresent Tech, India
 \end_layout
 
@@ -515,8 +590,6 @@ Omnipresent Tech, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 QTPI, India
 \end_layout
 
@@ -526,8 +599,6 @@ QTPI, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 IIT Bombay, India
 \end_layout
 
@@ -539,8 +610,6 @@ IIT Bombay, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 IISc, India
 \end_layout
 
@@ -563,30 +632,13 @@ IISc, India
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Organisations
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Paragraph*
 Topics
 \end_layout
 
 \begin_layout Standard
-Regulation, policy making, risk assessment & reduction, deconfliction, operation
-al transparency, management and privacy in unmanned aviation.
+Standardisation, regulation, policy making in unmanned aviation.
+ 
 \end_layout
 
 \begin_layout Paragraph*
@@ -602,23 +654,19 @@ Meetings
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Standards Track
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 \begin_inset CommandInset href
 LatexCommand href
 name "Meet"
@@ -632,12 +680,10 @@ literal "false"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Fridays 1900-2000 IST
 \end_layout
 
@@ -649,8 +695,6 @@ Fridays 1900-2000 IST
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Research Track
 \end_layout
 
@@ -660,8 +704,6 @@ Research Track
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 \begin_inset CommandInset href
 LatexCommand href
 name "Skype"
@@ -679,8 +721,6 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family sans
 Wednesdays 1900-2000 IST
 \end_layout
 
@@ -701,22 +741,22 @@ Links
 \begin_layout Itemize
 
 \family typewriter
-https://groups.google.com/forum/#!forum/drone-dsp
+https://groups.google.com/forum/#!forum/utm-wg
 \end_layout
 
 \begin_layout Itemize
 
 \family typewriter
-drone-dsp@googlegroups.com
+utm-wg@googlegroups.com
 \family default
  (members only
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Visit 
 \family typewriter
-https://groups.google.com/forum/#!contactowner/drone-dsp
+https://groups.google.com/forum/#!contactowner/utm-wg
 \family default
  for membership.
 \end_layout
@@ -724,6 +764,277 @@ https://groups.google.com/forum/#!contactowner/drone-dsp
 \end_inset
 
 )
+\end_layout
+
+\begin_layout Chapter*
+Authors
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:authors"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+nameref{sec:authors}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Email
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Organisation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sayandeep Purkayasth
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotemark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset CommandInset href
+LatexCommand href
+name "sayandeep@deepcyan.ai"
+target "sayandeep@deepcyan.ai"
+type "mailto:"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Deepcyan Software, India
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Manish 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset CommandInset href
+LatexCommand href
+name "rakesh.vohra@unifly.aero"
+target "rakesh.vohra@unifly.aero"
+type "mailto:"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Zeta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Apurva Joshi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset CommandInset href
+LatexCommand href
+name "nihalm@skylarkdrones.com"
+target "nihalm@skylarkdrones.com"
+type "mailto:"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+IIT Bombay
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotetext{Authors for correspondence.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset nomencl_print
+LatexCommand printnomenclature
+set_width "auto"
+
+\end_inset
+
+
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -791,14 +1102,6 @@ Ultimately, however, the SORA process remains a qualitative assessment strategy,
  reduction of risk to acceptable levels.
 \end_layout
 
-\begin_layout Subsubsection
-Standard Scenario 01 (JARUS-STS-01)
-\end_layout
-
-\begin_layout Subsubsection
-Standard Scenario 02 (JARUS-STS-02)
-\end_layout
-
 \begin_layout Subsection
 NASA UTM
 \end_layout
@@ -824,6 +1127,20 @@ haring pp48,79-80
 
 \begin_layout Subsection
 U-Space EU ConOps v2.0
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+Include from https://docs.google.com/document/u/1/d/1hLLxnDEfu928wVVeFjSoQvQnl_pe8
+v3WvbCOA_FmcQE/edit
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -986,6 +1303,243 @@ literal "true"
 
 \begin_layout Section
 Second appendix
+\end_layout
+
+\begin_layout Chapter
+Operational Scenarios and Use Cases
+\end_layout
+
+\begin_layout Standard
+Operational scenarios and use cases not considered in previous literature
+ are listed in tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:new-scenarios"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:new-use-cases"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, respectively.
+ Each of the above along with those in previous literature are detailed
+ in the following sections.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New Scenarios
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:new-scenarios"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New Use cases
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:new-use-cases"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Standard Scenario 01 (JARUS-STS-01)
+\end_layout
+
+\begin_layout Standard
+This operational scenario detailed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JARUS-SORA/STS-01"
+literal "true"
+
+\end_inset
+
+ covers a UAS operation performed in the Specific category (Category B)
+ as follows.
+\end_layout
+
+\begin_layout Itemize
+UA max characteristic dimension of 3m and typical kinetic energy up to 34
+ kJ.
+\end_layout
+
+\begin_layout Itemize
+BVLOS w/ or w/o Visual Observer (VO)
+\end_layout
+
+\begin_layout Itemize
+Overflown area: Sparsely populated
+\end_layout
+
+\begin_layout Itemize
+Flight height limit: 150m or 500ft (above ground)
+\end_layout
+
+\begin_layout Itemize
+Airspace: uncontrolled (F or G)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JARUS-SORA/JAR-DEL-WG6-D.04"
+literal "true"
+
+\end_inset
+
+ categorises such an operation as follows
+\end_layout
+
+\begin_layout Enumerate
+Final Ground Risk Class (GRC): 
+\series bold
+3
+\end_layout
+
+\begin_layout Enumerate
+Final Air Risk Class (ARC): 
+\series bold
+ARC-b
+\end_layout
+
+\begin_layout Enumerate
+SAIL: 
+\series bold
+II
+\end_layout
+
+\begin_layout Standard
+and proceeds to detail the operational mitigations, operator provisions,
+ and technical provisions for such an operation.
+\end_layout
+
+\begin_layout Subsubsection
+Standard Scenario 02 (JARUS-STS-02)
+\end_layout
+
+\begin_layout Standard
+This operational scenario detailed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JARUS-SORA/STS-02"
+literal "true"
+
+\end_inset
+
+ covers a UAS operation performed in the Specific category (Category B)
+ as follows.
+\end_layout
+
+\begin_layout Itemize
+UA max characteristic dimension of 3m and typical kinetic energy up to 34
+ kJ.
+\end_layout
+
+\begin_layout Itemize
+VLOS
+\end_layout
+
+\begin_layout Itemize
+Overflown area: Sparsely populated
+\end_layout
+
+\begin_layout Itemize
+Flight height limit: reserved airspace for operation
+\end_layout
+
+\begin_layout Itemize
+Airspace: reserved airspace for operation
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JARUS-SORA/JAR-DEL-WG6-D.04"
+literal "true"
+
+\end_inset
+
+ categorises such an operation as follows
+\end_layout
+
+\begin_layout Enumerate
+Final Ground Risk Class (GRC): 
+\series bold
+3
+\end_layout
+
+\begin_layout Enumerate
+Final Air Risk Class (ARC): 
+\series bold
+ARC-a
+\end_layout
+
+\begin_layout Enumerate
+SAIL: 
+\series bold
+II
+\end_layout
+
+\begin_layout Standard
+and proceeds to detail the operational mitigations, operator provisions,
+ and technical provisions for such an operation.
 \end_layout
 
 \begin_layout Section*

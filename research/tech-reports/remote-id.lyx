@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -30,9 +30,6 @@
 % \cfoot[{\tt \thepage}]{\tt \thepage}
 \definecolor{cyanprocess}{rgb}{0.0, 0.72, 0.92}
 \hypersetup{urlcolor=cyanprocess,linkcolor=cyanprocess,filecolor=cyanprocess,citecolor=cyanprocess}
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
 \usepackage{xypic}
 \end_preamble
 \options journal,twoside
@@ -52,6 +49,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -95,6 +94,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -103,7 +103,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 2
 \papersides 1
 \paperpagestyle default
@@ -197,6 +200,7 @@ This report describes a consensus based Remote Identification and Tracking
 LatexCommand nomenclature
 symbol "ASTM"
 description "ASTM International, formerly American Society for Testing and Materials; an international standards organization that develops and publishes consensus technical standards for a wide range of materials, products, systems, and services."
+literal "true"
 
 \end_inset
 
@@ -205,6 +209,7 @@ description "ASTM International, formerly American Society for Testing and Mater
 LatexCommand nomenclature
 symbol "NPNT"
 description "No Permission No Take-off; a cryptographically secure process for programming and flying UASs in India"
+literal "true"
 
 \end_inset
 
@@ -264,6 +269,7 @@ This working group meets almost weekly to discuss the roles, responsibilities
 LatexCommand nomenclature
 symbol "DSP"
 description "DigitalSky Service Provider; used interchangeably with UTM-SP"
+literal "true"
 
 \end_inset
 
@@ -272,6 +278,7 @@ description "DigitalSky Service Provider; used interchangeably with UTM-SP"
 LatexCommand nomenclature
 symbol "UTM"
 description "Unmanned Traffic Management; an activity similar to Air Traffic Management for manned flights"
+literal "true"
 
 \end_inset
 
@@ -280,6 +287,7 @@ description "Unmanned Traffic Management; an activity similar to Air Traffic Man
 LatexCommand nomenclature
 symbol "UTM-SP"
 description "UTM Service Provider; an organisation providing UTM services, including but not limited to Remote Identification and Tracking of UASs; used interchangeably with DSP"
+literal "true"
 
 \end_inset
 
@@ -292,6 +300,7 @@ description "UTM Service Provider; an organisation providing UTM services, inclu
 LatexCommand nomenclature
 symbol "DGCA"
 description "Directorate General of Civil Aviation, MoCA"
+literal "true"
 
 \end_inset
 
@@ -300,6 +309,7 @@ description "Directorate General of Civil Aviation, MoCA"
 LatexCommand nomenclature
 symbol "MoCA"
 description "Ministry of Civil Aviation, Government of India"
+literal "true"
 
 \end_inset
 
@@ -832,6 +842,7 @@ Standards Track
 LatexCommand href
 name "Meet"
 target "https://meet.google.com/urz-pekp-rwr"
+literal "false"
 
 \end_inset
 
@@ -868,6 +879,7 @@ Research Track
 LatexCommand href
 name "Skype"
 target "https://join.skype.com/RkNeUB8wNvzx"
+literal "false"
 
 \end_inset
 
@@ -957,7 +969,7 @@ nameref{sec:authors}}
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="3">
+<lyxtabular version="3" rows="6" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1031,6 +1043,7 @@ LatexCommand href
 name "abhiroop@algopixel.tech"
 target "abhiroop@algopixel.tech"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -1085,6 +1098,7 @@ LatexCommand href
 name "sayandeep@deepcyan.ai"
 target "sayandeep@deepcyan.ai"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -1124,6 +1138,7 @@ LatexCommand href
 name "rakesh.vohra@unifly.aero"
 target "rakesh.vohra@unifly.aero"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -1163,6 +1178,7 @@ LatexCommand href
 name "nihalm@skylarkdrones.com"
 target "nihalm@skylarkdrones.com"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -1182,7 +1198,7 @@ Skylark Drones, India
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1191,7 +1207,7 @@ Shravan Vatambeti
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1202,45 +1218,7 @@ LatexCommand href
 name "shravan@avianco.in"
 target "shravan@avianco.in"
 type "mailto:"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Avianco, India
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Smit Shah
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\begin_inset CommandInset href
-LatexCommand href
-name "smit@dronefederation.in"
-target "smit@dronefederation.in"
-type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -1253,7 +1231,7 @@ type "mailto:"
 \begin_inset Text
 
 \begin_layout Plain Layout
-Drone Federation of India, India
+Avianco, India
 \end_layout
 
 \end_inset
@@ -1319,6 +1297,7 @@ One of the major goals of aviation has been that of safe and secure flights,
 LatexCommand nomenclature
 symbol "UFII"
 description "Unified Flight Information Interface; public infrastructure managed by AAI to allow information for manned and unmanned aviation to be made accessible to stakeholders for safer flight operations"
+literal "true"
 
 \end_inset
 
@@ -1352,6 +1331,7 @@ The subsequent chapter presents Remote ID technology in more detail, with
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ASTM:F3411:19"
+literal "true"
 
 \end_inset
 
@@ -1360,6 +1340,7 @@ key "ASTM:F3411:19"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RPASGM2020"
+literal "true"
 
 \end_inset
 
@@ -1411,6 +1392,7 @@ Remote ID is a relatively new compared with other surveillance technologies
 LatexCommand nomenclature
 symbol "ADS-B"
 description "Automatic Dependent Surveillance - Broadcast; a broadcast tracking technology for manned aircraft that operates via radio frequencies"
+literal "true"
 
 \end_inset
 
@@ -1434,6 +1416,7 @@ https://www.astm.org
 LatexCommand nomenclature
 symbol "IETF"
 description "Internet Engineering Task Force; a standards body formulating and maintain Internet related standards and protocols"
+literal "true"
 
 \end_inset
 
@@ -1466,6 +1449,7 @@ https://www.sae.org/standardsdev/news/tracking_standard.htm
 \begin_inset CommandInset citation
 LatexCommand cite
 key "IETF-DRIP-arch-draft,IETF-DRIP-reqs-draft,IETF-crowd-sourced-rid-draft,IETF-uas-rid-draft,IETF-drip-identity-draft,IETF-drip-operator-privacy-draft,IETF-drip-secure-transport-draft,IETF-drip-auth-draft"
+literal "true"
 
 \end_inset
 
@@ -1473,6 +1457,7 @@ key "IETF-DRIP-arch-draft,IETF-DRIP-reqs-draft,IETF-crowd-sourced-rid-draft,IETF
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ASTM:F3411:19"
+literal "true"
 
 \end_inset
 
@@ -1482,6 +1467,7 @@ key "ASTM:F3411:19"
 LatexCommand nomenclature
 symbol "CEN"
 description "European Committee for Standardisation; consensus standards body with 34 member European countries"
+literal "true"
 
 \end_inset
 
@@ -1502,6 +1488,7 @@ https://asd-stan.org
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ASTM:F3411:19"
+literal "true"
 
 \end_inset
 
@@ -1514,6 +1501,7 @@ key "ASTM:F3411:19"
 LatexCommand nomenclature
 symbol "FAA"
 description "Federal Aviation Administration; the Civil Aviation Authority for the United States of America"
+literal "true"
 
 \end_inset
 
@@ -1534,6 +1522,7 @@ https://www.faa.gov
 LatexCommand nomenclature
 symbol "NPRM"
 description "Notice for Proposed Rulemaking; a public notice issued corresponding to addition, removal, or change of United States rule or regulation"
+literal "true"
 
 \end_inset
 
@@ -1541,6 +1530,7 @@ description "Notice for Proposed Rulemaking; a public notice issued correspondin
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FAA-NPRM-2019-1100"
+literal "true"
 
 \end_inset
 
@@ -1582,6 +1572,7 @@ While manufacturers might not benefit directly, increased safety in UAS
 LatexCommand nomenclature
 symbol "OOP"
 description "Operations Over People; UAS operations in which flight plans are executed in populated areas directly overhead people"
+literal "true"
 
 \end_inset
 
@@ -1596,6 +1587,7 @@ d protocols.
 LatexCommand nomenclature
 symbol "BVLoS"
 description "Beyond Visual Line of Sight; a category of UAS operations, where the flight plan may extend well beyond visually observable range of the pilot."
+literal "true"
 
 \end_inset
 
@@ -1604,6 +1596,7 @@ description "Beyond Visual Line of Sight; a category of UAS operations, where th
 LatexCommand nomenclature
 symbol "VLoS"
 description "Visual Line of Sight; a category of UAS operations, where the flight plan may not extend beyond visually observable range of the pilot."
+literal "true"
 
 \end_inset
 
@@ -1630,6 +1623,7 @@ The last link in the chain of safety and security is that of Law Enforcement
 LatexCommand nomenclature
 symbol "CUAS"
 description "Counter Unmanned Aircraft System; a system designed to detect, locate, track, identify and take down UASs."
+literal "true"
 
 \end_inset
 
@@ -1798,6 +1792,7 @@ The NPRM
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FAA-NPRM-2019-1100"
+literal "true"
 
 \end_inset
 
@@ -1910,6 +1905,7 @@ This specification for Remote Id and Tracking (F3411-19)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ASTM:F3411:19"
+literal "true"
 
 \end_inset
 
@@ -2069,6 +2065,7 @@ Website:
 LatexCommand href
 name "https://www.opendroneid.org/"
 target "https://www.opendroneid.org/"
+literal "false"
 
 \end_inset
 
@@ -2077,6 +2074,7 @@ target "https://www.opendroneid.org/"
 LatexCommand href
 name "https://github.com/opendroneid/receiver-android"
 target "https://github.com/opendroneid/receiver-android"
+literal "false"
 
 \end_inset
 
@@ -2132,6 +2130,7 @@ TBD.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "IETF-DRIP-arch-draft,IETF-DRIP-reqs-draft,IETF-crowd-sourced-rid-draft,IETF-uas-rid-draft,IETF-drip-identity-draft,IETF-drip-operator-privacy-draft,IETF-drip-secure-transport-draft,IETF-drip-auth-draft"
+literal "true"
 
 \end_inset
 
@@ -2182,6 +2181,7 @@ Indian umanned aviation
 LatexCommand nomenclature
 symbol "UA"
 description "Unmanned Aviation"
+literal "true"
 
 \end_inset
 
@@ -2221,6 +2221,7 @@ The provisionally named Unified Flight Information Interface (UFII) is an
 LatexCommand nomenclature
 symbol "AAI"
 description "Airports Authority of India, MoCA"
+literal "true"
 
 \end_inset
 
@@ -2274,6 +2275,7 @@ The DigitalSky portal is the UTM/DigitalSky Service Provider portal that
 LatexCommand nomenclature
 symbol "RPAS"
 description "Remotely Piloted Aircraft System; used interchangeably with UAS"
+literal "true"
 
 \end_inset
 
@@ -2541,6 +2543,7 @@ Currently, the ASTM International stamdard specification for Remote ID
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ASTM:F3411:19"
+literal "true"
 
 \end_inset
 
@@ -2551,6 +2554,7 @@ key "ASTM:F3411:19"
 LatexCommand nomenclature
 symbol "ICAO"
 description "International Civil Aviation Organization"
+literal "true"
 
 \end_inset
 
@@ -2572,6 +2576,7 @@ Needs citation
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ASTM:F3411:19"
+literal "true"
 
 \end_inset
 
@@ -2588,6 +2593,7 @@ The three fields for identity information defined on
 LatexCommand cite
 after "p10"
 key "ASTM:F3411:19"
+literal "true"
 
 \end_inset
 
@@ -2684,6 +2690,7 @@ CAA
 LatexCommand nomenclature
 symbol "CAA"
 description "Civil Aviation Authority; DGCA in India"
+literal "true"
 
 \end_inset
 
@@ -2857,6 +2864,7 @@ It is very possible that Defence UAVs may be fitted with Network Remote
 LatexCommand nomenclature
 symbol "IFF"
 description "Identification of Friend/Foe"
+literal "true"
 
 \end_inset
 
