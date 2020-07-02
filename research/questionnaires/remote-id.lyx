@@ -5,6 +5,28 @@
 \save_transient_properties true
 \origin unavailable
 \textclass tufte-handout
+\begin_preamble
+\usepackage{hyperref}
+\usepackage{concmath}
+\usepackage[T1]{fontenc}
+\def\nompreamble{\addcontentsline{toc}{section}{\nomname}\markboth{\nomname}{\nomname}}
+
+\usepackage{inconsolata}
+%\usepackage{draftwatermark}
+%\SetWatermarkScale{1}
+%\SetWatermarkText{\tt DRAFT}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\rhead[UTM Working Group]{Questionnaire: Remote ID and Tracking}
+\lhead[Questionnaire: Remote ID and Tracking]{UTM Working Group}
+\rfoot[]{{\tt UTMWRG/QQ/1}}
+\lfoot[{\tt UTMWG/QQ/1}]{}
+% \cfoot[{\tt \thepage}]{\tt \thepage}
+\definecolor{cyanprocess}{rgb}{0.0, 0.72, 0.92}
+\hypersetup{urlcolor=cyanprocess,linkcolor=cyanprocess,filecolor=cyanprocess,citecolor=cyanprocess}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -55,8 +77,8 @@
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
+\cite_engine natbib
+\cite_engine_type authoryear
 \biblio_style plain
 \use_bibtopic false
 \use_indices false
@@ -160,7 +182,302 @@ Remote Identification for Unmanned Aircraft Systems
 \begin_inset CommandInset line
 LatexCommand rule
 offset "0.5ex"
-width "100col%"
+width "78page%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+About you
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{Form}[action={http://localhost:8000}, encoding=html, method=post]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Full Width
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Full Width
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TextField[charsize={8pt},multiline=true,height={5mm},width={7cm},name={name},bor
+dercolor={0.2 0.2 0.7},default={}]{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Email
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TextField[charsize={8pt},multiline=true,height={5mm},width={7cm},name={email},bo
+rdercolor={0.2 0.2 0.7},default={}]{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Organisation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TextField[charsize={8pt},multiline=true,height={5mm},width={9cm},name={org},bord
+ercolor={0.2 0.2 0.7},default={}]{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Organisation Roles
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+CheckBox[name=org_role_mfg,width={4mm},height={4mm}]{UAS Manufacturer} 
+\backslash
+CheckBox[name=org_role_operator,width={4mm},height={4mm}]{Operator}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+CheckBox[name=org_role_utmsp,width={4mm},height={4mm}]{UTM Service Provider}
+ 
+\backslash
+CheckBox[name=org_role_regulator_policy_maker,width={4mm},height={4mm}]{Regulato
+r/Policy Maker} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If other, please specify below.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TextField[charsize={8pt},multiline=true,height={5mm},width={7cm},name={org_role_
+other_specify},bordercolor={0.2 0.2 0.7},default={}]{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Full Width
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "75page%"
 height "1pt"
 
 \end_inset
@@ -170,6 +487,77 @@ height "1pt"
 
 \begin_layout Section
 Architecture
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+  
+\backslash
+ChoiceMenu[print,combo,default=Box 1,name=box1,color=0.862745 0.0784314 0.235294]{}
+{Item 1, Item 2, Item 3, Item 4, Item 5} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ChoiceMenu[radio]{Project}{cookies,cakes,chocolates,raygun}
+\end_layout
+
+\begin_layout Plain Layout
+
+Which ice cream flavours do you like?
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+CheckBox{vanilla} 
+\backslash
+CheckBox{mint} 
+\backslash
+CheckBox{toffee} 
+\backslash
+CheckBox{fudge} 
+\backslash
+CheckBox[name=guarana]{guaran
+\backslash
+'a} 
+\backslash
+CheckBox{strawberry} 
+\backslash
+CheckBox{raspberry} 
+\backslash
+CheckBox{chilli} 
+\backslash
+CheckBox{other}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -188,46 +576,25 @@ See Tech Report (draft) Section 2.1.1.2
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ChoiceMenu[radio,name=q1_dan]{}{{Allow DAN},{Disallow DAN}}
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
+\end_inset
 
-\family typewriter
-UIN
-\family default
-, 
-\family typewriter
-DAN 
-\family default
-with 
-\family typewriter
-ID Type
-\family default
- Field 
-\family typewriter
-0
-\family default
- for UIN, 
-\family typewriter
-1
-\family default
- for 
-\family typewriter
-DAN
+
 \end_layout
 
-\begin_layout Enumerate
-Unique ID decoupled from 
-\family typewriter
-UIN
-\family default
-/
-\family typewriter
-DAN
-\end_layout
-
-\end_deeper
 \begin_layout Enumerate
 Non-NPNT Compliant drones
 \begin_inset Flex Sidenote
@@ -599,7 +966,25 @@ Supplementary issues
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TextField[charsize={8pt},multiline=true,height={0.4
+\backslash
+textheight},width={
+\backslash
+textwidth},name={supplementary_issues},bordercolor={0.2 0.2 0.7},default={}]{}
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
 \end_inset
 
 
@@ -609,20 +994,39 @@ Supplementary issues
 Comments
 \end_layout
 
-\begin_layout Full Width
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100text%"
-height "1pt"
+\begin_layout Standard
+\begin_inset ERT
+status open
 
-\end_inset
+\begin_layout Plain Layout
 
+
+\backslash
+TextField[charsize={8pt},multiline=true,height={0.4
+\backslash
+textheight},width={
+\backslash
+textwidth},name={comments},bordercolor={0.2 0.2 0.7},default={}]{} 
+\backslash
+
+\backslash
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage cleardoublepage
+\begin_layout Plain Layout
+
+
+\backslash
+Submit[export=HTML]{Submit}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{Form} 
+\end_layout
+
 \end_inset
 
 
