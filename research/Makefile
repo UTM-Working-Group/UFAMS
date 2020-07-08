@@ -1,4 +1,4 @@
-all: papers tech-reports VERSION.pdf
+all: papers tech-reports VERSION.pdf questionnaires
 
 VERSION.pdf:
 	git -c color.ui=always log --stat -n1 | aha | DISPLAY=:0 wkhtmltopdf - VERSION.pdf
@@ -6,6 +6,8 @@ VERSION.pdf:
 papers: papers/risk-assessment.pdf papers/deconfliction.pdf papers/remote-id.pdf
 
 tech-reports: tech-reports/risk-assessment.pdf tech-reports/deconfliction.pdf tech-reports/remote-id.pdf
+
+questionnaires: questionnaires/remote-id.pdf
 
 papers/risk-assessment.pdf: papers/risk-assessment.lyx Bibliography.bib
 	lyx --export pdf2 papers/risk-assessment.lyx
@@ -25,5 +27,8 @@ tech-reports/deconfliction.pdf: tech-reports/deconfliction.lyx Bibliography.bib
 tech-reports/remote-id.pdf: tech-reports/remote-id.lyx Bibliography.bib
 	lyx --export pdf2 tech-reports/remote-id.lyx
 
+questionnaires/remote-id.pdf: questionnaires/remote-id.lyx
+	lyx --export pdf2 questionnaires/remote-id.lyx
+
 clean:
-	rm -f *.pdf papers/*.pdf tech-reports/*.pdf
+	rm -f *.pdf papers/*.pdf tech-reports/*.pdf questionnaires/*.pdf

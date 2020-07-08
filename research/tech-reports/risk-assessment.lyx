@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -32,7 +32,7 @@
 \hypersetup{urlcolor=cyanprocess,linkcolor=cyanprocess,filecolor=cyanprocess,citecolor=cyanprocess}
 \usepackage{xypic}
 \end_preamble
-\options journal
+\options journal,twoside
 \use_default_options false
 \maintain_unincluded_children false
 \language english
@@ -49,8 +49,6 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures false
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -60,8 +58,10 @@
 \paperfontsize default
 \spacing single
 \use_hyperref true
-\pdf_title "Your Title"
-\pdf_author "Your Name"
+\pdf_title "Risk Assessment for Unmanned Aircraft Systems"
+\pdf_author "UA Risk Research Group"
+\pdf_subject "Risk Assessment"
+\pdf_keywords "Unmanned Aircraft Systems, Risk Assessment"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered true
 \pdf_bookmarksopen true
@@ -72,7 +72,7 @@
 \pdf_backref false
 \pdf_pdfusetitle false
 \pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
-\papersize default
+\papersize a4paper
 \use_geometry false
 \use_package amsmath 1
 \use_package amssymb 1
@@ -93,7 +93,6 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -102,10 +101,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -184,6 +180,13 @@ Risk Assessment for Unmanned Aircraft Systems
 Risk Research Group
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Abstract
 This paper describes a risk assessment study of Unmanned Aircraft Systems
  that aims to understand the risks, underlying causes, consequences and
@@ -236,7 +239,6 @@ This working group meets almost weekly to discuss the roles, responsibilities
 LatexCommand nomenclature
 symbol "DSP"
 description "DigitalSky Service Provider; used interchangeably with UTM-SP"
-literal "true"
 
 \end_inset
 
@@ -245,7 +247,6 @@ literal "true"
 LatexCommand nomenclature
 symbol "UTM"
 description "Unmanned Traffic Management; an activity similar to Air Traffic Management for manned flights"
-literal "true"
 
 \end_inset
 
@@ -254,7 +255,6 @@ literal "true"
 LatexCommand nomenclature
 symbol "UTM-SP"
 description "UTM Service Provider; an organisation providing UTM services, including but not limited to Remote Identification and Tracking of UASs; used interchangeably with DSP"
-literal "true"
 
 \end_inset
 
@@ -267,7 +267,6 @@ literal "true"
 LatexCommand nomenclature
 symbol "DGCA"
 description "Directorate General of Civil Aviation, MoCA"
-literal "true"
 
 \end_inset
 
@@ -276,7 +275,6 @@ literal "true"
 LatexCommand nomenclature
 symbol "MoCA"
 description "Ministry of Civil Aviation, Government of India"
-literal "true"
 
 \end_inset
 
@@ -694,7 +692,6 @@ Standards Track
 LatexCommand href
 name "Meet"
 target "https://meet.google.com/urz-pekp-rwr"
-literal "false"
 
 \end_inset
 
@@ -731,7 +728,6 @@ Research Track
 LatexCommand href
 name "Skype"
 target "https://join.skype.com/RkNeUB8wNvzx"
-literal "false"
 
 \end_inset
 
@@ -895,7 +891,6 @@ LatexCommand href
 name "sayandeep@deepcyan.ai"
 target "sayandeep@deepcyan.ai"
 type "mailto:"
-literal "false"
 
 \end_inset
 
@@ -919,7 +914,7 @@ Deepcyan Software, India
 \begin_inset Text
 
 \begin_layout Plain Layout
-Manish 
+Manish Shukla
 \end_layout
 
 \end_inset
@@ -932,10 +927,9 @@ Manish
 \family typewriter
 \begin_inset CommandInset href
 LatexCommand href
-name "rakesh.vohra@unifly.aero"
-target "rakesh.vohra@unifly.aero"
+name "manish.shukla393@gmail.com"
+target "manish.shukla393@gmail.com"
 type "mailto:"
-literal "false"
 
 \end_inset
 
@@ -972,10 +966,9 @@ Apurva Joshi
 \family typewriter
 \begin_inset CommandInset href
 LatexCommand href
-name "nihalm@skylarkdrones.com"
-target "nihalm@skylarkdrones.com"
+name "zapurva@gmail.com"
+target "zapurva@gmail.com"
 type "mailto:"
-literal "false"
 
 \end_inset
 
@@ -1077,6 +1070,10 @@ Scope
 TBD
 \end_layout
 
+\begin_layout Standard
+Operations are typically classified into Open, Specific and 
+\end_layout
+
 \begin_layout Section
 Previous Work
 \end_layout
@@ -1087,7 +1084,6 @@ Joint Authorities on Rulemaking for Unmanned Systems (JARUS) Specific Operations
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/JAR-DEL-WG6-D.04"
-literal "true"
 
 \end_inset
 
@@ -1140,12 +1136,46 @@ wE4SounAoLkCo1Ykyhjjro/edit?usp=sharing &
 
 \begin_layout Plain Layout
 NASA: https://drive.google.com/file/d/1OzQeRPdMM7s51fZJxoNRIl_G-0QeHiTw/view?usp=s
-haring pp48,79-80
+haring pp48,79-80f
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+@Apurva
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+NASA’s vision towards enabling “in-time and predictive safety assurance
+ capabilities” for highly autonomous operations of UASs in low altitude
+ urban environments has been outlined in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NASA-TM-2020-220440"
+
+\end_inset
+
+.
+ The report proposes a system architecture based on the “Monitor-Assess-Mitigate
+” paradigm and provides guiding principles for development.
+ It also discusses the span of information requirements to achieve safety
+ assurance.
+ Further, it discusses the approaches taken towards uncertainty management,
+ models for information exchange and protocols.
+ The results of various research activities related to risk management have
+ been outlined in the appendices.
 \end_layout
 
 \begin_layout Subsection
@@ -1160,6 +1190,83 @@ status open
 Include from https://docs.google.com/document/u/1/d/1hLLxnDEfu928wVVeFjSoQvQnl_pe8
 v3WvbCOA_FmcQE/edit
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This essentially follows the SORA process.
+ Notable exceptions are:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\ldots$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+EASA
+\end_layout
+
+\begin_layout Standard
+See 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EASA-Op-2001-2018,EASA-Op-2005-2019,EASA-Ops-Categ,EASA-UAS-ATM-Assessment-2018"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Categorisation:
+\end_layout
+
+\begin_layout Enumerate
+Open
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+A1
+\end_layout
+
+\begin_layout Enumerate
+A2
+\end_layout
+
+\begin_layout Enumerate
+A3
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Specific
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Standard Scenarios
+\end_layout
+
+\begin_layout Enumerate
+Non-standard Scenarios
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+FAA ConOps v2.0
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FAA-ConOps-v2"
 
 \end_inset
 
@@ -1182,150 +1289,11 @@ Comparison of Scenarios
 Comparison of Strategies
 \end_layout
 
-\begin_layout Section
-Results
-\end_layout
-
 \begin_layout Standard
-\begin_inset Float figure
-placement htbp
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-
-\family sans
-A single column figure goes here
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Captions go 
-\emph on
-under
-\emph default
- the figure
-\end_layout
-
+\begin_inset Newpage cleardoublepage
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float table
-placement htbp
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Table captions go 
-\emph on
-above
-\emph default
- the table
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0pt">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-delete
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-this
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-example
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-table
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Conclusions
-\end_layout
-
-\begin_layout Standard
-bla bla
-\end_layout
-
-\begin_layout Section
-First appendix
-\end_layout
-
-\begin_layout Standard
-Citation: 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "IEEEexample:beebe_archive,taleb:2012,bringhurst:2002"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Second appendix
 \end_layout
 
 \begin_layout Chapter
@@ -1338,9 +1306,6 @@ Operational scenarios and use cases not considered in previous literature
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:new-scenarios"
-plural "false"
-caps "false"
-noprefix "false"
 
 \end_inset
 
@@ -1348,9 +1313,6 @@ noprefix "false"
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:new-use-cases"
-plural "false"
-caps "false"
-noprefix "false"
 
 \end_inset
 
@@ -1421,8 +1383,45 @@ name "tab:new-use-cases"
 
 \end_layout
 
-\begin_layout Subsubsection
-Standard Scenario 01 (JARUS-STS-01)
+\begin_layout Section
+Scenarios
+\end_layout
+
+\begin_layout Paragraph
+EASA Overview
+\end_layout
+
+\begin_layout Standard
+To limit the administrative burden for both UAS operators and the competent
+ authorities, a system of standard scenarios has been proposed.
+ A standard scenario involves a pre-established risk assessment and includes
+ mitigation measures.
+ It may be followed by a declaration submitted by the UAS operator (if the
+ implementation of the mitigation measures is considered to be simple),
+ or by an authorisation issued by the competent authority (when the implementati
+on of the mitigation measures is considered to be more complex).
+ Furthermore, an optional light UAS operator certificate (LUC) has been
+ proposed, which allows the competent authority to issue privileges to UAS
+ operators.
+ This implies a significant investment from the operator’s side, which should
+ yield benefits in the medium/long term.
+ Indeed, the LUC privileges can ultimately allow an operator to approve
+ their own operations.
+\end_layout
+
+\begin_layout Subparagraph
+Approach
+\end_layout
+
+\begin_layout Standard
+STSs will be developed only for UAS operations in the ‘specific’ category
+ with a low risk (i.e.
+ with a specific assurance and integrity level (SAIL), as defined in SORA,
+ not greater than 2).
+\end_layout
+
+\begin_layout Subsection
+JARUS-STS-01
 \end_layout
 
 \begin_layout Standard
@@ -1430,7 +1429,6 @@ This operational scenario detailed in
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/STS-01"
-literal "true"
 
 \end_inset
 
@@ -1463,7 +1461,6 @@ Airspace: uncontrolled (F or G)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/JAR-DEL-WG6-D.04"
-literal "true"
 
 \end_inset
 
@@ -1493,8 +1490,93 @@ and proceeds to detail the operational mitigations, operator provisions,
  and technical provisions for such an operation.
 \end_layout
 
-\begin_layout Subsubsection
-Standard Scenario 02 (JARUS-STS-02)
+\begin_layout Paragraph
+EASA Variant
+\end_layout
+
+\begin_layout Standard
+STS-01: visual line of sight (VLOS) operations at a maximum height of 120
+ m, at a ground speed of less than 5 m/s in the case of untethered UA, over
+ controlled ground areas that can be in populated (e.g.
+ urban) environments, using UAS with maximum take-off masses (MTOMs) of
+ up to 25 kg.
+\end_layout
+
+\begin_layout Standard
+This limitation is a little more conservative than the in-service experience
+ of some MSs where UAS operations similar to STS-01 are allowed up to a
+ height of 150 m (500 ft).
+ In STS-01, a 30 m margin above the maximum height has been considered for
+ use in abnormal situations.
+\end_layout
+
+\begin_layout Standard
+For the ground risk buffer, ‘low’ robustness is considered sufficient in
+ UAS operations with a low intrinsic ground risk.
+ In this case, SORA indicates the 1:1 rule to select the minimum horizontal
+ distance.
+ However, the 1:1 rule may lead to a buffer size such that the size of the
+ controlled ground area might be impractical — in most cases, in a populated
+ environment.
+ Therefore, the decision was made to propose more suitable values considering
+ the following elements:
+\end_layout
+
+\begin_layout Standard
+To better ensure that the UA flight can be terminated without exceeding
+ the ground risk buffer, UAS operations under this STS are limited to
+\end_layout
+
+\begin_layout Enumerate
+Any configuration except fixed-wing UA.
+ With this limitation, UAS operations at low speed can be better ensured,
+ and the likelihood of the UA gliding a distance great enough for it to
+ fall outside the controlled ground area is minimised.
+\end_layout
+
+\begin_layout Enumerate
+The ground speed in normal operation is limited to 5 m/s (which must be
+ set in the UAS) so that the controllability of the UA is increased.
+\end_layout
+
+\begin_layout Enumerate
+For UA with MTOMs of up to 10 kg, in-service experience from MSs has been
+ considered.
+ In particular, the main reference is French scenario S-3, where a safety
+ area is calculated assuming a ballistic fall once the flight termination
+ system is triggered, and therefore, the size of that area is dependent
+ on the flight height and speed of the UA.
+ 
+\end_layout
+
+\begin_layout Enumerate
+For UA with MTOMs above 10 kg, in-service experience is also considered,
+ but since this experience is more limited, a more conservative approach
+ is followed.
+ In this case, the values considered were half of those derived from the
+ 1:1 rule, except that a minimum of 20 m is considered in the case of a
+ height of up to 30 m (thus, the values for UA above 10 kg are at least
+ double those for the ones below 10 kg);
+\end_layout
+
+\begin_layout Standard
+Rules on remote pilot competency 
+\end_layout
+
+\begin_layout Standard
+Contingency and emergency procedures to be defined in OM by operator
+\end_layout
+
+\begin_layout Standard
+Emergency response plan must be devised 
+\end_layout
+
+\begin_layout Standard
+Technical requirements in STS-01:
+\end_layout
+
+\begin_layout Subsection
+JARUS-STS-02
 \end_layout
 
 \begin_layout Standard
@@ -1502,7 +1584,6 @@ This operational scenario detailed in
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/STS-02"
-literal "true"
 
 \end_inset
 
@@ -1535,7 +1616,6 @@ Airspace: reserved airspace for operation
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/JAR-DEL-WG6-D.04"
-literal "true"
 
 \end_inset
 
@@ -1563,6 +1643,358 @@ II
 \begin_layout Standard
 and proceeds to detail the operational mitigations, operator provisions,
  and technical provisions for such an operation.
+\end_layout
+
+\begin_layout Paragraph
+EASA Variant
+\end_layout
+
+\begin_layout Standard
+STS-02: beyond visual line of sight (BVLOS) operations with the UA at not
+ more than 2 km from the remote pilot, if visual observers (VOs) are used,
+ at a maximum height of 120 m, over controlled ground areas in sparsely
+ populated environments, using UA with MTOMs of up to 25 kg.
+\end_layout
+
+\begin_layout Subparagraph
+Description
+\end_layout
+
+\begin_layout Standard
+STS-02 refers to a UAS operation with an increased intrinsic risk compared
+ with STS-01 because it allows BVLOS operations.
+ The launch and recovery of the UAS is, in any case, required to be performed
+ in VLOS.
+ The main mitigation means is provided by VOs who assist the remote pilot
+ in scanning the airspace for the presence of other airspace users.
+ 
+\end_layout
+
+\begin_layout Standard
+STS-02 should have the same height limitation as for STS-01
+\end_layout
+
+\begin_layout Standard
+Air risk: mitigations for BVLOS:
+\end_layout
+
+\begin_layout Enumerate
+a minimum visibility of 5 km is proposed to ensure the detection of any
+ potential hazard in the air.
+ This was proposed by JARUS in the frame of the SORA development and is
+ also established in the regulations covering UAS operations in some states.
+ It is up to the UAS operator to establish how to obtain the most suitable
+ information to comply with this requirement.
+ Guidance material (GM) will be provided indicating that operators may use
+ meteorological reports to obtain visibility data.
+\end_layout
+
+\begin_layout Enumerate
+someone is always required to scan the airspace to detect any potential
+ hazards in the air.
+ If no VO is used, then the scanning must be conducted by the remote pilot.
+ From experience in some states, having the UA at not more than 1 km from
+ the remote pilot (in combination with the 120 m height limitation) is considere
+d a suitable distance to see the surrounding airspace and react promptly
+ if required.
+ However, if the remote pilot is required to perform the airspace scanning,
+ the management of the flight must be such that it does not require too
+ much attention.
+ For this reason, the requirement to have a pre-programmed trajectory for
+ the UA is established when operating without VOs.
+ However, the remote pilot must always have the ability to intervene in
+ order to manoeuvre the UA (e.g.
+ for collision avoidance).
+\end_layout
+
+\begin_layout Enumerate
+If VOs are used, the UAS operator is required to ensure that: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+the VOs are positioned so that they can provide adequate coverage of the
+ operational volume and the surrounding airspace with the minimum flight
+ visibility indicated, and there are no potential terrain obstructions;
+\end_layout
+
+\begin_layout Enumerate
+the distance between any VO and the remote pilot is not more than 1 km,
+ to ensure better control of VOs and their communication with the remote
+ pilot; 
+\end_layout
+
+\begin_layout Enumerate
+robust and effective communication means are available for the communication
+ between the remote pilot and the VOs;
+\end_layout
+
+\begin_layout Enumerate
+if means are used by the VOs to determine the position of the UA, those
+ means are functioning and effective; and 
+\end_layout
+
+\begin_layout Enumerate
+the VOs have been briefed on the intended path of the UA and the associated
+ timing
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Rules on remote pilot competency 
+\end_layout
+
+\begin_layout Standard
+Contingency and emergency procedures to be defined in OM by operator
+\end_layout
+
+\begin_layout Standard
+Emergency response plan must be devised 
+\end_layout
+
+\begin_layout Standard
+Technical requirements in STS-02:
+\end_layout
+
+\begin_layout Section
+Use cases
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Risk Assessment
+\end_layout
+
+\begin_layout Section
+Risks
+\end_layout
+
+\begin_layout Subsection
+Ground Risk Params
+\end_layout
+
+\begin_layout Subsubsection
+People
+\end_layout
+
+\begin_layout Enumerate
+Population-related
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Permanently or cyclic populated areas (cycle < 1 day)
+\end_layout
+
+\begin_layout Enumerate
+Dense areas (city centre streets, etc.)
+\end_layout
+
+\begin_layout Enumerate
+Sensitive areas (schools, hospitals, etc.)
+\end_layout
+
+\begin_layout Enumerate
+Occasional or seasonal events (concerts, stadiums, beaches, etc.)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Security-related
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Military barracks
+\end_layout
+
+\begin_layout Enumerate
+Summits
+\end_layout
+
+\begin_layout Enumerate
+VIP protection
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Infrastructure
+\end_layout
+
+\begin_layout Enumerate
+Industry-related
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Permanent and non-permanent industrial sites
+\end_layout
+
+\begin_layout Enumerate
+Chemical and Nuclear sites
+\end_layout
+
+\begin_layout Enumerate
+Laboratories
+\end_layout
+
+\begin_layout Enumerate
+Wind farms, power stations
+\end_layout
+
+\begin_layout Enumerate
+Cranes
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Transport-related
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Airports, aerodromes and identified take-off and landing sites, model-flying
+ sites
+\end_layout
+
+\begin_layout Enumerate
+Roads and highways
+\end_layout
+
+\begin_layout Enumerate
+Harbours
+\end_layout
+
+\begin_layout Enumerate
+Rail
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Security-related
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Military areas
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Environment
+\end_layout
+
+\begin_layout Standard
+• Animal Reservations
+\end_layout
+
+\begin_layout Subsection
+Air Risk Params
+\end_layout
+
+\begin_layout Enumerate
+High probability of traffic (hospitals, etc.) 
+\end_layout
+
+\begin_layout Enumerate
+Seasonal or permanent recreational activities (base jump, flying suits,
+ kite surf, etc.) 
+\end_layout
+
+\begin_layout Enumerate
+Localised events (hotels water jets, geysers, etc.)
+\end_layout
+
+\begin_layout Enumerate
+Airports, aerodromes and identified take-off and landing sites, model-flying
+ sites
+\end_layout
+
+\begin_layout Subsection
+Other Threats
+\end_layout
+
+\begin_layout Enumerate
+Electro-magnetic wave-emitting sites (radars, high-voltage lines, solar
+ farms, etc.) 
+\end_layout
+
+\begin_layout Enumerate
+GNSS-outage forecast areas
+\end_layout
+
+\begin_layout Section
+SORA
+\end_layout
+
+\begin_layout Paragraph
+When can SORA be applied
+\end_layout
+
+\begin_layout Standard
+For the ground risk, ground risk classes are assigned and barriers that
+ can mitigate the death and destruction on the ground are identified.
+ The final lethality of the ground risk can then be determined.
+ If the operation in question is BVLOS over a populated area with a UA of
+ 3m or more, or VLOS over a populated area with a UA of 8m or more, the
+ ground risk is so great that the SORA is not an appropriate tool for ensuring
+ safety
+\end_layout
+
+\begin_layout Paragraph
+Airspace Encounter Category
+\end_layout
+
+\begin_layout Standard
+The perceived level of air risk – the risk of a mid-air collision - is incorpora
+ted through an Airspace Encounter Category (AEC) for a given region of airspace.
+ The SORA method assigns an AirRisk Class (ARC) ranging from 1 (low risk)
+ to 4 (high risk) to these AECs – see Table below – based on three factors:
+ the rate of proximity, dependent on the number of aircraft assumed to be
+ in the airspace; the geometry of the aircraft, use of specific routes etc.,
+ in the airspace; dynamics, or how fast aircraft travel in the airspace.
+ Measures can be proposed to reduce these impacts.
+\end_layout
+
+\begin_layout Paragraph
+Enhancement in EU in SORA
+\end_layout
+
+\begin_layout Standard
+The draft EU implementing and delegated acts envisage geo-awareness and
+ other features for the design of certain drones.
+ Geo-awareness gives rise to the ability to create “geo-fences” that a drone
+ must stay one side of, of through which their passage may be controlled.
+ Geo-fencing applications are becoming available that are capable of preventing
+ drones from approaching restricted areas, such as airports, or on the contrary,
+ ensuring that they do not fly outside of a given authorised area.
+ Such systems could be used to restrict access to certain areas of sensitive
+ airspace (geo-restriction) or to create “dronodromes” where, for example,
+ novice open category users could play without interfering with other airspace
+ users (geo-caging).
+ Deciding which of these will apply to a given airspace zone is one of the
+ major tasks of airspace assessment.
+ As this technology improves, with quantitative measures and precision methods
+ based on reliable error margins and manned aviation data, errors can be
+ reduced and safe operational areas can be mapped.
+ However, these areas should not be fixed.
+ Based on these technological advances, the relevant authority could decide
+ to re-define security limits, allowing drones to operate closer to airports
+ for example.
+\end_layout
+
+\begin_layout Paragraph
+Dynamic remoteID/operationID generation based on operational space
 \end_layout
 
 \begin_layout Section*
