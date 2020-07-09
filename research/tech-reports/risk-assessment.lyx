@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -49,6 +49,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -93,6 +95,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -101,7 +104,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -239,6 +245,7 @@ This working group meets almost weekly to discuss the roles, responsibilities
 LatexCommand nomenclature
 symbol "DSP"
 description "DigitalSky Service Provider; used interchangeably with UTM-SP"
+literal "true"
 
 \end_inset
 
@@ -247,6 +254,7 @@ description "DigitalSky Service Provider; used interchangeably with UTM-SP"
 LatexCommand nomenclature
 symbol "UTM"
 description "Unmanned Traffic Management; an activity similar to Air Traffic Management for manned flights"
+literal "true"
 
 \end_inset
 
@@ -255,6 +263,7 @@ description "Unmanned Traffic Management; an activity similar to Air Traffic Man
 LatexCommand nomenclature
 symbol "UTM-SP"
 description "UTM Service Provider; an organisation providing UTM services, including but not limited to Remote Identification and Tracking of UASs; used interchangeably with DSP"
+literal "true"
 
 \end_inset
 
@@ -267,6 +276,7 @@ description "UTM Service Provider; an organisation providing UTM services, inclu
 LatexCommand nomenclature
 symbol "DGCA"
 description "Directorate General of Civil Aviation, MoCA"
+literal "true"
 
 \end_inset
 
@@ -275,6 +285,7 @@ description "Directorate General of Civil Aviation, MoCA"
 LatexCommand nomenclature
 symbol "MoCA"
 description "Ministry of Civil Aviation, Government of India"
+literal "true"
 
 \end_inset
 
@@ -692,6 +703,7 @@ Standards Track
 LatexCommand href
 name "Meet"
 target "https://meet.google.com/urz-pekp-rwr"
+literal "false"
 
 \end_inset
 
@@ -728,6 +740,7 @@ Research Track
 LatexCommand href
 name "Skype"
 target "https://join.skype.com/RkNeUB8wNvzx"
+literal "false"
 
 \end_inset
 
@@ -891,6 +904,7 @@ LatexCommand href
 name "sayandeep@deepcyan.ai"
 target "sayandeep@deepcyan.ai"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -930,6 +944,7 @@ LatexCommand href
 name "manish.shukla393@gmail.com"
 target "manish.shukla393@gmail.com"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -969,6 +984,7 @@ LatexCommand href
 name "zapurva@gmail.com"
 target "zapurva@gmail.com"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -1084,6 +1100,7 @@ Joint Authorities on Rulemaking for Unmanned Systems (JARUS) Specific Operations
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/JAR-DEL-WG6-D.04"
+literal "true"
 
 \end_inset
 
@@ -1164,6 +1181,7 @@ NASA’s vision towards enabling “in-time and predictive safety assurance
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NASA-TM-2020-220440"
+literal "true"
 
 \end_inset
 
@@ -1217,6 +1235,7 @@ See
 \begin_inset CommandInset citation
 LatexCommand cite
 key "EASA-Op-2001-2018,EASA-Op-2005-2019,EASA-Ops-Categ,EASA-UAS-ATM-Assessment-2018"
+literal "true"
 
 \end_inset
 
@@ -1267,9 +1286,18 @@ FAA ConOps v2.0
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FAA-ConOps-v2"
+literal "true"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsection
+@Dunzo Air: BVLOS
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
@@ -1429,6 +1457,7 @@ This operational scenario detailed in
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/STS-01"
+literal "true"
 
 \end_inset
 
@@ -1461,6 +1490,7 @@ Airspace: uncontrolled (F or G)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/JAR-DEL-WG6-D.04"
+literal "true"
 
 \end_inset
 
@@ -1584,6 +1614,7 @@ This operational scenario detailed in
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/STS-02"
+literal "true"
 
 \end_inset
 
@@ -1616,6 +1647,7 @@ Airspace: reserved airspace for operation
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JARUS-SORA/JAR-DEL-WG6-D.04"
+literal "true"
 
 \end_inset
 
