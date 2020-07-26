@@ -18,14 +18,29 @@ papers/deconfliction.pdf: papers/deconfliction.lyx Bibliography.bib
 papers/remote-id.pdf: papers/remote-id.lyx Bibliography.bib
 	lyx --export pdf2 papers/remote-id.lyx
 
-tech-reports/risk-assessment.pdf: tech-reports/risk-assessment.lyx Bibliography.bib
-	lyx --export pdf2 tech-reports/risk-assessment.lyx
+tech-reports/risk-assessment.pdf: tech-reports/risk-assessment.tex ua_wgs_base.cls Bibliography.bib
+	export TEXINPUTS="..:" && \
+	  cd tech-reports && \
+	  pdflatex risk-assessment.tex && \
+	  bibtex risk-assessment && \
+      pdflatex risk-assessment.tex && \
+	  pdflatex risk-assessment.tex
 
-tech-reports/deconfliction.pdf: tech-reports/deconfliction.lyx Bibliography.bib
-	lyx --export pdf2 tech-reports/deconfliction.lyx
+tech-reports/deconfliction.pdf: tech-reports/deconfliction.tex ua_wgs_base.cls Bibliography.bib
+	export TEXINPUTS="..:" && \
+	  cd tech-reports && \
+	  pdflatex deconfliction.tex && \
+	  bibtex deconfliction && \
+      pdflatex deconfliction.tex && \
+	  pdflatex deconfliction.tex
 
-tech-reports/remote-id.pdf: tech-reports/remote-id.lyx Bibliography.bib
-	lyx --export pdf2 tech-reports/remote-id.lyx
+tech-reports/remote-id.pdf: tech-reports/remote-id.tex ua_wgs_base.cls Bibliography.bib
+	export TEXINPUTS="..:" && \
+	  cd tech-reports && \
+	  pdflatex remote-id.tex && \
+	  bibtex remote-id && \
+      pdflatex remote-id.tex && \
+	  pdflatex remote-id.tex
 
 questionnaires/remote-id.pdf: questionnaires/remote-id.lyx
 	lyx --export pdf2 questionnaires/remote-id.lyx

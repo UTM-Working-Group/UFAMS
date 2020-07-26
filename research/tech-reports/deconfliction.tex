@@ -1,0 +1,180 @@
+\documentclass{ua_wgs_base}
+
+\drafttrue
+\doctype{Technical Report}
+\doctypeinitials{TR}
+\docid{1}
+\workinggroup{Deconfliction Research Group}
+\workinggroupinitials{DCNFRG}
+\doctitle{Deconfliction}
+
+\hypersetup{pdftitle={Deconfliction for Unmanned Aircraft Systems},
+ pdfauthor={\printworkinggroup},
+ pdfsubject={\printdoctitle},
+ pdfkeywords={Unmanned Aircraft Systems, Deconfliction},
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+
+\printdraftmark
+
+\begin{document}
+
+\title{Deconfliction for Unmanned Aircraft Systems}
+\author{\printworkinggroup}
+
+\maketitle
+\begin{abstract}
+This paper describes a deconfliction system from requirements perspective.
+It also details typical operation scenarios in single-DSP and multi-DSP
+cases and known limitations thereof.
+
+Simulations: case-study: Network dropout; other case-studies??
+
+Keywords: simplicity, beauty, elegance
+\end{abstract}
+
+\chapter*{Working Group}
+
+\paragraph*{Overview }
+
+This working group meets almost weekly to discuss the roles, responsibilities
+and activities to be performed by a DigitalSky Service Provider (DSP)
+in the context of Indian drone industry. It also aims to document
+the ways in which a DSP interacts with other stakeholders in the industry,
+namely, manufacturers, operators, pilots, UFII, DGCA, and so forth.
+The documentation would be put through as recommendations to DGCA,
+iSpirt, and other relevant parties as it matures.
+
+\paragraph*{Membership\protect\footnote{Views expressed in published materials may not represent the views
+of organisations except for those marked by $\dagger$.}}
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|c|c|}
+\hline 
+\textsf{iSpirt, India} & \textsf{Asteria, India}\tabularnewline
+\textsf{Algopixel Technologies, India}$^{\dagger}$ & \textsf{HexCod, India}\tabularnewline
+\textsf{Deepcyan Software, India}$^{\dagger}$ & \textsf{Curl Analytics, India}\tabularnewline
+\textsf{Skylark Drones, India}$^{\dagger}$ & \textsf{Avianco, India}$^{\dagger}$\tabularnewline
+\textsf{Drone Federation of India, India}$^{\dagger}$ & \textsf{IdeaForge, India}\tabularnewline
+\textsf{UniFly, Belgium}$^{\dagger}$ & \textsf{AUS, India}\tabularnewline
+\textsf{Drone Aerospace, India} & \textsf{Omnipresent Tech, India}\tabularnewline
+\textsf{QTPI, India} & \textsf{IIT Bombay, India}\tabularnewline
+\textsf{IISc, India} & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\caption{Organisations}
+\end{table}
+
+
+\paragraph*{Topics}
+
+Regulation, policy making, risk assessment \& reduction, deconfliction,
+operational transparency, management and privacy in unmanned aviation.
+
+\paragraph*{Meetings}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+\textsf{Standards Track} & \textsf{\href{https://meet.google.com/urz-pekp-rwr}{Meet}} & \textsf{Fridays 1900-2000 IST}\tabularnewline
+\hline 
+\textsf{Research Track} & \textsf{\href{https://join.skype.com/RkNeUB8wNvzx}{Skype}} & \textsf{Wednesdays 1900-2000 IST}\tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+
+\paragraph*{Links}
+\begin{itemize}
+\item \texttt{https://groups.google.com/forum/\#!forum/drone-dsp}
+\item \texttt{drone-dsp@googlegroups.com} (members only\footnote{Visit \texttt{https://groups.google.com/forum/\#!contactowner/drone-dsp}
+for membership.})
+\end{itemize}
+
+\chapter{Introduction}
+
+ere is the text text text text text text text text text text text
+text text text text text.
+
+\section{Scope}
+
+TBD
+
+cf. NASA Deconfliction studies; SITL
+
+\chapter{Previous Work}
+
+text text text text text text text text text text text text text text
+text
+
+\chapter{Main Chapter}
+
+\section{subsection}
+
+\section{another subsection}
+
+\section{Methodology}
+
+For a named theorem or theorem-like environment you need to insert
+the name through \textsf{Insert\lyxarrow{}Short Title}, as done here.
+
+If you don't want a theorem or lemma name don't add one.
+
+And here's the proof!
+
+\section{Results}
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{A single column figure goes here}
+\par\end{centering}
+\caption{Captions go \emph{under} the figure}
+\end{figure}
+\begin{table}[htbp]
+\caption{Table captions go \emph{above} the table}
+
+\centering{}%
+\begin{tabular}{|c|c|}
+\hline 
+delete & this\tabularnewline
+\hline 
+\hline 
+example & table\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+\section{Conclusions}
+
+bla bla
+
+\chapter{Appendix}
+
+Citation: \cite{IEEEexample:beebe_archive,taleb:2012,bringhurst:2002}
+
+\section{Supplementary Comments}
+
+\subsection{ADSB-In}
+
+\begin{lyxgreyedout}
+@Swaroop:%
+\end{lyxgreyedout}
+ADSB-In should be mandated for collision avoidance with manned aircraft
+
+\begin{lyxgreyedout}
+@Sayandeep:%
+\end{lyxgreyedout}
+UIN DB needs to know if a UAS Model is ADSB-IN capable; only these
+drones may be considered for operations with risk of manned aircraft
+collision.
+
+\section{Second appendix}
+
+\chapter*{Acknowlegment}
+
+bla bla
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,IEEEexample,../Bibliography}
+
+\end{document}

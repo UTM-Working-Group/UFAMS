@@ -1,0 +1,725 @@
+\documentclass{ua_wgs_base}
+
+\drafttrue
+\doctype{Technical Report}
+\doctypeinitials{TR}
+\docid{1}
+\workinggroup{UA Risk Research Group}
+\workinggroupinitials{UARRG}
+\doctitle{Risk Assessment}
+
+\hypersetup{pdftitle={Risk Assessment for Unmanned Aircraft Systems},
+ pdfauthor={\printworkinggroup},
+ pdfsubject={\printdoctitle},
+ pdfkeywords={Unmanned Aircraft Systems, Risk Assessment},
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+
+\printdraftmark
+
+\begin{document}
+
+\title{Risk Assessment for Unmanned Aircraft Systems}
+
+\author{\printworkinggroup}
+
+\maketitle
+\cleardoublepage{}
+\begin{abstract}
+This paper describes a risk assessment study of Unmanned Aircraft
+Systems that aims to understand the risks, underlying causes, consequences
+and mitigations associated with their operation. 
+
+Risk Categorisation; Simulations (maybe in a subsequent study); 
+
+Keywords: Unmanned Aviation, Risk Assessment, Hazard Identification,
+Mitigation Strategies
+\end{abstract}
+
+\chapter*{UA Risk Research Group\label{sec:wg}}
+
+\addcontentsline{toc}{section}{\nameref{sec:wg}}
+
+This working group meets almost weekly to discuss the roles, responsibilities
+and activities to be performed by a Unmanned Traffic Management Service
+Provider (UTM-SP)\nomenclature{DSP}{DigitalSky Service Provider; used interchangeably with UTM-SP}\nomenclature{UTM}{Unmanned Traffic Management; an activity similar to Air Traffic Management for manned flights}\nomenclature{UTM-SP}{UTM Service Provider; an organisation providing UTM services, including but not limited to Remote Identification and Tracking of UASs; used interchangeably with DSP}
+in the context of Indian drone industry. It also aims to document
+the ways in which a UTM-SP interacts with other stakeholders in the
+industry, namely, manufacturers, operators, pilots, UFII, and so forth.
+The documentation would be put through as recommendations to DGCA\nomenclature{DGCA}{Directorate General of Civil Aviation, MoCA},
+MoCA,\nomenclature{MoCA}{Ministry of Civil Aviation, Government of India}
+and other relevant parties as it matures.
+
+\begin{figure}[tbh]
+\begin{centering}
+\begin{center}
+\small\tt
+\hfil 
+\xymatrix{ & \txt{DFI} \ar[dr] & \txt{MoCA} \ar[d] & \cdots \ar[dl] & \\ 
+& & \txt{UA Society} \ar[d] & & \\
+& & \txt{Steering \\Committee} \ar[dl] \ar[dr] & & \\
+& \txt{Working Groups} \ar[dl] \ar[d] & & \txt{Research Groups} \ar[dl] \ar[d] \ar[dr] & \\
+\cdots \ar[r] & {\txt{UTM}} \ar[l] \ar[r] & *+[F]{\txt{Risk}} \ar[l] \ar[r] & \txt{Deconfliction} \ar[l] \ar[r] & \cdots \ar[l] }
+\hfil \end{center}
+\par\end{centering}
+\caption{The Risk Research Group and others}
+\end{figure}
+
+
+\paragraph*{Membership}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+iSpirt, India & Asteria, India\tabularnewline
+Algopixel Technologies, India & HexCod, India\tabularnewline
+Deepcyan Software, India & Curl Analytics, India\tabularnewline
+Skylark Drones, India & Avianco, India\tabularnewline
+Drone Federation of India, India & IdeaForge, India\tabularnewline
+UniFly, Belgium & AUS, India\tabularnewline
+Drone Aerospace, India & Omnipresent Tech, India\tabularnewline
+QTPI, India & IIT Bombay, India\tabularnewline
+IISc, India & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+
+\paragraph*{Topics}
+
+Standardisation, regulation, policy making in unmanned aviation. 
+
+\paragraph*{Meetings}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Standards Track & \href{https://meet.google.com/urz-pekp-rwr}{Meet} & Fridays 1900-2000 IST\tabularnewline
+Research Track & \href{https://join.skype.com/RkNeUB8wNvzx}{Skype} & Wednesdays 1900-2000 IST\tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+
+\paragraph*{Links}
+\begin{itemize}
+\item \texttt{https://groups.google.com/forum/\#!forum/utm-wg}
+\item \texttt{utm-wg@googlegroups.com} (members only\footnote{Visit \texttt{https://groups.google.com/forum/\#!contactowner/utm-wg}
+for membership.})
+\end{itemize}
+
+\chapter*{Authors\label{sec:authors}}
+
+\addcontentsline{toc}{section}{\nameref{sec:authors}}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+\textbf{Name} & \textbf{Email} & \textbf{Organisation}\tabularnewline
+Sayandeep Purkayasth\footnotemark & \texttt{\href{mailto:sayandeep@deepcyan.ai}{sayandeep@deepcyan.ai}} & Deepcyan Software, India\tabularnewline
+Manish Shukla & \texttt{\href{mailto:manish.shukla393@gmail.com}{manish.shukla393@gmail.com}} & Zeta\tabularnewline
+Apurva Joshi & \texttt{\href{mailto:zapurva@gmail.com}{zapurva@gmail.com}} & IIT Bombay\tabularnewline
+ &  & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+
+\footnotetext{Authors for correspondence.}
+
+\settowidth{\nomlabelwidth}{UTM-SP}
+\printnomenclature{}\cleardoublepage{}
+
+\chapter{Introduction}
+
+Here is the text text text text text text text text text text text
+text text text text text.
+
+\section{Scope}
+
+Operations are typically classified into Open, Specific and Restricted.
+In this report, we discuss the state of art in the risk assessment
+field and attempt to devise a risk assessment strategy to address
+the emerging operational requirements in the UA industry.
+
+\section{Previous Work}
+
+Joint Authorities on Rulemaking for Unmanned Systems (JARUS) Specific
+Operations Risk Assessment (SORA) \cite{JARUS-SORA/JAR-DEL-WG6-D.04}
+is a detailed study on the Operational Risks associated with UA operations.
+It has been endorsed by the European Aviation Safety Agency (EASA).
+Other risk assessment methodologies include $\ldots$
+
+\subsection{JARUS SORA}
+
+The SORA methodology categorises any UAS operation from ground (Ground
+Risk Category - GRC) and air risk (Air Risk Category - ARC) perspectives.
+These also determine a Specific Assurance and Integrity Levels (SAIL)
+for ground and air, which represent the confidence that the operations
+will stay under control within the intended operation. Based on the
+assigned risk categories, mitigations are suggested to reduce SAIL.
+The ultimate step of risk assessment is recommendation of Operational
+Safety Objectives (OSO) to be met in accordance to SAIL. The SORA
+process also details several operational scenarios that are intended
+as a template for competent authorities and operators. 
+
+Ultimately, however, the SORA process remains a qualitative assessment
+strategy, and is does not contain prescriptive requirements, and aims
+only to guide reduction of risk to acceptable levels.
+
+\subsection{NASA UTM}
+
+\begin{lyxgreyedout}
+@Sayandeep: Include from https://docs.google.com/document/d/1eHDIJ4yoV9JgGWHc02FygwE4SounAoLkCo1Ykyhjjro/edit?usp=sharing
+\&
+
+NASA: https://drive.google.com/file/d/1OzQeRPdMM7s51fZJxoNRIl\_G-0QeHiTw/view?usp=sharing
+pp48,79-80f%
+\end{lyxgreyedout}
+
+\begin{lyxgreyedout}
+@Apurva%
+\end{lyxgreyedout}
+
+NASA\textquoteright s vision towards enabling \textquotedblleft in-time
+and predictive safety assurance capabilities\textquotedblright{} for
+highly autonomous operations of UASs in low altitude urban environments
+has been outlined in \cite{NASA-TM-2020-220440}. The report proposes
+a system architecture based on the \textquotedblleft Monitor-Assess-Mitigate\textquotedblright{}
+paradigm and provides guiding principles for development. It also
+discusses the span of information requirements to achieve safety assurance.
+Further, it discusses the approaches taken towards uncertainty management,
+models for information exchange and protocols. The results of various
+research activities related to risk management have been outlined
+in the appendices.
+
+\subsection{U-Space EU ConOps v2.0}
+
+\begin{lyxgreyedout}
+Include from https://docs.google.com/document/u/1/d/1hLLxnDEfu928wVVeFjSoQvQnl\_pe8v3WvbCOA\_FmcQE/edit%
+\end{lyxgreyedout}
+
+This essentially follows the SORA process. Notable exceptions are:
+\begin{enumerate}
+\item $\ldots$
+\end{enumerate}
+
+\subsubsection{EASA}
+
+See \cite{EASA-Op-2001-2018,EASA-Op-2005-2019,EASA-Ops-Categ,EASA-UAS-ATM-Assessment-2018}
+
+Categorisation:
+\begin{enumerate}
+\item Open
+\begin{enumerate}
+\item A1
+\item A2
+\item A3
+\end{enumerate}
+\item Specific
+\begin{enumerate}
+\item Standard Scenarios
+\item Non-standard Scenarios
+\end{enumerate}
+\end{enumerate}
+
+\subsection{FAA ConOps v2.0}
+
+\cite{FAA-ConOps-v2}
+
+\subsection{BVLOS Indian efforts}
+
+\subsubsection{@Dunzo Consortium}
+
+\subsection{Scope of this work}
+
+\section{Risk Assessment Strategies}
+
+\cleardoublepage{}
+
+\chapter{Operational Scenarios and Use Cases}
+
+Operational scenarios and use cases considered in previous listerature
+are listed in tables \ref{tab:Operational-Scenarios-old} and \ref{tab:Operational-Use-cases-old};
+those not considered in previous literature are listed in tables \ref{tab:new-scenarios}
+and \ref{tab:new-use-cases}, respectively. Each of the above along
+with those in previous literature are detailed in the following sections.
+
+\begin{table}[tbh]
+\begin{centering}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+\textbf{\#} & \textbf{Cf.} &  & \tabularnewline
+\hline 
+\hline 
+S01 & SORA/STS01 & VLoS & \tabularnewline
+\hline 
+S02 & SORA/STS02 & BVLoS & \tabularnewline
+\hline 
+S03 & FAA/V2-1 & Nominal UTM Operations in Uncontrolled and Controlled Airspace & \tabularnewline
+\hline 
+S04 & FAA/V2-2 & UVRs and Associated Operational Impacts & \tabularnewline
+\hline 
+S05 & FAA/V2-3 & Interactions between UAS and Manned Aircraft at Low Altitudes & \tabularnewline
+\hline 
+S06 & FAA/V2-4 & Use of UTM to Remotely Identify UAS & \tabularnewline
+\hline 
+S07 & FAA/V2-5 & Federal Public Safety Request for UTM Information & \tabularnewline
+\hline 
+ & EASA/STS-01 &  & $\equiv$S01\tabularnewline
+\hline 
+ & EASA/STS-02 &  & $\equiv$S02\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\caption{Operational Scenarios in previous literature\label{tab:Operational-Scenarios-old}}
+\end{table}
+\begin{sidewaystable}
+\begin{centering}
+\begin{tabular}{|l|l|}
+\hline 
+\textbf{\#} & \textbf{Description}\tabularnewline
+\hline 
+\hline 
+TCL1-1 & Two VLOS Operations with Voluntary Use of UTM for Coordination\tabularnewline
+\hline 
+TCL2-1 & One BVLOS Operation, One VLOS Operation with Voluntary UTM Participation
+for Coordination\tabularnewline
+\hline 
+TCL2-2 & Two BVLOS Operations near an Airport in Uncontrolled Airspace\tabularnewline
+\hline 
+TCL2-3 & Priority Operation \textendash{} Emergency Medical Aircraft in Uncontrolled
+Airspace\tabularnewline
+\hline 
+TCL2-4 & BVLOS Operation Conformance Violation from Uncontrolled Airspace into
+Class D Airspace\tabularnewline
+\hline 
+TCL3-1 & One-Way BVLOS Flight, Separate Landing/Take-Off Locations\tabularnewline
+\hline 
+TCL3-2 & Negotiation versus Prioritization between Operators Due to Dynamic
+Restriction\tabularnewline
+\hline 
+TCL3-3 & UAS Interaction with Manned Aircraft in Low-Altitude Uncontrolled
+Airspace\tabularnewline
+\hline 
+TCL3-4 & BVLOS Operation Lost-Link Event\tabularnewline
+\hline 
+TCL3-5 & High Density UTM Operations in Uncontrolled Airspace\tabularnewline
+\hline 
+TCL3-6 & Last-Mile Rural Deliveries in Uncontrolled Airspace under the Mode
+C Veil\tabularnewline
+\hline 
+TCL3-7 & UAS Operator Loss of Performance Capabilities in Uncontrolled Airspace\tabularnewline
+\hline 
+TCL4-1 & BVLOS UTM Operation within UAS Facility Maps\tabularnewline
+\hline 
+TCL4-2 & Historical UTM Information Queries by Authorized Entities\tabularnewline
+\hline 
+TCL4-3 & UAS Urgency/Distress Condition with Alternate Landing and UTM Coordination\tabularnewline
+\hline 
+TCL4-4 & UAS Volume Reservation in Controlled Airspace\tabularnewline
+\hline 
+TCL4-5 & Report to FAA due to UAS Flight Incident\tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\caption{Operational Use cases in previous literature\label{tab:Operational-Use-cases-old}}
+\end{sidewaystable}
+
+\begin{center}
+\begin{table}[tbh]
+\begin{centering}
+\begin{tabular}{|l|l|}
+\hline 
+\textbf{\#} & \textbf{Description}\tabularnewline
+\hline 
+\hline 
+S01 & TBD\tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\caption{New Scenarios\label{tab:new-scenarios}}
+\end{table}
+\par\end{center}
+
+\begin{center}
+\begin{table}[tbh]
+\centering{}%
+\begin{tabular}{|l|l|}
+\hline 
+\textbf{\#} & \textbf{Description}\tabularnewline
+\hline 
+\hline 
+UC01 & Night-time VLoS\tabularnewline
+\hline 
+UC02 & Night-time BVLoS\tabularnewline
+\hline 
+UC03 & Long range Fixed Wing Survey\tabularnewline
+\hline 
+UC04 & High EM Interference areas\tabularnewline
+\hline 
+UC05 & OOP\tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+ & \tabularnewline
+\hline 
+\end{tabular}\caption{New Use cases\label{tab:new-use-cases}}
+\end{table}
+\par\end{center}
+
+\section{Scenarios}
+
+\paragraph{EASA Overview}
+
+To limit the administrative burden for both UAS operators and the
+competent authorities, a system of standard scenarios has been proposed.
+A standard scenario involves a pre-established risk assessment and
+includes mitigation measures. It may be followed by a declaration
+submitted by the UAS operator (if the implementation of the mitigation
+measures is considered to be simple), or by an authorisation issued
+by the competent authority (when the implementation of the mitigation
+measures is considered to be more complex). Furthermore, an optional
+light UAS operator certificate (LUC) has been proposed, which allows
+the competent authority to issue privileges to UAS operators. This
+implies a significant investment from the operator\textquoteright s
+side, which should yield benefits in the medium/long term. Indeed,
+the LUC privileges can ultimately allow an operator to approve their
+own operations.
+
+\subparagraph{Approach}
+
+STSs will be developed only for UAS operations in the \textquoteleft specific\textquoteright{}
+category with a low risk (i.e. with a specific assurance and integrity
+level (SAIL), as defined in SORA, not greater than 2).
+
+\subsection{JARUS-STS-01}
+
+This operational scenario detailed in \cite{JARUS-SORA/STS-01} covers
+a UAS operation performed in the Specific category (Category B) as
+follows.
+\begin{itemize}
+\item UA max characteristic dimension of 3m and typical kinetic energy up
+to 34 kJ.
+\item BVLOS w/ or w/o Visual Observer (VO)
+\item Overflown area: Sparsely populated
+\item Flight height limit: 150m or 500ft (above ground)
+\item Airspace: uncontrolled (F or G)
+\end{itemize}
+\cite{JARUS-SORA/JAR-DEL-WG6-D.04} categorises such an operation
+as follows
+\begin{enumerate}
+\item Final Ground Risk Class (GRC): \textbf{3}
+\item Final Air Risk Class (ARC): \textbf{ARC-b}
+\item SAIL: \textbf{II}
+\end{enumerate}
+and proceeds to detail the operational mitigations, operator provisions,
+and technical provisions for such an operation.
+
+\paragraph{EASA Variant}
+
+STS-01: visual line of sight (VLOS) operations at a maximum height
+of 120 m, at a ground speed of less than 5 m/s in the case of untethered
+UA, over controlled ground areas that can be in populated (e.g. urban)
+environments, using UAS with maximum take-off masses (MTOMs) of up
+to 25 kg.
+
+This limitation is a little more conservative than the in-service
+experience of some MSs where UAS operations similar to STS-01 are
+allowed up to a height of 150 m (500 ft). In STS-01, a 30 m margin
+above the maximum height has been considered for use in abnormal situations.
+
+For the ground risk buffer, \textquoteleft low\textquoteright{} robustness
+is considered sufficient in UAS operations with a low intrinsic ground
+risk. In this case, SORA indicates the 1:1 rule to select the minimum
+horizontal distance. However, the 1:1 rule may lead to a buffer size
+such that the size of the controlled ground area might be impractical
+\textemdash{} in most cases, in a populated environment. Therefore,
+the decision was made to propose more suitable values considering
+the following elements:
+
+To better ensure that the UA flight can be terminated without exceeding
+the ground risk buffer, UAS operations under this STS are limited
+to
+\begin{enumerate}
+\item Any configuration except fixed-wing UA. With this limitation, UAS
+operations at low speed can be better ensured, and the likelihood
+of the UA gliding a distance great enough for it to fall outside the
+controlled ground area is minimised.
+\item The ground speed in normal operation is limited to 5 m/s (which must
+be set in the UAS) so that the controllability of the UA is increased.
+\item For UA with MTOMs of up to 10 kg, in-service experience from MSs has
+been considered. In particular, the main reference is French scenario
+S-3, where a safety area is calculated assuming a ballistic fall once
+the flight termination system is triggered, and therefore, the size
+of that area is dependent on the flight height and speed of the UA. 
+\item For UA with MTOMs above 10 kg, in-service experience is also considered,
+but since this experience is more limited, a more conservative approach
+is followed. In this case, the values considered were half of those
+derived from the 1:1 rule, except that a minimum of 20 m is considered
+in the case of a height of up to 30 m (thus, the values for UA above
+10 kg are at least double those for the ones below 10 kg);
+\end{enumerate}
+Rules on remote pilot competency 
+
+Contingency and emergency procedures to be defined in OM by operator
+
+Emergency response plan must be devised 
+
+Technical requirements in STS-01:
+
+\subsection{JARUS-STS-02}
+
+This operational scenario detailed in \cite{JARUS-SORA/STS-02} covers
+a UAS operation performed in the Specific category (Category B) as
+follows.
+\begin{itemize}
+\item UA max characteristic dimension of 3m and typical kinetic energy up
+to 34 kJ.
+\item VLOS
+\item Overflown area: Sparsely populated
+\item Flight height limit: reserved airspace for operation
+\item Airspace: reserved airspace for operation
+\end{itemize}
+\cite{JARUS-SORA/JAR-DEL-WG6-D.04} categorises such an operation
+as follows
+\begin{enumerate}
+\item Final Ground Risk Class (GRC): \textbf{3}
+\item Final Air Risk Class (ARC): \textbf{ARC-a}
+\item SAIL: \textbf{II}
+\end{enumerate}
+and proceeds to detail the operational mitigations, operator provisions,
+and technical provisions for such an operation.
+
+\paragraph{EASA Variant}
+
+STS-02: beyond visual line of sight (BVLOS) operations with the UA
+at not more than 2 km from the remote pilot, if visual observers (VOs)
+are used, at a maximum height of 120 m, over controlled ground areas
+in sparsely populated environments, using UA with MTOMs of up to 25
+kg.
+
+\subparagraph{Description}
+
+STS-02 refers to a UAS operation with an increased intrinsic risk
+compared with STS-01 because it allows BVLOS operations. The launch
+and recovery of the UAS is, in any case, required to be performed
+in VLOS. The main mitigation means is provided by VOs who assist the
+remote pilot in scanning the airspace for the presence of other airspace
+users. 
+
+STS-02 should have the same height limitation as for STS-01
+
+Air risk: mitigations for BVLOS:
+\begin{enumerate}
+\item a minimum visibility of 5 km is proposed to ensure the detection of
+any potential hazard in the air. This was proposed by JARUS in the
+frame of the SORA development and is also established in the regulations
+covering UAS operations in some states. It is up to the UAS operator
+to establish how to obtain the most suitable information to comply
+with this requirement. Guidance material (GM) will be provided indicating
+that operators may use meteorological reports to obtain visibility
+data.
+\item someone is always required to scan the airspace to detect any potential
+hazards in the air. If no VO is used, then the scanning must be conducted
+by the remote pilot. From experience in some states, having the UA
+at not more than 1 km from the remote pilot (in combination with the
+120 m height limitation) is considered a suitable distance to see
+the surrounding airspace and react promptly if required. However,
+if the remote pilot is required to perform the airspace scanning,
+the management of the flight must be such that it does not require
+too much attention. For this reason, the requirement to have a pre-programmed
+trajectory for the UA is established when operating without VOs. However,
+the remote pilot must always have the ability to intervene in order
+to manoeuvre the UA (e.g. for collision avoidance).
+\item If VOs are used, the UAS operator is required to ensure that: 
+\begin{enumerate}
+\item the VOs are positioned so that they can provide adequate coverage
+of the operational volume and the surrounding airspace with the minimum
+flight visibility indicated, and there are no potential terrain obstructions;
+\item the distance between any VO and the remote pilot is not more than
+1 km, to ensure better control of VOs and their communication with
+the remote pilot; 
+\item robust and effective communication means are available for the communication
+between the remote pilot and the VOs;
+\item if means are used by the VOs to determine the position of the UA,
+those means are functioning and effective; and 
+\item the VOs have been briefed on the intended path of the UA and the associated
+timing
+\end{enumerate}
+\end{enumerate}
+Rules on remote pilot competency 
+
+Contingency and emergency procedures to be defined in OM by operator
+
+Emergency response plan must be devised 
+
+Technical requirements in STS-02:
+
+\section{Indian efforts}
+
+\subsection{@Dunzo consortium}
+
+\section{Use cases}
+
+\begin{lyxgreyedout}
+@Include Apurva/Swaroop's comparison table%
+\end{lyxgreyedout}
+
+
+\section{Comparison of Scenarios}
+
+\section{Comparison of Use cases}
+
+\cleardoublepage{}
+
+\chapter{Risk Assessment}
+
+\section{Methodology}
+
+We begin with the identification of hazards, risks and threats to
+a UAS operation. Some of the terminology used this point onward will
+have domain specific interpretation as noted in 
+
+\section{Hazard/Risk/Threat Identification}
+
+\subsection{Ground Risk Params}
+
+\subsubsection{People}
+\begin{enumerate}
+\item Population-related
+\begin{enumerate}
+\item Permanently or cyclic populated areas (cycle < 1 day)
+\item Dense areas (city centre streets, etc.)
+\item Sensitive areas (schools, hospitals, etc.)
+\item Occasional or seasonal events (concerts, stadiums, beaches, etc.)
+\end{enumerate}
+\item Security-related
+\begin{enumerate}
+\item Military barracks
+\item Summits
+\item VIP protection
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Infrastructure}
+\begin{enumerate}
+\item Industry-related
+\begin{enumerate}
+\item Permanent and non-permanent industrial sites
+\item Chemical and Nuclear sites
+\item Laboratories
+\item Wind farms, power stations
+\item Cranes
+\end{enumerate}
+\item Transport-related
+\begin{enumerate}
+\item Airports, aerodromes and identified take-off and landing sites, model-flying
+sites
+\item Roads and highways
+\item Harbours
+\item Rail
+\end{enumerate}
+\item Security-related
+\begin{enumerate}
+\item Military areas
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Environment}
+\begin{enumerate}
+\item Animal Reservations
+\end{enumerate}
+
+\subsection{Air Risk Params}
+\begin{enumerate}
+\item High probability of traffic (hospitals, etc.) 
+\item Seasonal or permanent recreational activities (base jump, flying suits,
+kite surf, etc.) 
+\item Localised events (hotels water jets, geysers, etc.)
+\item Airports, aerodromes and identified take-off and landing sites, model-flying
+sites
+\end{enumerate}
+
+\subsection{Other Threats}
+\begin{enumerate}
+\item Electro-magnetic wave-emitting sites (radars, high-voltage lines,
+solar farms, etc.) 
+\item GNSS-outage forecast areas
+\end{enumerate}
+
+\section{Mitigations}
+
+TBD
+
+\section{SORA}
+
+\paragraph{When can SORA be applied}
+
+For the ground risk, ground risk classes are assigned and barriers
+that can mitigate the death and destruction on the ground are identified.
+The final lethality of the ground risk can then be determined. If
+the operation in question is BVLOS over a populated area with a UA
+of 3m or more, or VLOS over a populated area with a UA of 8m or more,
+the ground risk is so great that the SORA is not an appropriate tool
+for ensuring safety
+
+\paragraph{Airspace Encounter Category}
+
+The perceived level of air risk \textendash{} the risk of a mid-air
+collision - is incorporated through an Airspace Encounter Category
+(AEC) for a given region of airspace. The SORA method assigns an AirRisk
+Class (ARC) ranging from 1 (low risk) to 4 (high risk) to these AECs
+\textendash{} see Table below \textendash{} based on three factors:
+the rate of proximity, dependent on the number of aircraft assumed
+to be in the airspace; the geometry of the aircraft, use of specific
+routes etc., in the airspace; dynamics, or how fast aircraft travel
+in the airspace. Measures can be proposed to reduce these impacts.
+
+\paragraph{Enhancement in EU in SORA}
+
+The draft EU implementing and delegated acts envisage geo-awareness
+and other features for the design of certain drones. Geo-awareness
+gives rise to the ability to create \textquotedblleft geo-fences\textquotedblright{}
+that a drone must stay one side of, of through which their passage
+may be controlled. Geo-fencing applications are becoming available
+that are capable of preventing drones from approaching restricted
+areas, such as airports, or on the contrary, ensuring that they do
+not fly outside of a given authorised area. Such systems could be
+used to restrict access to certain areas of sensitive airspace (geo-restriction)
+or to create \textquotedblleft dronodromes\textquotedblright{} where,
+for example, novice open category users could play without interfering
+with other airspace users (geo-caging). Deciding which of these will
+apply to a given airspace zone is one of the major tasks of airspace
+assessment. As this technology improves, with quantitative measures
+and precision methods based on reliable error margins and manned aviation
+data, errors can be reduced and safe operational areas can be mapped.
+However, these areas should not be fixed. Based on these technological
+advances, the relevant authority could decide to re-define security
+limits, allowing drones to operate closer to airports for example.
+
+\paragraph{Dynamic remoteID/operationID generation based on operational space}
+
+\section{Indian efforts}
+
+\subsection{@Dunzo consortium}
+
+\section{Comparison of Strategies}
+
+\chapter{Appendix}
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,IEEEexample,../Bibliography}
+
+\end{document}
