@@ -1,0 +1,224 @@
+\documentclass{ua_wgs_questionnaire}
+
+\drafttrue
+\doctype{Questionnaire}
+\doctypeinitials{Q}
+\docid{1}
+\workinggroup{UTM Working Group}
+\workinggroupinitials{UTMWG}
+\doctitle{Remote ID and Tracking}
+
+\hypersetup{pdftitle={Remote Identification and Tracking for Unmanned Aircraft Systems},
+ pdfauthor={\printworkinggroup},
+ pdfsubject={\printdoctitle},
+ pdfkeywords={Unmanned Aircraft Systems, Remote ID, Tracking},
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+
+\printdraftmark
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+
+\title{Questionnaire on Remote ID}
+\makeatother
+
+\begin{document}
+\maketitle
+UTM Working Group\marginnote{\href{https://groups.google.com/forum/\#!forum/utm-wg}{Website};
+Address feedback and comments to \href{mailto:sayandeep@deepcyan.ai}{sayandeep@deepcyan.ai}
+or \href{mailto:abhiroop@algopixel.tech}{abhiroop@algopixel.tech}.}
+\begin{abstract}
+This handout lists the open decision items for our upcoming publication
+\emph{``Remote Identification for Unmanned Aircraft Systems''}.
+The purpose is to gather feedback from (non-member) industry participants
+on key issues pertaining to hardware, architecture and adoption of
+Remote ID technology in the Indian UAS ecosystem. 
+\end{abstract}
+\begin{fullwidth}
+\rule[0.5ex]{0.78\paperwidth}{1pt}
+\end{fullwidth}
+
+\section*{About you}
+
+\begin{Form}[action={http://localhost:8000}, encoding=html, method=post]
+\begin{fullwidth}
+\noindent\begin{minipage}[t]{1\textwidth}%
+\begin{fullwidth}
+\begin{tabular}{ll}
+Name & \TextField[charsize={8pt},multiline=true,height={5mm},width={7cm},name={name},bordercolor={0.2 0.2 0.7},default={}]{}\tabularnewline
+Email & \TextField[charsize={8pt},multiline=true,height={5mm},width={7cm},name={email},bordercolor={0.2 0.2 0.7},default={}]{}\tabularnewline
+Organisation & \TextField[charsize={8pt},multiline=true,height={5mm},width={9cm},name={org},bordercolor={0.2 0.2 0.7},default={}]{}\tabularnewline
+Organisation Roles & \CheckBox[name=org_role_mfg,width={4mm},height={4mm}]{UAS Manufacturer} \CheckBox[name=org_role_operator,width={4mm},height={4mm}]{Operator}\tabularnewline
+ & \CheckBox[name=org_role_utmsp,width={4mm},height={4mm}]{UTM Service Provider} \CheckBox[name=org_role_regulator_policy_maker,width={4mm},height={4mm}]{Regulator/Policy Maker} \tabularnewline
+ & If other, please specify below.\tabularnewline
+ & \TextField[charsize={8pt},multiline=true,height={5mm},width={7cm},name={org_role_other_specify},bordercolor={0.2 0.2 0.7},default={}]{}\tabularnewline
+\end{tabular}
+\end{fullwidth}
+%
+\end{minipage}
+
+\bigskip{}
+\rule[0.5ex]{0.75\paperwidth}{1pt}
+\end{fullwidth}
+
+\section{Architecture}
+
+\begin{enumerate}
+\item \texttt{ID} field of Remote ID data proposals \sidenote{See Tech Report (draft) Section 2.1.1.2}\\
+\ChoiceMenu[radio,name=q1_dan]{}{{Allow DAN},{Disallow DAN}}
+\item Non-NPNT Compliant drones\sidenote{See Tech Report (draft) Section 2.1.3}
+\begin{enumerate}
+\item Are non-NPNT drones with DANs to be phased out, so pilots can be retrained
+on NPNT compliant UASs?
+\item Is there a purpose to NPNT when we are allowing DAN-registered UASs
+to fly?
+\end{enumerate}
+\item Network ID: UTM-SP Discovery and Data Submission\sidenote{See Tech Report (draft) Section 2.1.6.1}
+\begin{enumerate}
+\item Forwarding
+\item DSS + P2P
+\end{enumerate}
+\item Network ID: General availability of Telemtery data\sidenote{See Tech Report (draft) Section 2.1.6.2}
+\begin{enumerate}
+\item no
+\item restrict to 50m radius around actor
+\item no restrictions
+\end{enumerate}
+\item Network ID: General availability of Operational Data or Authorisation
+data\sidenote{See Tech Report (draft) Section 2.1.6.3}
+\begin{enumerate}
+\item no
+\item restrict to 50m radius around actor
+\item no restrictions
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Use cases}
+
+\begin{sidewaystable}
+\begin{centering}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+Interface & \rotatebox{90}{Mode} \rotatebox{90}{Reqest-Response} \rotatebox{90}{Publish-Subscribe} &  & TCP & UDP &  & \tabularnewline
+\hline 
+\hline 
+I1 & \ChoiceMenu[name={i1mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
+\hline 
+I2 & \ChoiceMenu[name={i2mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
+\hline 
+I3 & \ChoiceMenu[name={i3mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
+\hline 
+I4 & \ChoiceMenu[name={i4mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
+\hline 
+I5 & \ChoiceMenu[name={i5mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
+\hline 
+ &  &  &  &  &  & \tabularnewline
+\hline 
+ &  &  &  &  &  & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\caption{Interfaces}
+
+\end{sidewaystable}
+
+\begin{enumerate}
+\item For each case\sidenote{See Tech Report (draft) sections 2.1.5.1, 2.1.6.1}:
+\begin{enumerate}
+\item What should be the interaction flow?
+\item Request-Response or PubSub?
+\item What messaging protocol to use?
+\begin{enumerate}
+\item Possible options: MQTT, XMPP, others
+\end{enumerate}
+\item What network layer protocol to use?
+\begin{enumerate}
+\item Possible options: TCP/IP, UDP, others
+\end{enumerate}
+\item What should be the data format?
+\begin{enumerate}
+\item Possible options: JSON, XML, Thrift, Protobuf, others
+\end{enumerate}
+\item What data or part thereof should be signed and how?
+\item What data or part thereof should be encrypted and how? 
+\item Single/Multi UTM-SP in same operational volume
+\begin{enumerate}
+\item Which uses cases have any ramifications
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Privacy}
+\begin{enumerate}
+\item Which Operational use cases\sidenote{See Tech Report (draft) Appendix 3.2}
+or Operational scenarios\sidenote{See Tech Report (draft) Appendix 3.1}
+require encryption beyond\sidenote{End-to-end encryption, etc.} channel
+encryption between UAS and UTM/DCSP already mandated by ASTM?
+\end{enumerate}
+
+\subsection{Security}
+\begin{enumerate}
+\item Programmability: proposals
+\begin{enumerate}
+\item Auditable programming process
+\item Cryptographically secure programming process\sidenote{Similar to NPNT}
+\end{enumerate}
+\item Programmability: Who should/should not be able to program the remote
+ID into hardware
+\begin{enumerate}
+\item Remote ID Manufacturer
+\item UAS Manufacturer
+\item Operator
+\item Pilot
+\end{enumerate}
+\end{enumerate}
+
+\section{Adoption}
+\begin{enumerate}
+\item How would existing drones without any compliant RemoteID hardware
+become compliant?
+\begin{enumerate}
+\item Integrating with Remote ID hardware on market (to be imported, integrated
+and tested)
+\item development of Remote ID chip/board in-house (open-sourced designs
+% \begin{lyxgreyedout}
+% insert cfs.%
+% \end{lyxgreyedout}
+{} are available) \& integration
+\end{enumerate}
+\item What should the timeline by stakeholder be
+\begin{enumerate}
+\item UAS Manufacturers
+\begin{enumerate}
+\item 6 months: product development/integration, testing
+\item 3 months compliance testing \& approval
+\item Leeway: 3 months
+\end{enumerate}
+\item UFII-UTM infrastructure for enablement
+\begin{enumerate}
+\item development of interfaces/protocols (2 months)
+\item implementation (6 months)
+\end{enumerate}
+\item Operators \& Pilots
+\begin{enumerate}
+\item Training (?? months)
+\end{enumerate}
+\item Law Enforcement
+\begin{enumerate}
+\item Additional Hardware (?? months)
+\item DSP integration (?? months)
+\item Training (3 months - 2 years)
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\section{Supplementary issues}
+
+\TextField[charsize={8pt},multiline=true,height={0.4\textheight},width={\textwidth},name={supplementary_issues},bordercolor={0.2 0.2 0.7},default={}]{} \\
+
+\section{Comments}
+
+\TextField[charsize={8pt},multiline=true,height={0.4\textheight},width={\textwidth},name={comments},bordercolor={0.2 0.2 0.7},default={}]{} \\
+\Submit[export=HTML]{Submit}
+\end{Form} 
+\nocite{*}
+\end{document}

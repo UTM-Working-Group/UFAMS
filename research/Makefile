@@ -42,8 +42,10 @@ tech-reports/remote-id.pdf: tech-reports/remote-id.tex ua_wgs_base.cls Bibliogra
       pdflatex remote-id.tex && \
 	  pdflatex remote-id.tex
 
-questionnaires/remote-id.pdf: questionnaires/remote-id.lyx
-	lyx --export pdf2 questionnaires/remote-id.lyx
+questionnaires/remote-id.pdf: questionnaires/remote-id.tex ua_wgs_base.cls 
+	export TEXINPUTS="..:" && \
+	  cd questionnaires && \
+	  pdflatex remote-id.tex
 
 clean:
 	rm -f *.pdf papers/*.pdf tech-reports/*.pdf questionnaires/*.pdf
