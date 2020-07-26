@@ -9,3 +9,11 @@ research/VERSION.pdf
 
 .DS_Store
 ._*
+
+*.aux
+*.bbl
+*.blg
+*.log
+*.nlo
+*.out
+*.toc
