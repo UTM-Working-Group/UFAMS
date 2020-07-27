@@ -4,8 +4,8 @@
 \doctype{Questionnaire}
 \doctypeinitials{Q}
 \docid{1}
-\workinggroup{UTM Working Group}
-\workinggroupinitials{UTMWG}
+\workinggroup{Remote ID Working Group}
+\workinggroupinitials{RIDWG}
 \doctitle{Remote ID and Tracking}
 
 \hypersetup{pdftitle={Remote Identification and Tracking for Unmanned Aircraft Systems},
@@ -23,7 +23,7 @@
 
 \begin{document}
 \maketitle
-UTM Working Group\marginnote{\href{https://groups.google.com/forum/\#!forum/utm-wg}{Website};
+Remote ID Working Group\marginnote{\href{https://groups.google.com/forum/\#!forum/utm-wg}{Website};
 Address feedback and comments to \href{mailto:sayandeep@deepcyan.ai}{sayandeep@deepcyan.ai}
 or \href{mailto:abhiroop@algopixel.tech}{abhiroop@algopixel.tech}.}
 \begin{abstract}
@@ -60,107 +60,81 @@ Organisation Roles & \CheckBox[name=org_role_mfg,width={4mm},height={4mm}]{UAS M
 \rule[0.5ex]{0.75\paperwidth}{1pt}
 \end{fullwidth}
 
-\section{Architecture}
+\section{Identification}
+
 
 \begin{enumerate}
-\item \texttt{ID} field of Remote ID data proposals \sidenote{See Tech Report (draft) Section 2.1.1.2}\\
+\item Non-NPNT UAS and the \texttt{ID} field\marginnote{See Tech Report Section 2.1.2.1}\\
 \ChoiceMenu[radio,name=q1_dan]{}{{Allow DAN},{Disallow DAN}}
-\item Non-NPNT Compliant drones\sidenote{See Tech Report (draft) Section 2.1.3}
+\item Non-NPNT Compliant drones
 \begin{enumerate}
-\item Are non-NPNT drones with DANs to be phased out, so pilots can be retrained
-on NPNT compliant UASs?
-\item Is there a purpose to NPNT when we are allowing DAN-registered UASs
-to fly?
-\end{enumerate}
-\item Network ID: UTM-SP Discovery and Data Submission\sidenote{See Tech Report (draft) Section 2.1.6.1}
-\begin{enumerate}
-\item Forwarding
-\item DSS + P2P
-\end{enumerate}
-\item Network ID: General availability of Telemtery data\sidenote{See Tech Report (draft) Section 2.1.6.2}
-\begin{enumerate}
-\item no
-\item restrict to 50m radius around actor
-\item no restrictions
-\end{enumerate}
-\item Network ID: General availability of Operational Data or Authorisation
-data\sidenote{See Tech Report (draft) Section 2.1.6.3}
-\begin{enumerate}
-\item no
-\item restrict to 50m radius around actor
-\item no restrictions
+\item Should exemptions for DAN registered drones be phased out, so pilots can be retrained on NPNT compliant UASs?
+\item Is there a purpose to NPNT if DAN-registered UASs
+are permitted to fly?
 \end{enumerate}
 \end{enumerate}
 
-\subsection{Use cases}
-
-\begin{sidewaystable}
-\begin{centering}
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
-Interface & \rotatebox{90}{Mode} \rotatebox{90}{Reqest-Response} \rotatebox{90}{Publish-Subscribe} &  & TCP & UDP &  & \tabularnewline
-\hline 
-\hline 
-I1 & \ChoiceMenu[name={i1mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
-\hline 
-I2 & \ChoiceMenu[name={i2mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
-\hline 
-I3 & \ChoiceMenu[name={i3mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
-\hline 
-I4 & \ChoiceMenu[name={i4mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
-\hline 
-I5 & \ChoiceMenu[name={i5mode},radio,radiosymbol=,align=2,height=1mm,width=1mm]{}{,} &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  & \tabularnewline
-\hline 
-\end{tabular}
-\par\end{centering}
-\caption{Interfaces}
-
-\end{sidewaystable}
+\section{Tracking}
 
 \begin{enumerate}
-\item For each case\sidenote{See Tech Report (draft) sections 2.1.5.1, 2.1.6.1}:
-\begin{enumerate}
-\item What should be the interaction flow?
-\item Request-Response or PubSub?
-\item What messaging protocol to use?
-\begin{enumerate}
-\item Possible options: MQTT, XMPP, others
+
+\item General availability of Telemtery data\marginnote{See Tech Report Section 2.2.4.1}
+	\begin{enumerate}
+	\item unrestricted
+	\item restrict to 50m radius around actor
+	\item prohibit
+	\end{enumerate}
+\item General availability of Operational Data or Authorisation
+data\marginnote{See Tech Report Section 2.2.4.2}
+	\begin{enumerate}
+	\item unrestricted
+	\item restrict to 50m radius around actor
+	\item prohibit
+	\end{enumerate}
 \end{enumerate}
-\item What network layer protocol to use?
+
+\subsection{Network Remote ID}
+
 \begin{enumerate}
-\item Possible options: TCP/IP, UDP, others
+\item Network ID: UTM-SP Discovery and Data Submission\marginnote{See Tech Report Section 2.2.2.2}
+	\begin{enumerate}
+		\item Forwarding
+		\item DSS Enabled
+	\end{enumerate}
 \end{enumerate}
-\item What should be the data format?
+
+\paragraph{Interfaces}\marginnote{See Tech Report Section 2.2.2.3}
+
 \begin{enumerate}
-\item Possible options: JSON, XML, Thrift, Protobuf, others
-\end{enumerate}
-\item What data or part thereof should be signed and how?
-\item What data or part thereof should be encrypted and how? 
-\item Single/Multi UTM-SP in same operational volume
-\begin{enumerate}
-\item Which uses cases have any ramifications
-\end{enumerate}
-\end{enumerate}
+  \item Publish-Subscribe Messaging protocol to use \\
+  Options: MQTT, XMPP, others
+  \item Request-Response Messaging protocol to use \\
+  Options: $\ldots$
+  \item Data format \\
+  JSON, Protocol buffers, Thrift, XML, etc.
+  \item Interaction pattern: deviations from below \\
+  \begin{enumerate}
+    \item \texttt{Interface 1}: Publish-Subscribe
+    \item \texttt{Interface 2}: Request-Response
+    \item \texttt{Interface 3}: Request-Response
+    \item \texttt{Interface 4}: Publish-Subscribe
+    \item \texttt{Interface 5}: Request-Response
+  \end{enumerate}
 \end{enumerate}
 
 \subsection{Privacy}
 \begin{enumerate}
-\item Which Operational use cases\sidenote{See Tech Report (draft) Appendix 3.2}
-or Operational scenarios\sidenote{See Tech Report (draft) Appendix 3.1}
-require encryption beyond\sidenote{End-to-end encryption, etc.} channel
+\item Which Operational scenarios\marginnote{See Tech Report Appendix 4.3} or Operational use cases\marginnote{See Tech Report Appendix 4.4}
+require encryption beyond\marginnote{End-to-end encryption, etc.} channel
 encryption between UAS and UTM/DCSP already mandated by ASTM?
 \end{enumerate}
 
-\subsection{Security}
+\subsection{Module Security}
 \begin{enumerate}
-\item Programmability: proposals
+\item Programming process\marginnote{See Tech Report section 2.1.2.2} 
 \begin{enumerate}
-\item Auditable programming process
-\item Cryptographically secure programming process\sidenote{Similar to NPNT}
+\item Auditable
+\item Cryptographically secure\marginnote{Similar to NPNT}
 \end{enumerate}
 \item Programmability: Who should/should not be able to program the remote
 ID into hardware
@@ -172,7 +146,7 @@ ID into hardware
 \end{enumerate}
 \end{enumerate}
 
-\section{Adoption}
+\section{Adoption}\marginnote{See Tech Report Section 2.5}
 \begin{enumerate}
 \item How would existing drones without any compliant RemoteID hardware
 become compliant?

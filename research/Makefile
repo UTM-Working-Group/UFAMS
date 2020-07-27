@@ -1,4 +1,4 @@
-all: papers tech-reports VERSION.pdf questionnaires
+all: papers tech-reports questionnaires VERSION.pdf
 
 VERSION.pdf:
 	git -c color.ui=always log --stat -n1 | aha | DISPLAY=:0 wkhtmltopdf - VERSION.pdf
@@ -45,6 +45,7 @@ tech-reports/remote-id.pdf: tech-reports/remote-id.tex ua_wgs_base.cls Bibliogra
 questionnaires/remote-id.pdf: questionnaires/remote-id.tex ua_wgs_questionnaire.cls 
 	export TEXINPUTS="..:" && \
 	  cd questionnaires && \
+	  pdflatex remote-id.tex && \
 	  pdflatex remote-id.tex
 
 clean:

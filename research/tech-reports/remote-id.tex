@@ -43,8 +43,8 @@ Risk Assessment, Law Enforcement, Counter-UAS
 \addcontentsline{toc}{section}{\nameref{sec:wg}}
 
 This working group meets almost weekly to discuss the roles, responsibilities
-and activities to be performed by a Unmanned Traffic Management Service
-Provider (UTM-SP)\nomenclature{DSP}{DigitalSky Service Provider; used interchangeably with UTM-SP}\nomenclature{UTM}{Unmanned Traffic Management; an activity similar to Air Traffic Management for manned flights}\nomenclature{UTM-SP}{UTM Service Provider; an organisation providing UTM services, including but not limited to Remote Identification and Tracking of UASs; used interchangeably with DSP}
+and activities to be performed by a DigitalSky\nomenclature{DSP}{DigitalSky Service Provider; encompasses UTM-SP and other services that enable UAS operations in the DigitalSky ecosystem} and Unmanned Traffic Management Service
+Provider (UTM-SP)\nomenclature{UTM}{Unmanned Traffic Management; an activity similar to Air Traffic Management for manned flights}\nomenclature{UTM-SP}{UTM Service Provider; an organisation providing UTM services, including but not limited to Remote Identification and Tracking of UASs; used interchangeably with DSP}
 in the context of Indian drone industry. It also aims to document
 the ways in which a UTM-SP interacts with other stakeholders in the
 industry, namely, manufacturers, operators, pilots, UFII, and so forth.
@@ -422,7 +422,7 @@ features of this proposal are:
 \item Allows for using both Broadcast-based Remote Id and Network-based
 Remote ID
 \item Broadcast-based Remote Id should transmit data using Bluetooth or
-WiFi advertisements
+WiFi
 \item Allows signing and encryption of Remote Id messages
 \item Operation of aircrafts with no Remote Id is allowed if the operator
 reports the area and time of operation before-hand
@@ -484,12 +484,11 @@ TBD. Cite \cite{IETF-DRIP-arch-draft,IETF-DRIP-reqs-draft,IETF-crowd-sourced-rid
 
 \subsection{``Comparison'' ASTM vs others}
 
+At the current time, the ASTM Remote ID specification is the only published standard. It is expected to be widely adopted, having seen support from various organisations and policy makers. 
+
 \begin{lyxgreyedout}
-Either 
-
-1 include note about why we are not comparing with IETF spec drafts
-
-2. compare with IETF spec drafts%
+To be expanded \\
+Shortcomings of ASTM: Security and Hacking, some of which IETF DRIP is attempting to address.
 \end{lyxgreyedout}
 
 
@@ -510,19 +509,20 @@ etc. The purpose of this integration is to enable air traffic management
 in a concerted fashion.
 
 The UFII will enable private innovators to provide services for unmanned
-air traffic management. Such innovators are termed as Unmanned Traffic
-Management Service Providers (UTM-SP). UTM-SPs would in their regions
-of operation coordinate with UAS manufacturers, operators, pilots
-and the UAS\textquoteright s wherever possible to maintain conformance
-with Civil Aviation Requirements and RPAS (UAS) Guidance Manual. The
+air traffic management. Such innovators are termed as DigitalSky Service Providers (DSP) 
+or Unmanned Traffic Management Service Providers (UTM-SP) if the offerings 
+cover traffic management only. In their regions of operation, DigitalSky/UTM SPs 
+would provide platforms to allow UAS manufacturers, operators, pilots
+and the UAS\textquoteright s to maintain conformance
+with Civil Aviation Requirements and other regulation wherever possible. The
 UFII would also define the data exchange formats for communication
-between itself and UTM-SPs and between UTM-SPs for various scenarios
+between itself and DigitalSky/UTM SPs and between DigitalSky/UTM SPs for various use-cases
 to ensure interoperability.
 
 \subsection{UTM/DigitalSky Service Providers}
 
 While the final decisions for most critical processes such as Flight
-Plan approval, etc. would rest with the UFII, UTM-SPs would provide
+Plan approval, etc. would rest with the UFII, DigitalSky/UTM SPs would provide
 a valuable intermediate layer by enabling informed flight planning
 and operations by assessing risks associated with flight plans, providing
 terrain, mapping \& weather data, providing realtime information about
@@ -533,7 +533,7 @@ for RPAS Manufacturers, Pilots, Operators and RPAS units.
 \subsection{DigitalSky}
 
 The DigitalSky portal is the UTM/DigitalSky Service Provider portal
-that would be operated by the AAI as a standard bearer for UTM-SPs.
+that would be operated by the AAI as a standard bearer for DigitalSky SPs.
 The mission of DigitalSky is to create a completely digital, paperless,
 and presenceless process, thus fast-forwarding to a future of on-demand
 seamless permissions for UAS/RPAS\nomenclature{RPAS}{Remotely Piloted Aircraft System; used interchangeably with UAS},
@@ -553,18 +553,20 @@ there will always be a government operated infrastructure, DigitalSky\footnote{h
 that can be used to verify identity of pilots and operators, and operational
 authorisation of UASs.
 
-Currently, the ASTM International stamdard specification for Remote
+Currently, the ASTM International Remote ID specification for Remote
 ID \cite{ASTM:F3411:19} is the only publication by an internationally
 recognised standards body. It has received support from International
 Civil Aviation Organization (ICAO\nomenclature{ICAO}{International Civil Aviation Organization})\footnote{Needs citation}.
 The standard has been published after several years of study and meets
 the need of inducting UASs in a safe way. In the following sections,
 we analyse the identification and tracking use-cases, with attention
-to how \cite{ASTM:F3411:19} would work in practice.
+to how adoption of this standard \cite{ASTM:F3411:19} would work in practice.
 
 \section{Identification}
 
-The three fields for identity information defined on \cite[p10]{ASTM:F3411:19}
+\subsection{Identity}
+
+The three fields for identity information defined as per the specification \cite[p10]{ASTM:F3411:19}
 are:
 \begin{enumerate}
 \item \texttt{UAS ID} should be programmed in with a unique ID that can
@@ -572,8 +574,7 @@ be traced back to the pilot, operator and/or flight authorisation
 by authorised roles.
 \item \texttt{UAS ID Type} to allow for multiple types of identification
 data
-\item \texttt{Operator ID} with the format \texttt{<ICAO Nationality Mark
-A>.<CAA-issued ID for the remote pilot or operator>}, so \texttt{VN.<UAOP>}
+\item \texttt{Operator ID} with the format \texttt{<ICAO Nationality Mark>.<CAA-issued ID for the remote pilot or operator>}, so \texttt{VN.<UAOP>}
 \end{enumerate}
 \texttt{UAS ID} may be populated using as follows. See also \ref{subsec:Lifetime}
 \begin{enumerate}
@@ -593,7 +594,7 @@ include
 \item DAN: For non-NPNT compliant drones
 \item A static (one-time-programmed) unique ID, maybe \texttt{UUIDv4} (random),
 akin MAC for network hardware, which is decoupled from UIN/DAN, etc.
-Within the UTM-SP/UFII architecture, this ID would be registered against
+Within the DigitalSky/UTM SP/UFII architecture, this ID would be registered against
 UIN or DAN registry.
 \item Pilot ID or Operator ID: In India this could be Aadhar / Udyog Aadhar
 / ROC CIN or UAOP (delinked from UIN/NPNT). 
@@ -602,27 +603,33 @@ UIN or DAN registry.
 \item IMSI of the SIM Card in the LTE device (only over Network)
 \end{enumerate}
 
-\subparagraph{Considerations}
-\begin{itemize}
-\item Reprogrammability\\
-The ASTM model of reprogramming devices, potentially as frequently
-as each for UTM session, means the process for reprogramming requires
-extra scrutiny. One-time programming averts a lot of security complexities,
-but would limit reuse/repurposing: RId modules will need to be registered
-against UIN in case of replacement.
-\item Redundancy: In the future, a UAS could potentially have multiple RemoteIDs
-devices for redundancy or with differing capabilties/operating parameters. 
-\item Non NPNT-compliant drones\\
-DAN is potentially a valid CAA-issued ID and could be used in the
+
+\subsection{Open questions and other considerations}
+
+\subsubsection{Non-NPNT UAS}
+
+DAN is arguably a valid CAA-issued ID and could be used in the
 UAS ID. The policy of allowing non-NPNT compliant drones that have
 been issued with DANs to fly on a case-by-case exemption basis is
 the current best practice for the industry. If this is not likely
 to change for a significant duration\footnote{Upward of 3 months}
 after the adoption period set forth for Remote ID, DAN based Remote
-ID may also be used directly, iff UINs and DANs do not conflict. If
+ID may also be used directly, if and only if UINs and DANs do not conflict. If
 a conflict-free assignment strategy is not feasible, a more systemic
 solution would be required.
-\end{itemize}
+
+\subsubsection{Reprogrammability}
+The ASTM model of reprogramming devices, potentially as frequently
+as once every UTM session, means the process for reprogramming requires
+extra scrutiny. One-time programming averts a lot of security complexities,
+but would limit reuse/repurposing: RID modules will need to be registered
+against UIN in case of replacement.
+
+\subsubsection{Redundancy}
+
+In the future, it is conceivable that a UAS could have multiple Remote ID
+devices for redundancy or with differing capabilties/operating parameters.
+This use-case has not been considered in previous literature.
 
 \section{Tracking}
 
@@ -646,91 +653,83 @@ from civilian monitoring systems and have it only visible to authorised
 Defence personnel. Details are beyond the scope of this paper. Defence
 UAVs have special needs and use cases. It is therefore recommended
 that initially Defence UAVs should be kept out of the purview of any
-Remote ID programme ,knowing however that such a programme could be
+Remote ID programme, knowing however that such a programme could be
 of use for Defence purposes in the future.
 
 \begin{lyxgreyedout}
-Subsectino on Data collection, storage, transmission
+Subsection on Data collection, storage, transmission
 
-Who gets to do what? See DCSP discussion.%
+Who gets to do what? See DCSP discussion (TBD).
 \end{lyxgreyedout}
 
 
 \subsection{Network ID}
 
- Network Remote ID also includes provisions for participation in
-Remote ID by non-equipped   UAS (that is, UAS that are neither broadcast
-capable nor equipped to communicate with a Remote ID Service Provider
-during flight, such as most radio-controlled model aircraft). These
-non-equipped network participants report their operations (for example,
-aircraft ID, location in terms of a volume of airspace, operating
-times) in advance during preflight approval phase. The information
-then may be used by Remote ID or DigitalSky service providers to display
-the operational volume and the identity of the UAS. Needs role based
-access for operational info. 
-
-\begin{figure}[tbh]
-\begin{centering}
-\subfloat[NRID-UC01\label{nrid-uc01}]{\begin{centering}
-\includegraphics[height=0.2\textheight]{../images/nrid-uc01}
-\par\end{centering}
-}~\subfloat[NRID-UC02\label{nrid-uc02}]{\begin{centering}
-\includegraphics[height=0.2\textheight]{../images/nrid-uc02}
-\par\end{centering}
-}\\
-\subfloat[No Remote ID (NORID-UC01)\label{norid-uc01}]{\centering{}\includegraphics[height=0.2\textheight]{../images/norid-uc01}}
-\par\end{centering}
-\caption{Network Remote ID Use cases}
-
-\end{figure}
-
-
-\subsubsection{List of Interfaces}
-
-See figures \ref{nrid-uc01}, \ref{nrid-uc02}, \ref{norid-uc01},
-\ref{fig:BRID-UC01}.
-
-\paragraph{Interface 1}
-
-Send Remote Id Message (GCS -> UTM SP) 
-
-\paragraph{Interface 2}
-
-Send Remote Id Message (UTM SP -> UFII) 
-
-\paragraph{Interface 3}
-
-Area UAS Activity (UFII -> UTM SP) 
-
-\paragraph{Interface 4}
-
-Send Remote Id Message (UAS -> UFII) 
-
-\paragraph{Interface 5}
-
-Store Flight Plan (UTM SP -> UFII)
-
-
-\subsubsection{Non-equipped UAS}
-
-UAS that do not adhere to the Digital Sky framework are outside the
-information system available. The most common scenario of identifying
-a UAS flying overhead can be done using Digital Sky without any modification
-to an NPNT compliant UAS, as every flight is notified before takeoff
-and Digital sky can provide information on flights happening overhead
-which have been planned. Flights outside of the Digital Sky Ecosystem
-(illegal ones according to the UAS regulations) will fail to be identified
-this way. Such drones will require a more complete Remote ID solution
-and their compliance to any future remote ID regulations is a policy
-enforcement issue. 
+Network Remote ID refers to the transmission of identification and tracking 
+data from the UAS via a wide area network such as the Internet using a 
+telecom network such as 4G/LTE, 5G and upward, or SATCOM or other technologies.
+The communication may be initiated from a Ground Control Station (see figure
+\ref{fig:nrid-uc01}) or the UAS (figure \ref{fig:nrid-uc02}).
+The typical recipient of this data is either a Data Collection Service 
+Provider (DCSP) or an Unmanned Traffic Management (UTM) system that performs
+a data collection role or activity. Network Remote ID includes provisions for
+participation of non-equipped UAS (figure \ref{fig:norid-uc01}). This is 
+relevant for UAS that are neither broadcast capable nor equipped to communicate
+with a Remote ID Service Provider during flight, such as most radio-controlled
+model aircraft. These non-equipped network participants report their 
+operations (for example, aircraft ID, location in terms of a volume of 
+airspace, operating times) in advance during preflight approval phase. The
+information then may be used by UTM or DigitalSky service providers to
+display the operational volume and the identity of the UAS depending on role based
+access policies.
 
 It should however be noted that when considering BVLOS operations,
 broadcast remote ID will play a more important role in aiding deconfliction,
 and is essential for operating in remote Areas where Network Remote
-ID is not available. 
+ID is not available.
+
+\begin{figure}[p]
+\begin{centering}
+\subfloat[NRID-UC01\label{fig:nrid-uc01}]{\begin{centering}
+\includegraphics[height=0.2\textheight]{../images/nrid-uc01}
+\par\end{centering}
+}\\
+\subfloat[NRID-UC02\label{fig:nrid-uc02}]{\begin{centering}
+\includegraphics[height=0.2\textheight]{../images/nrid-uc02}
+\par\end{centering}
+}\\
+\subfloat[No Remote ID (NORID-UC01)\label{fig:norid-uc01}]{\centering{}\includegraphics[height=0.2\textheight]{../images/norid-uc01}}
+\par\end{centering}
+\caption{Network Remote ID Use cases\label{fig:NRID-UCs}}
+
+\end{figure}
 
 
-\subsection{Open Questions}
+\subsubsection{List of Interfaces\label{sec:interfaces}}
+
+See figures \ref{fig:nrid-uc01}, \ref{fig:nrid-uc02}, \ref{fig:norid-uc01},
+\ref{fig:BRID-UC01}.
+
+\paragraph{\texttt{Interface 1}}
+
+Send Remote Id Message (GCS $\rightarrow$ UTM SP) 
+
+\paragraph{\texttt{Interface 2}}
+
+Send Remote Id Message (UTM SP $\rightarrow$ UFII) 
+
+\paragraph{\texttt{Interface 3}}
+
+Area UAS Activity (UFII $\rightarrow$ UTM SP) 
+
+\paragraph{\texttt{Interface 4}}
+
+Send Remote Id Message (UAS $\rightarrow$ UTM SP) 
+
+\paragraph{\texttt{Interface 5}}
+
+Store Flight Plan (UTM SP $\rightarrow$ UFII)
+
 
 \subsubsection{Messaging proposals}
 
@@ -740,89 +739,50 @@ UFII \&/or DigitalSky should provide an available endpoint for any
 and all messaging, including Remote ID (Network) messages. These would
 be forwarded to the relevant UTM-SP.
 
-\paragraph{DSS + P2P}
+\subparagraph{Comments}
+
+This endpoint mechanism for forwarding realtime telemetry messages 
+(Remote ID) would lead to DigitalSky becoming the bottleneck and a single
+point of failure, apart from adding latency. However it affords higher 
+regulatory control over messages delivery.
+
+
+\paragraph{DSS Enabled}
 
 UFII and/or DigitalSky should provide a Discovery and Synchronisation
-Service that allows Operators/Pilots/UASs to discover UTM-SPs in the
+Service (DSS) that allows Operators/Pilots/UASs to discover UTM-SPs in the
 region of operation and their messaging API endpoints. Following ``Discovery''
-and choice of UTM-SP is made, messages are directed to that UTM-SP's
-API endpoints.
+and choice of UTM-SP is made, messages are directed to that (``managing'') 
+UTM-SPs API endpoints. Then the managing UTM-SP may forward the Network Remote
+ID messages of UAV and its operational information to UFII and other UTM-SPs 
+on request for deconfliction services or allow them to subscribe to live 
+update of these messages. 
 
-\subsubsection{General availability of Telemetry\label{subsec:availability-Telemetry}}
+\subparagraph{Comments}
 
-Use-case: 
+Prefered to forwarding alternative by consensus so far.
 
-\[
-\text{General Public}\ensuremath{\xrightarrow{\text{query UAS/Network RId+telemetry}}}\text{UTM SP}
-\]
- 
+\subsubsection{Interfaces}
+Some preferences are noted below. See also figures \ref{fig:nrid-uc01}, \ref{fig:nrid-uc02}, \ref{fig:norid-uc01} \& \ref{fig:BRID-UC01}.
 
-Member of the general public should be able to view/query Telemtery
-data of UASs in area; typical application: view on map.
 \begin{enumerate}
-\item no
-\item restrict to 50m radius around actor
-\item no restrictions
+  \item Publish-Subscribe Messaging protocol \\
+  Prefer MQTT over alternatives, such as XMPP
+  \item Request-Response Messaging protocol to use \\
+  Options: $\ldots$
+  \item Network layer protocol \\
+  UDP should be prefered where delivery guarantees are not needed, viz. Interfaces 1 \& 4. TCP should be preferred where guarantees are needed, viz. UAV $\leftrightarrow$ GCS communication and emergency C2 commands, such as \texttt{RTL} or \texttt{HOLD}.
+  \item Data format \\
+  JSON or Protocol buffers prefered over alternatives Thrift, XML, etc.
+  \item Interaction pattern \\
+  \begin{enumerate}
+    \item \texttt{Interface 1}: Publish-Subscribe
+    \item \texttt{Interface 2}: Request-Response
+    \item \texttt{Interface 3}: Request-Response
+    \item \texttt{Interface 4}: Publish-Subscribe
+    \item \texttt{Interface 5}: Request-Response
+  \end{enumerate}
 \end{enumerate}
-
-\subsubsection{General availability of Operational Authorisation or Data\label{subsec:availability-of-operational}}
-
-Is the use-case: 
-
-\[
-\text{General Public}\ensuremath{\xrightarrow{\text{query UAS/Operation Data or Authorisation by Network RId}}}\text{UTM SP}
-\]
- 
-
-one which must be addressed immediately, or when public demand for
-it is apparent?
-
-Options: 
-\begin{enumerate}
-\item no
-\item 50m
-\item restrict
-\end{enumerate}
-
-\subsubsection{Case by case}
-
-For each use case figures \ref{nrid-uc01}, \ref{nrid-uc02}, \ref{norid-uc01},
-\ref{fig:BRID-UC01}
-\begin{enumerate}
-\item What should be the interaction flow?
-\item Request-Response or Publish-Subscribe?
-\item What messaging protocol to use?
-\begin{enumerate}
-\item Possible options: MQTT, XMPP
-\end{enumerate}
-\item What network layer protocol to use?
-\begin{enumerate}
-\item Possible options: TCP/IP, UDP
-\end{enumerate}
-\item What should be the data format?
-\begin{enumerate}
-\item Possible options: JSON, XML, Thrift, Protobuf
-\end{enumerate}
-\item What data should be signed and how?
-\item What data should be encrypted and how? 
-\item Single/Multi UTM-SP in same operational volume
-\begin{enumerate}
-\item Which uses cases have any ramifications
-\end{enumerate}
-\end{enumerate}
-
-\subsubsection{Remote ID Data}
-\begin{enumerate}
-\item By default, all fields as listed in Table 1 of ASTM Remote Id Spec
-can be public. Possible exceptions could be Operator Position and
-Identity. Need to come up with an encryption mechanism to transmit
-sensitive data which should only be accessible to authorized entities. 
-\begin{enumerate}
-\item Encryption or omission?
-\item If encryption, who is the intended recipient?
-\end{enumerate}
-\end{enumerate}
-
 
 \paragraph{Hardware}
 \begin{itemize}
@@ -839,7 +799,7 @@ a certain set of criteria) to be mandatorily fitted with a (built-in
 or add-on) Network Remote ID transmitting device and regulations requiring
 the device to be actually transmitting. In the United States, the
 FAA in its draft Regulation has proposed that virtually all UAS should
-be covered, which perhaps goes too far. A
+be covered, which perhaps goes too far.
 \item Facilitating regulation which would govern the activities of the location
 data collector service providers (DCSP). Such regulation would need
 to cover, e.g., what data the DCSP would supply to DSSPs (e.g. for
@@ -852,7 +812,7 @@ the Network Remote ID / Tracking infrastructure.
 
 \subsection{Broadcast ID}
 
-The broadcast protocol can be adopted as is from the ASTM standard
+The broadcast protocol should be adopted as-is from the ASTM standard.
 
 \begin{figure}[tbh]
 \begin{centering}
@@ -864,12 +824,71 @@ The broadcast protocol can be adopted as is from the ASTM standard
 \caption{Broadcast Remote ID Use cases}
 \end{figure}
 
+\subsection{Open Questions and considerations}
 
-\section{Hardware}
+\subsubsection{General availability of Telemetry\label{subsec:availability-Telemetry}}
 
-\subsection{Security aspects: Programmability}
+Use-case: 
+
+\[
+\text{General Public}\ensuremath{\xrightarrow{\text{query UAS/Network RId+telemetry}}}\text{UTM SP}
+\]
+ 
+
+Member of the general public should be able to view/query Telemtery
+data of UASs in area; typical application: view on map.
+
 \begin{enumerate}
-\item Who should be able to program the remote ID into hardware: Manufacturer/Operator/Pilot?
+\item unrestricted
+\item restrict to 50m radius around actor
+\item prohibit
+\end{enumerate}
+
+\subsubsection{General availability of Operational Authorisation or Data\label{subsec:availability-of-operational}}
+
+There may be a foreseeable need to address privacy concerns. A private citizen should be able to check any UAS activity over his property and report concerned agencies of any suspicious activity. To support this, a preliminary identification (UAS Id, Basic Operational Info) would need to be made available generally. Is the use-case: 
+
+\[
+\text{General Public}\ensuremath{\xrightarrow{\text{query UAS/Operation Data or Authorisation by Network RId}}}\text{UTM SP}
+\]
+ 
+should the availability be restricted as follows: 
+\begin{enumerate}
+\item unrestricted
+\item restrict to 50m radius around actor
+\item prohibit
+\end{enumerate}
+
+\paragraph{Comments}
+
+Avianco: option 2
+
+\subsubsection{Privacy}
+Which Operational use cases (see Appendix \ref{sec:OpScenarios})
+or Operational scenarios (see Appendix \ref{sec:OpUseCases})
+require encryption beyond channel
+encryption (read End-to-end encryption, etc.) between UAS and UTM/DCSP already mandated by ASTM?
+
+
+\section{Rogue UAS}
+
+UASs that cooperate with the network of UTM service providers must either 
+operate adhering to flight plan authorisation only in the case of 
+non-equipped UAS, or perform Remote ID data exchange in addition to 
+conforming to authorised flight plans, when equipped with Remote ID. 
+It is conceivable that UASs that there would be pilots and UASs operating
+without flight plan authorisation or Remote ID data exchange. For our 
+purposes all such activity would be characterised as ``rogue''. The Remote
+ID interfaces discussed in section \ref{sec:interfaces} aid law 
+enforcement bodies to identify such activity by eliminating compliant
+UAS activity from their consideration by querying a local UTM-SP that may 
+in turn query other UTM-SPs or the UFII for further information where 
+necessary.
+
+
+\section{Module Security}
+\begin{enumerate}
+\item Who should be able to program the Remote identity data into hardware module: Manufacturer/Operator/Pilot?
 \item Is it One-Time-Programmable? If not how do we secure reprogramming
 process?
 \item What if it is an add-on hw module?
@@ -877,9 +896,10 @@ process?
 \item Perhaps the programmer should have an auditable process
 \item Is it possible to have a cryptographically secure process for this
 similar to NPNT?
+\item How to ensure that Remote ID messages cannot be spoofed, or replay-attacked?
 \end{enumerate}
 
-\section{Adoption}
+\section{Adoption by Ecosystem}
 \begin{enumerate}
 \item How would existing drones without any compliant RemoteID hardware
 become compliant?
@@ -988,7 +1008,7 @@ are the unit serial number
 \item [{Unit~Serial~Number}] \texttt{123456789ABC}
 \end{description}
 
-\section{Operational Scenarios}
+\section{Operational Scenarios\label{sec:OpScenarios}}
 
 \begin{table}[tbh]
 \begin{centering}
@@ -1022,7 +1042,7 @@ S07 & FAA/V2-5 & Federal Public Safety Request for UTM Information & \tabularnew
 \end{table}
 
 
-\section{Operational Use cases}
+\section{Operational Use cases\label{sec:OpUseCases}}
 
 \begin{table}[tbh]
 \begin{centering}
