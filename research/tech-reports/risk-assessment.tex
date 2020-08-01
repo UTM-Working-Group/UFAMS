@@ -111,6 +111,7 @@ for membership.})
 \begin{tabular}{|c|c|c|}
 \hline 
 \textbf{Name} & \textbf{Email} & \textbf{Organisation}\tabularnewline
+\hline
 Sayandeep Purkayasth\footnotemark & \texttt{\href{mailto:sayandeep@deepcyan.ai}{sayandeep@deepcyan.ai}} & Deepcyan Software, India\tabularnewline
 Manish Shukla & \texttt{\href{mailto:manish.shukla393@gmail.com}{manish.shukla393@gmail.com}} & Zeta\tabularnewline
 Apurva Joshi & \texttt{\href{mailto:zapurva@gmail.com}{zapurva@gmail.com}} & IIT Bombay\tabularnewline
@@ -128,6 +129,57 @@ Apurva Joshi & \texttt{\href{mailto:zapurva@gmail.com}{zapurva@gmail.com}} & IIT
 
 Here is the text text text text text text text text text text text
 text text text text text.
+
+\begin{figure}[tbh]
+\begin{center}
+  \begin{tikzpicture}[auto,
+    block_center/.style ={rectangle, draw=black, thick, fill=white,
+      text width=15	em, text centered,
+      minimum height=4em, font=\ttfamily},
+    block_center_hi/.style ={rectangle, draw=black, thick, fill=cyanprocess,
+      text width=15	em, text centered,
+      minimum height=4em, font=\ttfamily},
+    block_center_free/.style ={rectangle,
+      text width=8em, text badly ragged,
+      minimum height=4em, font=\ttfamily},
+   line/.style ={draw, thick, -latex', shorten >=0pt}]
+    % outlining the flowchart using the PGF/TikZ matrix funtion
+    \matrix [column sep=5mm,row sep=3mm] {
+      % row 1
+      \node [block_center_hi] (draft1) {Document well-known Standard Scenarios \& Use-cases}; & \node[block_center](draft1a){Create Infographic on Operational categorisation}; \\
+      % row 2
+      \node [block_center_hi] (draft2) {Document new Standard Scenarios \& Use-cases}; & \node[block_center](publish1){Industry session (wide) on Standard Scenarios, Use-cases \& Infographic}; \\
+      % row 3
+      \node [block_center] (draft3) {Draft TR Ch. 3 addressing requirements for studies}; & \node [block_center] (draft3a) {Create Infographics for TR Ch. 3}; \\
+      % row 4
+       & \node[block_center](publish2){Industry sessions on updates to Standard Scenarios \& Use-cases (wide) and feedback on TR Ch. 3 (narrow)};\\
+      % row 5
+      \node [block_center] (draft4) {Redraft TR Ch. 3}; &  \\
+      % row 6
+       & \node [block_center] (consensus1) {Industry session (wide) on Feedback from \& Consensus on TR Ch. 3}; \\
+      % row 7
+	  \node [block_center] (publish) {Finalise TR Ch. 3 \& Paper and publish}; & \\
+      % row 8
+    };% end matrix
+    % connecting nodes with paths
+    \begin{scope}[every path/.style=line]
+      % paths for enrollemnt rows
+      \path (draft1) -- (draft2);
+      \path (draft1) -- (publish1);
+      \path (draft2) -- (publish1);
+      \path (draft1a) -- (publish1);
+      \path (draft4) -- (consensus1);
+      \path (draft3) -- (publish2);
+      \path (publish2) -- (draft4);
+      \path (draft3) -- (draft4);
+      \path (draft3a) -- (publish2);
+      \path (consensus1) -- (publish);
+    \end{scope}
+  \end{tikzpicture}
+\end{center}
+
+\caption{Workflow for Risk Assessment publications}
+\end{figure}
 
 \section{Scope}
 
@@ -240,8 +292,10 @@ and \ref{tab:new-use-cases}, respectively. Each of the above along
 with those in previous literature are detailed in the following sections.
 
 \begin{table}[tbh]
+\small
+\ttfamily
 \begin{centering}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|l|l|l|l|}
 \hline 
 \textbf{\#} & \textbf{Cf.} &  & \tabularnewline
 \hline 
@@ -250,15 +304,18 @@ S01 & SORA/STS01 & VLoS & \tabularnewline
 \hline 
 S02 & SORA/STS02 & BVLoS & \tabularnewline
 \hline 
-S03 & FAA/V2-1 & Nominal UTM Operations in Uncontrolled and Controlled Airspace & \tabularnewline
+S03 & FAA/V2-1 & Nominal UTM Operations in Uncontrolled  & \tabularnewline
+ & & and Controlled Airspace & \tabularnewline
 \hline 
 S04 & FAA/V2-2 & UVRs and Associated Operational Impacts & \tabularnewline
 \hline 
-S05 & FAA/V2-3 & Interactions between UAS and Manned Aircraft at Low Altitudes & \tabularnewline
+S05 & FAA/V2-3 & Interactions between UAS and Manned & \tabularnewline
+ & &  Aircraft at Low Altitudes & \tabularnewline
 \hline 
 S06 & FAA/V2-4 & Use of UTM to Remotely Identify UAS & \tabularnewline
 \hline 
-S07 & FAA/V2-5 & Federal Public Safety Request for UTM Information & \tabularnewline
+S07 & FAA/V2-5 & Federal Public Safety Request for UTM & \tabularnewline
+ & & Information & \tabularnewline
 \hline 
  & EASA/STS-01 &  & $\equiv$S01\tabularnewline
 \hline 
@@ -269,6 +326,8 @@ S07 & FAA/V2-5 & Federal Public Safety Request for UTM Information & \tabularnew
 \caption{Operational Scenarios in previous literature\label{tab:Operational-Scenarios-old}}
 \end{table}
 \begin{sidewaystable}
+\small
+\ttfamily
 \begin{centering}
 \begin{tabular}{|l|l|}
 \hline 
@@ -324,6 +383,8 @@ TCL4-5 & Report to FAA due to UAS Flight Incident\tabularnewline
 
 \begin{center}
 \begin{table}[tbh]
+\small
+\ttfamily
 \begin{centering}
 \begin{tabular}{|l|l|}
 \hline 
@@ -350,6 +411,8 @@ S01 & TBD\tabularnewline
 
 \begin{center}
 \begin{table}[tbh]
+\small
+\ttfamily
 \centering{}%
 \begin{tabular}{|l|l|}
 \hline 
@@ -366,9 +429,9 @@ UC04 & High EM Interference areas\tabularnewline
 \hline 
 UC05 & OOP\tabularnewline
 \hline 
- & \tabularnewline
+UC06 & Agricultural 001\tabularnewline
 \hline 
- & \tabularnewline
+UC07 & Agricultural 002\tabularnewline
 \hline 
  & \tabularnewline
 \hline 
@@ -652,6 +715,52 @@ kite surf, etc.)
 \item Airports, aerodromes and identified take-off and landing sites, model-flying
 sites
 \end{enumerate}
+
+\begin{table}[tbh]
+\small
+\ttfamily
+\begin{centering}
+\begin{longtable}{|l|l|l|l|}
+ \hline
+ \multicolumn{4}{|c|}{Risk/Hazard/Threat Parameter Categorisation Level} \\
+ \hline
+ 1 & 2 & 3 & 4 \\
+ \hline
+ \multirow{21}{3em}{Ground} & \multirow{8}{7em}{People}  & \multirow{4}{5em}{Population} & Permanently or cyclic \\
+  & & & populated areas \\\cline{4-4}
+  & & & Dense areas \\\cline{4-4}
+  & & & Sensitive areas \\\cline{4-4}
+  & & & Occasional or seasonal events \\\cline{3-4}
+  & & \multirow{3}{5em}{Security} & Military barracks \\
+  & & & Summits \\
+  & & & VIP protection \\\cline{2-4}
+  & \multirow{12}{5em}{Infrastructure} & \multirow{5}{3em}{Industry} & Permanent and non-permanent \\
+  & & & industrial sites \\\cline{4-4}
+  & & & VIP protection \\\cline{4-4}
+  & & & VIP protection \\\cline{4-4}
+  & & & VIP protection \\\cline{4-4}
+  & & & VIP protection \\\cline{3-4}
+  & & \multirow{6}{5em}{Transport} & Airports, aerodromes and identified \\
+  & & & take-off and landing sites, \\
+  & & & model-flying sites \\\cline{4-4}
+  & & & Roads and highways \\\cline{4-4}
+  & & & Harbours \\\cline{4-4}
+  & & & Rail \\\cline{3-4}
+  & & Security & Military areas \\\cline{3-4}
+  & & Environmental & Animal Reservations \\\cline{1-4}
+ \multirow{7}{3em}{Air} & & & High probability of traffic \\\cline{4-4}
+  & & & Seasonal or permanent recreational \\
+  & & & activities \\\cline{4-4}
+  & & & Localised events \\\cline{4-4}
+  & & & Airports, aerodromes and identified  \\
+  & & & take-off and landing sites,  \\
+  & & & model-flying sites \\
+
+\hline
+\end{longtable}
+\end{centering}
+\end{table}
+
 
 \subsection{Other Threats}
 \begin{enumerate}

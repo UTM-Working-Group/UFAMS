@@ -12,6 +12,9 @@
 \usepackage{graphicx}
 \usepackage{wasysym}
 \usepackage{nomencl}
+\usepackage{tabularx}
+\usepackage{array,multirow}
+\usepackage{longtable}
 % the following is useful when we have the old nomencl.sty package
 \providecommand{\printnomenclature}{\printglossary}
 \providecommand{\makenomenclature}{\makeglossary}
