@@ -658,15 +658,15 @@ Technical requirements in STS-02:
    \item VLOS/BVLOS(?) STS01/02(?)
    \item Uncontrolled
    \item Remote ID not necessary
-   \item Risks: 
+   \item Risks: ??
 \end{enumerate}
-   \item - Spraying
+   \item Spraying
 \begin{enumerate}
          \item Payload 
          \item VLOS STS01/02
          \item Uncontrolled
          \item Remote ID not necessary
-         \item Risks: Chemical / Water bodies / Rain
+         \item Risks: Chemical / Chemical OOP / Water bodies / Rain
 \end{enumerate}
          \item Surveying / Fixed wing
 \begin{enumerate}
@@ -677,6 +677,156 @@ Technical requirements in STS-02:
 \end{enumerate}
 
 \end{enumerate}
+
+\subsection{Survey} 
+
+\begin{enumerate}
+
+
+\item Land use
+\begin{enumerate}
+  \item Fixed wing long range survey: 
+    Risks: High Collisions, and higher altitude
+\end{enumerate}
+
+\item Infrastructure
+Risks common: Higher collision probability 
+\begin{enumerate}
+  \item Railways \\
+    Risks: EMI/EMC
+  \item Roadways \\
+    ??
+  \item Power distribution \& related \\
+    Risks: EMI/EMC
+  \item Cell tower \\
+    Risks: EMI/EMC
+  \item Industrial plants \\
+    Risks of exterior or interior surveys: Chemical Hazards, Low visibility
+  \item Dams/Bridges \\
+    UC: find visible damage
+    Risks: ??
+  \item Solar Panel \\
+    UC: damaged cells \\
+    UC: cleaning \\
+    Risks: ??
+  \item Wind farms \\
+    Risks: EMI/EMC
+ 
+\end{enumerate}
+\end{enumerate}
+
+\begin{verbatim}
+Generic risks:
+    Mishap: Payload delivered to wrong hands
+    Mishap: Payload intercepted by misbehaving actor
+
+Emergency Use cases
+  Priority: Higher
+
+- Medical: First Responder/Emergency Response
+  - Equipment: sending payload
+      Payload: Devices: Defibrillator/AED, Resuscitation, Mobile device for 
+        telemedicine
+      Operational specifics: BVLOS, Day/Night, One-way mission
+      Risks: Higher cost payload, Higher velocity
+
+  - Medical aid/Drug delivery
+      Payload: first responder medical kits, etc.
+      Operational specifics: BVLOS, Day/Night, One-way
+      Risks: Chemical, Higher cost payload, Higher velocity
+
+  - Blood/Organ delivery
+      Payload: Blood, Organs
+      Operational specifics: BVLOS, Day/Night, One-way
+      Risks: Biohazard, Higher cost payload, Higher velocity
+
+  - Pathology sample collection
+      Payload: Blood/Tissue/etc.
+      Operational specifics: BVLOS, Day/Night, One-way
+      Risks: Biohazard, Higher velocity
+    
+- Disaster
+  - Survey
+      Payload: Regular/Thermal/?? Camera
+      Operational specifics: 
+      Risks:
+
+  - Recovery
+      Operational specifics: 
+      Risks:
+
+- Medical non-Emergency
+  - Surgical equipment & OT materials (??) delivery
+      Payload: sterilised and unsterilised equipment
+      Operational specifics: 
+      Risks: Higher cost payload
+
+Entertainment
+
+1.  Drone light show
+    Payload: LED array
+    Operational Specifics: VLoS
+    Risk factor: Swarm, Loss of automated Control requires manual takeover 
+      (higher risk because non-trivial operation), OOP
+    Examples: EHang, Intel, ETH-Zurich spinoff, UGCS (GCS for swarm)
+
+Aerial Photo-/video-graphy/Photogrammetry
+
+1.  Filming
+    Payload: Camera, Light meters
+    Operational Specifics: VLOS, OOP, (maybe) Constrained environments,
+    Risks: High cost equipment as payload
+
+1.  Survey Climbing/Mountaineering
+    Payload: Camera, Light meters
+    Operational Specifics: VLOS
+    Risks: endangering ecological balance (avalanche, etc.), high wind, rain,
+       snow, low temperatures
+    
+1.  Monitor/Tracking Wildlife
+    Payload: Camera, Light meters
+    Operational Specifics: VLOS
+    Risks: Protected sites, endangering wildlife, ecosystem and habitat, 
+      infrared lighting for night  vision videography
+
+1.  Monuments
+    Payload: Camera, Light meters, 
+    Operational Specifics: VLOS, High cost equipment as payload 
+    Risks: Protected sites, etc.
+
+1.  LIDAR survey
+    Payload: LIDAR
+    Operational Specifics: BVLoS, VLOS, High cost equipment as payload
+    Risks: High risk environments (mines, etc.), constrained environment, 
+      (maybe) protected architectural sites, etc., inflammable materials?
+
+Law Enforcement
+
+1.  Surveillance
+    Payload: Camera
+    Operational Specifics: BVLoS, VLOS, High cost equipment as payload, 
+      Sensitive information on board
+    Risks: OOP, Operation in varied environments (dynamic)
+
+1.  Drone-based Counter UAS
+    Payload: Camera, varied Takedown mechanisms
+    Operational Specifics: VLOS
+    Risks: Assume all risks of the targeted operation; damage to property 
+      and human life; depends on takedown mechanism
+
+TCL ?? Non-drone based Counter UAS
+    Payload: Camera, varied Takedown mechanisms
+    Risks: 
+
+\end{verbatim}
+
+
+\subsection{Disaster}
+\begin{enumerate}
+  \item Measuring levels in water bodies for flooding
+  \item Radioactivity measurement near nuclear power plants
+\end{enumerate}
+
 
 \cleardoublepage{}
 
@@ -747,6 +897,11 @@ kite surf, etc.)
 \item Airports, aerodromes and identified take-off and landing sites, model-flying
 sites
 \end{enumerate}
+
+\subsection{Payload Risk Params}
+Bio hazard: (BSL1- BSL 4) https://www.who.int/csr/resources/publications/biosafety/Biosafety7.pdf?ua=1 \\
+Chemical hazard (cat1- cat5) https://www.osha.gov/dsg/hazcom/ghsguideoct05.pdf
+
 
 \begin{table}[tbh]
 \small
