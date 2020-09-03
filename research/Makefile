@@ -23,7 +23,8 @@ tech-reports/risk-assessment.pdf: tech-reports/risk-assessment.tex ua_wgs_base.c
 	  cd tech-reports && \
 	  pdflatex risk-assessment.tex && \
 	  bibtex risk-assessment && \
-      pdflatex risk-assessment.tex && \
+		pdflatex risk-assessment.tex && \
+		pdflatex risk-assessment.tex && \
 	  pdflatex risk-assessment.tex
 
 tech-reports/deconfliction.pdf: tech-reports/deconfliction.tex ua_wgs_base.cls Bibliography.bib

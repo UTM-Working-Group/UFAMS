@@ -903,16 +903,20 @@ Bio hazard: (BSL1- BSL 4) https://www.who.int/csr/resources/publications/biosafe
 Chemical hazard (cat1- cat5) https://www.osha.gov/dsg/hazcom/ghsguideoct05.pdf
 
 
-\begin{table}[tbh]
-\small
-\ttfamily
+% \begin{table}[tbh]
 \begin{centering}
+\small
+  \ttfamily
 \begin{longtable}{|l|l|l|l|}
  \hline
  \multicolumn{4}{|c|}{Risk/Hazard/Threat Parameter Categorisation Level} \\
  \hline
  1 & 2 & 3 & 4 \\
  \hline
+  \endhead
+  \hline \multicolumn{4}{|r|}{{Continued on next page}} \\ \hline
+  \endfoot
+
  \multirow{21}{3em}{Ground} & \multirow{8}{7em}{People}  & \multirow{4}{5em}{Population} & Permanently or cyclic \\
   & & & populated areas \\\cline{4-4}
   & & & Dense areas \\\cline{4-4}
@@ -926,6 +930,8 @@ Chemical hazard (cat1- cat5) https://www.osha.gov/dsg/hazcom/ghsguideoct05.pdf
   & & & Chemical and Nuclear sites \\\cline{4-4}
   & & & Laboratories \\\cline{4-4}
   & & & Wind farms, power stations \\\cline{4-4}
+  & & & Mines: open/closed \\
+  & & & Inflammable materials nearby \\
   & & & Cranes \\\cline{3-4}
   & & \multirow{6}{5em}{Transport} & Airports, aerodromes and identified \\
   & & & take-off and landing sites, \\
@@ -934,19 +940,64 @@ Chemical hazard (cat1- cat5) https://www.osha.gov/dsg/hazcom/ghsguideoct05.pdf
   & & & Harbours \\\cline{4-4}
   & & & Rail \\\cline{3-4}
   & & Security & Military areas \\\cline{3-4}
-  & & Environmental & Animal Reservations \\\cline{1-4}
+  & & Environmental & Animal Reservations \\\cline{4-4}
+  & & & Protected Sites \\\cline{4-4}
+  & & & Heritage Sites \\\cline{3-4}
+  & & Ecological & Damage to balance/cycles \\\cline{4-4}
+  & & & Damage to habitat \\\cline{4-4}
+  & & & Accidents: avalance, etc. \\\cline{4-4}
+  & & & Water bodies \\\cline{1-4}
+ \multirow{5}{3em}{Weather} & & & Rain \\\cline{4-4}
+  & & & Low Visibility, dust, storm, smog, \\\cline{4-4}
+  & & & fog, mist, snow, rain \\\cline{4-4}
+  & & & Temperature: low, etc. \\\cline{4-4}
+  & & & Wind \\\cline{1-4}
  \multirow{7}{3em}{Air} & & & High probability of traffic \\\cline{4-4}
   & & & Seasonal or permanent recreational \\
   & & & activities \\\cline{4-4}
   & & & Localised events \\\cline{4-4}
   & & & Airports, aerodromes and identified  \\
   & & & take-off and landing sites,  \\
-  & & & model-flying sites \\
+  & & & model-flying sites \\\cline{1-4}
+  & & & High EMI \\
+  \multirow{15}{3em}{UAS} & \multirow{5}{7em}{System} & & Weight (eg. Nano/Micro/\\
+  & & & Small/Large, etc.) \\\cline{4-4}
+   & & & Size (Characteristic dimension) \\\cline{4-4}
+   & & & Class (rotary, fixed wing, hybrid) \\\cline{4-4}
+   & & & Derived parameter: Kinetic Energy \\\cline{4-4}
+   & & & Loss of Communication \\\cline{4-4}
+   & & & Loss of control \\\cline{4-4}
+   & & & Loss of battery \\\cline{4-4}
+   & & & Geofence breach \\\cline{2-4}
+   & Swarm & & Loss of control \\\cline{2-4}
+   & Payload & & Biological Hazard: BSL 1-4 \\\cline{4-4}
+   & & & Chemical Hazard: CAT 1-5 \\\cline{4-4}
+   & & & High Cost: Film Camera, med. \\
+   & & & equipment, etc. \\\cline{4-4}
+   & & & Mishap: Delivery to wrong hands \\\cline{4-4}
+   & & & Mishap: Interception by \\
+   & & & misbehaving actor  \\\cline{1-4}
+   Opera- & & & VLOS/BVLOS/BRLOS \\\cline{4-4}
+   tion & & & Airspace category (Open, \\
+   & & & Controlled, Uncontrolled) \\\cline{4-4}
+   & & & Day/Night \\\cline{4-4}
+   & & & One-way, Roundtrip \\\cline{4-4}
+   & & & Interactions with other UAS, manned \\\cline{4-4}
+   & & & Mean abs velocity \\\cline{4-4}
+   & & & Mean rel velocity \\\cline{4-4}
+   & & & Mean Altitude \\\cline{4-4}
+   & & & Duration of flight \\\cline{4-4}
+   & & & Geographical Range of flight \\\cline{4-4}
+   & & & Constrained environments \\\cline{4-4}
+   & & & Priority: Emergency, etc. \\\cline{4-4}
+   & & & All/Dynamic environment \\
+   & & & capability (cf. surveillance) \\\cline{4-4}
+   & & & Swarm: Loss of control \\\cline{1-4}
 
 \hline
 \end{longtable}
 \end{centering}
-\end{table}
+% \end{table}
 
 
 \subsection{Other Threats}
