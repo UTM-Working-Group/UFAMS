@@ -676,6 +676,67 @@ Technical requirements in STS-02:
   \item Risks: Altitude, range
 \end{enumerate}
 
+    \begin{verbatim}
+AG0 Agri Spraying
+------------
+MTOW : micro
+Characteristic dimension category: medium
+SORA Kinetic Energy ??
+Chemical Hazard CAT ?? (Pesticides, Fertilisers)
+  VLOS STS01/02
+  Airspace Category: Uncontrolled (vs Open, Controlled)
+Environmental: Irrigation system, Rain
+Day/Night (both)
+Chemical OOP 
+Seepage of Chemical into Ground water, drinking water & nearby water bodies
+Environmental: Irrigation system, Rain > Risk to drone
+Remote ID not necessary
+
+
+AG1 Agri Spreading
+------------------
+MTOW : micro
+Characteristic dimension category: medium
+SORA Kinetic Energy ??
+Biological Hazard BSL ?? (Biological agent along with seeds)
+Chemical Hazard CAT ?? (Pesticides, Fertilisers)
+Rain/water vapour-related: snow... 
+  VLOS STS01/02
+  Airspace Category: Uncontrolled (vs Open, Controlled)
+Day/Night (both)
+Chemical OOP 
+Seepage of Chemical into Ground water, drinking water & nearby water bodies
+Environmental: Irrigation system, Rain > Risk to drone
+Remote ID not necessary
+
+AG2 Agri Survey Rotary 
+----------------------
+Operation over Livestock (~OOP)
+Hilly area survey: Rotary preferred
+1. Ground > Terrain
+High cost payload: camera
+BVLOS
+Airspace: ??
+
+AG3 Agri Survey Fixed Wing
+--------------------------
+Fixed Wing
+1. Remote ID if Fixed wing long range
+1. Operation over Livestock (~OOP)
+1. High cost payload: camera
+1. BVLOS/BRLOS
+1. Airspace: no restriction
+1. Collision with manned aircraft
+
+Open questions (check with Drone AErospace Long)
+   1. One-way or roundtrip 
+
+AG4 Agri Survey Hybrid
+----------------------
+Hybrid (AG2 + AG3)
+
+    \end{verbatim}
+
 \end{enumerate}
 
 \subsection{Survey} 
@@ -731,9 +792,15 @@ Emergency Use cases
       Risks: Higher cost payload, Higher velocity
 
   - Medical aid/Drug delivery
-      Payload: first responder medical kits, etc.
       Operational specifics: BVLOS, Day/Night, One-way
       Risks: Chemical, Higher cost payload, Higher velocity
+    1. Payload: first responder medical kits, etc.
+    1. Higher weight category
+    1. UAS > Class : fixed/rotary
+    1. Chemical Hazard CAT ??
+    1. Higher cost payload
+    1. Higher velocity
+
 
   - Blood/Organ delivery
       Payload: Blood, Organs
