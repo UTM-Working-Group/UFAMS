@@ -1,0 +1,226 @@
+% \documentclass[orientation=landscape,papersize=a2paper]{ua_wgs_base}
+\documentclass{report}
+\usepackage[margin=15mm,landscape,a2paper]{geometry}% http://ctan.org/pkg/geometry
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{color}
+\definecolor{note_fontcolor}{rgb}{0.800781, 0.800781, 0.800781}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage{nomencl}
+\usepackage{tabularx}
+\usepackage{array,multirow}
+\usepackage{longtable}
+% the following is useful when we have the old nomencl.sty package
+\providecommand{\printnomenclature}{\printglossary}
+\providecommand{\makenomenclature}{\makeglossary}
+\makenomenclature
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
+ breaklinks=false,pdfborder={0 0 0},pdfborderstyle={},backref=false,colorlinks=true]
+ {hyperref}
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% The greyedout annotation environment
+\newenvironment{lyxgreyedout}
+  {\textcolor{note_fontcolor}\bgroup\ignorespaces}
+  {\ignorespacesafterend\egroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% for subfigures/subtables
+\usepackage[caption=false,font=footnotesize]{subfig}
+%\usepackage{wasysym}
+\usepackage{concmath}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{caption}
+\newcommand*{\h}{\hspace{5pt}}% for indentation
+\newcommand*{\hh}{\h\h}% double indentation
+\usepackage[T1]{fontenc}
+\def\nompreamble{\addcontentsline{toc}{section}{\nomname}\markboth{\nomname}{\nomname}}
+
+\def\doctype#1{\def\@doctype{#1}}
+\newcommand{\printdoctype}{\@doctype}
+
+\def\doctypeinitials#1{\def\@doctypeinitials{#1}}
+\newcommand{\printdoctypeinitials}{\@doctypeinitials}
+
+\def\docid#1{\def\@docid{#1}}
+\newcommand{\printdocid}{\@docid}
+
+\def\workinggroupinitials#1{\def\@workinggroupinitials{#1}}
+\newcommand{\printworkinggroupinitials}{\@workinggroupinitials}
+
+\def\workinggroup#1{\def\@workinggroup{#1}}
+\newcommand{\printworkinggroup}{\@workinggroup}
+
+\newif\ifdraft
+
+\def\doctitle#1{\def\@doctitle{#1}}
+\newcommand{\printdoctitle}{\@doctitle}
+
+\usepackage{inconsolata}
+\newcommand{\printdraftmark}{
+\ifdraft
+	\usepackage{draftwatermark}
+	\SetWatermarkScale{1}
+	\SetWatermarkText{\tt DRAFT}
+\else
+  % electronic
+\fi
+}
+
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\rhead[\printworkinggroup]{\printdoctype: \printdoctitle}
+\lhead[\printdoctype: \printdoctitle]{\printworkinggroup}
+\rfoot[]{{\tt \printworkinggroupinitials/\printdoctypeinitials/\printdocid}}
+\lfoot[{\tt \printworkinggroupinitials/\printdoctypeinitials/\printdocid}]{}
+% \cfoot[{\tt \thepage}]{\tt \thepage}
+\definecolor{cyanprocess}{rgb}{0.0, 0.72, 0.92}
+\hypersetup{urlcolor=cyanprocess,linkcolor=cyanprocess,filecolor=cyanprocess,citecolor=cyanprocess}
+\usepackage{xypic}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\usepackage{rotating}
+\usepackage{float}
+\makeatother
+
+\drafttrue
+\doctype{Technical Report}
+\doctypeinitials{TR}
+\docid{2}
+\workinggroup{UA Risk Research Group}
+\workinggroupinitials{UARRG}
+\doctitle{Risk Matrix}
+
+\hypersetup{pdftitle={Risk Matrix for Unmanned Aircraft Systems},
+ pdfauthor={\printworkinggroup},
+ pdfsubject={\printdoctitle},
+ pdfkeywords={Unmanned Aircraft Systems, Risk Assessment},
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+
+\printdraftmark
+
+\begin{document}
+
+\title{Risk Matrix for Unmanned Aircraft Systems}
+
+\begin{centering}
+\small
+  \ttfamily
+\begin{longtable}{|l|l|l|l|c|c|c|c|c|c|c|c|}
+ \hline
+  \multicolumn{4}{|c|}{Risk/Hazard/Threat Parameter Categorisation Level}  & Unit & \multicolumn{3}{|c|}{Categories} & \multicolumn{4}{|c|}{Operational Scenario} \\\cline{1-4}\cline{6-12}
+  1 & 2 & 3 & 4 & & C1 & C2 & C3 & {AG0} & {AG1} & {AG2} & {AG3} \\
+ \hline
+  \endhead
+  \hline \multicolumn{12}{|r|}{{Continued on next page}} \\ \hline
+  \endfoot
+  \hline
+  \endlastfoot
+
+  \multirow{21}{3em}{Ground} & \multirow{8}{7em}{People}  & \multirow{4}{5em}{Population} & Permanently or cyclic & & & & & & & & \\
+  & & & populated areas & & & & & & & & \\\cline{4-4}
+  & & & Dense areas & & & & & & & & \\\cline{4-4}
+  & & & Sensitive areas & & & & & & & & \\\cline{4-4}
+  & & & Occasional or seasonal events & & & & & & & & \\\cline{3-4}
+  & & \multirow{3}{5em}{Security} & Military barracks & & & & & & & & \\
+  & & & Summits & & & & & & & & \\
+  & & & VIP protection & & & & & & & & \\\cline{2-4}
+  & \multirow{12}{5em}{Infrastructure} & \multirow{5}{3em}{Industry} & Permanent and non-permanent & & & & & & & & \\
+  & & & industrial sites & & & & & & & & \\\cline{4-4}
+  & & & Chemical and Nuclear sites & & & & & & & & \\\cline{4-4}
+  & & & Laboratories & & & & & & & & \\\cline{4-4}
+  & & & Wind farms, power stations & & & & & & & & \\\cline{4-4}
+  & & & Mines: open/closed & & & & & & & & \\\cline{4-4}
+  & & & Inflammable materials nearby & & & & & & & & \\\cline{4-4}
+  & & & Cranes & & & & & & & & \\\cline{3-4}
+  & & \multirow{6}{5em}{Transport} & Airports, aerodromes and identified & & & & & & & & \\
+  & & & take-off and landing sites, & & & & & & & & \\
+  & & & model-flying sites & & & & & & & & \\\cline{4-4}
+  & & & Roads and highways & & & & & & & & \\\cline{4-4}
+  & & & Harbours & & & & & & & & \\\cline{4-4}
+  & & & Rail & & & & & & & & \\\cline{3-4}
+  & & Security & Military areas & & & & & & & & \\\cline{3-4}
+  & & Environmental & Animal Reservations & & & & & & & & \\\cline{4-4}
+  & & & Protected Sites & & & & & & & & \\\cline{4-4}
+  & & & Heritage Sites & & & & & & & & \\\cline{3-4}
+  & & Ecological & Damage to balance/cycles & & & & & & & & \\\cline{4-4}
+  & & & Damage to habitat & & & & & & & & \\\cline{4-4}
+  & & & Accidents: avalance, etc. & & & & & & & & \\\cline{4-4}
+  & & & Water bodies & & & & & & & & \\\cline{1-4}
+  \multirow{5}{3em}{Weather} & & & Rain & & & & & & & & \\\cline{4-4}
+  & & & Low Visibility, dust, storm, smog, & & & & & & & & \\\cline{4-4}
+  & & & fog, mist, snow, rain & & & & & & & & \\\cline{4-4}
+  & & & Temperature: low, etc. & & & & & & & & \\\cline{4-4}
+  & & & Wind & & & & & & & & \\\cline{1-4}
+  \multirow{7}{3em}{Air} & & & High probability of traffic & & & & & & & & \\\cline{4-4}
+  & & & Seasonal or permanent recreational & & & & & & & & \\
+  & & & activities & & & & & & & & \\\cline{4-4}
+  & & & Localised events & & & & & & & & \\\cline{4-4}
+  & & & Airports, aerodromes and identified &  & & & & & & & \\
+  & & & take-off and landing sites,  & & & & & & & & \\
+  & & & model-flying sites & & & & & & & & \\\cline{4-4}
+  & & & High EMI & & & & & & & & \\\cline{1-4}
+  \multirow{15}{3em}{UAS} & \multirow{5}{7em}{System} & & Weight (eg. Nano/Micro/ & & & & & & & & \\
+  & & & Small/Large, etc.) & & & & & & & & \\\cline{4-4}
+   & & & Size (Characteristic dimension) & & & & & & & & \\\cline{4-4}
+   & & & Class (rotary, fixed wing, hybrid) & & & & & & & & \\\cline{4-4}
+   & & & Derived parameter: Kinetic Energy & & & & & & & & \\\cline{4-4}
+   & & & Loss of GPS & & & & & & & & \\\cline{4-4}
+   & & & Loss of Communication & & & & & & & & \\\cline{4-4}
+   & & & Loss of control & & & & & & & & \\\cline{4-4}
+   & & & Loss of battery & & & & & & & & \\\cline{4-4}
+   & & & Geofence breach & & & & & & & & \\\cline{2-4}
+   & Swarm & & Loss of control & & & & & & & & \\\cline{2-4}
+   & Payload & & Biological Hazard: BSL 1-4 & & & & & & & & \\\cline{4-4}
+   & & & Chemical Hazard: CAT 1-5 & & & & & & & & \\\cline{4-4}
+   & & & High Cost: Film Camera, med. & & & & & & & & \\
+   & & & equipment, etc. & & & & & & & & \\\cline{4-4}
+   & & & Mishap: Delivery to wrong hands & & & & & & & & \\\cline{4-4}
+   & & & Mishap: Interception by & & & & & & & & \\
+   & & & misbehaving actor  & & & & & & & & \\\cline{1-4}
+   Opera- & & & VLOS/BVLOS/BRLOS & & & & & & & & \\\cline{4-4}
+   tion & & & Airspace category (Open, & & & & & & & & \\
+   & & & Controlled, Uncontrolled) & & & & & & & & \\\cline{4-4}
+   & & & Day/Night & & & & & & & & \\\cline{4-4}
+   & & & One-way, Roundtrip & & & & & & & & \\\cline{4-4}
+   & & & Interactions with other UAS, manned & & & & & & & & \\\cline{4-4}
+   & & & Mean abs velocity & & & & & & & & \\\cline{4-4}
+   & & & Mean rel velocity & & & & & & & & \\\cline{4-4}
+   & & & Mean Altitude & & & & & & & & \\\cline{4-4}
+   & & & Duration of flight & & & & & & & & \\\cline{4-4}
+   & & & Geographical Range of flight & & & & & & & & \\\cline{4-4}
+   & & & Constrained environments & & & & & & & & \\\cline{4-4}
+   & & & Priority: Emergency, etc. & & & & & & & & \\\cline{4-4}
+   & & & All/Dynamic environment & & & & & & & & \\
+   & & & capability (cf. surveillance) & & & & & & & & \\\cline{4-4}
+   & & & Swarm: Loss of control & & & & & & & & \\\cline{1-4}
+
+\hline
+\end{longtable}
+\end{centering}
+% \nocite{*}
+% \bibliographystyle{IEEEtran}
+% \bibliography{../Bibliography}
+\end{document}
+

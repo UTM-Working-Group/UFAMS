@@ -5,7 +5,7 @@ VERSION.pdf:
 
 papers: papers/risk-assessment.pdf papers/deconfliction.pdf papers/remote-id.pdf
 
-tech-reports: tech-reports/risk-assessment.pdf tech-reports/deconfliction.pdf tech-reports/remote-id.pdf
+tech-reports: tech-reports/risk-assessment.pdf tech-reports/deconfliction.pdf tech-reports/remote-id.pdf tech-reports/risk-matrix.pdf
 
 questionnaires: questionnaires/remote-id.pdf
 
@@ -25,6 +25,15 @@ tech-reports/risk-assessment.pdf: tech-reports/risk-assessment.tex ua_wgs_base.c
 	  bibtex risk-assessment && \
 		pdflatex risk-assessment.tex && \
 		pdflatex risk-assessment.tex && \
+	  pdflatex risk-assessment.tex
+
+tech-reports/risk-matrix.pdf: tech-reports/risk-matrix.tex ua_wgs_base.cls Bibliography.bib
+	export TEXINPUTS="..:" && \
+	  cd tech-reports && \
+	  pdflatex risk-matrix.tex && \
+	  bibtex risk-matrix && \
+		pdflatex risk-matrix.tex && \
+		pdflatex risk-matrix.tex && \
 	  pdflatex risk-assessment.tex
 
 tech-reports/deconfliction.pdf: tech-reports/deconfliction.tex ua_wgs_base.cls Bibliography.bib
