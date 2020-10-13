@@ -35,3 +35,7 @@ Proposals that are currently under consideration or review will be available in 
 
 ## Standards Track
 Proposals that have been accepted will be available in the [standards](standards/) directory.
+
+## Publications
+
+See [publications](publications/README.md).
