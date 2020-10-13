@@ -15,7 +15,13 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169,serif]{beamer}
+\definecolor{cyanprocess}{rgb}{0.0, 0.72, 0.92}
+\usecolortheme[named=cyanprocess]{structure}
+
+\usepackage[T1]{fontenc}
+\usepackage{concmath}
+\usepackage{inconsolata}
 
 \mode<presentation> {
 
@@ -79,6 +85,25 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 
+%\usepackage[unicode=true,
+% bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
+% breaklinks=false,pdfborder={0 0 0},pdfborderstyle={},backref=false,colorlinks=true]
+% {hyperref}
+\hypersetup{
+ urlcolor=cyanprocess,
+ linkcolor=cyanprocess,
+ filecolor=cyanprocess,
+ citecolor=cyanprocess,
+ pdftitle={Unmanned Traffic Management and Standardisation},
+ pdfauthor={Sayandeep Purkayasth},
+ pdfsubject={Unmanned Aviation},
+ pdfkeywords={Unmanned Aircraft Systems, Unmanned Traffic Management, Standardisation},
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{xypic}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -88,11 +113,11 @@
 \author{Sayandeep Purkayasth} % Your name
 \institute[UAWGs] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
-\textit{sayandeep@deepcyan.ai}  \\ % Your email address
+\href{mailto:sayandeep@deepcyan.ai}{sayandeep@deepcyan.ai}  \\ % Your email address
 \medskip
 Unmanned Aviation Working Groups
-\footnote{URL: https://groups.google.com/forum/\#!forum/utm-wg} % Your email address
-\footnote{Email List: utm-wg@googlegroups.com} % Your email address
+\footnote{\tiny URL: https://groups.google.com/forum/\#!forum/utm-wg} % Your email address
+\footnote{\tiny Email List: utm-wg@googlegroups.com} % Your email address
 }
 \date{7 Nov 2020} % Date, can be changed to a custom date
 
@@ -112,16 +137,30 @@ Unmanned Aviation Working Groups
 %----------------------------------------------------------------------------------------
 
 %------------------------------------------------
-\section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+\section{Overview} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
 
-\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+\subsection{UA Working Groups} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 \begin{frame}
-\frametitle{Paragraphs of Text}
-Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+\frametitle{}
 
-Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
+\begin{figure}[tbh]
+\begin{centering}
+\begin{center}
+\small\tt
+\hfil 
+\xymatrix{ 
+%& \txt{DFI} \ar[dr] & \txt{MoCA} \ar[d] & \cdots \ar[dl] & \\ 
+% & & \txt{UA Society} \ar[d] & & \\
+% & & \txt{Steering \\Committee} \ar[dl] \ar[dr] & & \\
+  & & \txt{Working Groups} \ar@/_/[dll] \ar[dl] \ar[d] & \txt{Research Groups} \ar[d] \ar[dr] & \\
+*+{\txt{NPNT}} \ar[r] & *+[F--]{\txt{Remote ID}} \ar[l] \ar[r] & *+[F]{\txt{UTM}} \ar[l] \ar[r] & *+{\txt{Risk}} \ar[l] \ar[r] & *+{\txt{Deconfliction}} \ar[l] }
+\hfil \end{center}
+\par\end{centering}
+\caption{A few Working and Research Groups}
+\end{figure}
+
 \end{frame}
 
 %------------------------------------------------

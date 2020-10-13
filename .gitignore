@@ -17,3 +17,8 @@ research/VERSION.pdf
 *.nlo
 *.out
 *.toc
+*.glo
+*.nav
+*.pdf
+*.vrb
+*.snm
