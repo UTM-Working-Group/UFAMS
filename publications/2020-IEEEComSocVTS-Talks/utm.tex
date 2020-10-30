@@ -15,14 +15,19 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-\documentclass[aspectratio=169,serif]{beamer}
+\documentclass[usenames,dvipsnames,aspectratio=169,serif]{beamer}
 \definecolor{cyanprocess}{rgb}{0.0, 0.72, 0.92}
 \usecolortheme[named=cyanprocess]{structure}
+\usepackage{xcolor}
 
 \usepackage[T1]{fontenc}
 \usepackage{concmath}
 \usepackage{inconsolata}
-
+\usepackage{draftwatermark}
+\setbeamercolor{background canvas}{bg=}%transparent canvas
+\SetWatermarkText{\ttfamily DRAFT}
+\SetWatermarkScale{0.5}
+\SetWatermarkAngle{30}
 \mode<presentation> {
 
 % The Beamer class comes with a number of default slide themes
@@ -80,7 +85,28 @@
 %\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
 %\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+%\setbeamertemplate{frametitle}[default][colsep=-4bp,shadow=false,rounded=true]
+\setbeamertemplate{title page}[default][colsep=-0bp,rounded=true]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{headline}[shadow=false]
+\setbeamertemplate{subsection in head}[shadow=false]
+\setbeamertemplate{section in head}[shadow=false]
+\setbeamertemplate{beamercolorbox}[shadow=false]
+
 }
+% \useoutertheme{smoothbars}
+% 
+% 
+% \makeatletter
+% \AtBeginDocument{
+% \pgfdeclareverticalshading{beamer@barshade}{\the\paperwidth}{%
+%          color(0ex)=(black);%
+%          color(0.5ex)=(section in head/foot.bg);%
+%          color(4ex)=(section in head/foot.bg)%
+%        }
+% }
+% \makeatother
+
 
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
@@ -98,9 +124,10 @@
  pdfauthor={Sayandeep Purkayasth},
  pdfsubject={Unmanned Aviation},
  pdfkeywords={Unmanned Aircraft Systems, Unmanned Traffic Management, Standardisation},
- pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+ }
 
 \usepackage{tikz}
+\usetikzlibrary{mindmap,trees,backgrounds}
 \usetikzlibrary{shapes,arrows}
 \usepackage{xypic}
 
@@ -137,7 +164,7 @@ Unmanned Aviation Working Groups
 %----------------------------------------------------------------------------------------
 
 %------------------------------------------------
-\section{Overview} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+\section{Introduction} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
 
 \subsection{UA Working Groups} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
@@ -154,19 +181,53 @@ Unmanned Aviation Working Groups
 %& \txt{DFI} \ar[dr] & \txt{MoCA} \ar[d] & \cdots \ar[dl] & \\ 
 % & & \txt{UA Society} \ar[d] & & \\
 % & & \txt{Steering \\Committee} \ar[dl] \ar[dr] & & \\
-  & & \txt{Working Groups} \ar@/_/[dll] \ar[dl] \ar[d] & \txt{Research Groups} \ar[d] \ar[dr] & \\
-*+{\txt{NPNT}} \ar[r] & *+[F--]{\txt{Remote ID}} \ar[l] \ar[r] & *+[F]{\txt{UTM}} \ar[l] \ar[r] & *+{\txt{Risk}} \ar[l] \ar[r] & *+{\txt{Deconfliction}} \ar[l] }
+  & & \txt{Working Groups} \ar@{-}@/_/[dll] \ar@{-}[dl] \ar@{-}[d] & \txt{Research Groups} \ar@{-}[d] \ar@{-}[dr] & \\
+*+{\txt{NPNT}} & *+[F--]{\txt{Remote ID}} & *+[F]{\txt{UTM}} & *+{\txt{Risk}} & *+{\txt{Deconfliction}} }
 \hfil \end{center}
 \par\end{centering}
-\caption{A few Working and Research Groups}
+\caption{Unmanned Aviation Working and Research Groups}
 \end{figure}
 
 \end{frame}
 
 %------------------------------------------------
 
+\subsection{Nomenclature}
+
 \begin{frame}
-\frametitle{Bullet Points}
+  \frametitle{Stakeholders}
+  % MIND MAP
+
+  \begin{columns}[c] % the "c" option specifies center vertical alignment
+	  \column{.45\textwidth} % column designated by a command
+\begin{tikzpicture}[scale=0.5,transform shape]
+	\ttfamily
+  \path[mindmap,concept color=cyanprocess,text=white]
+    node[concept] {Unmanned Traffic Management}
+    [clockwise from=0]
+    child [concept color=RoyalBlue!50!cyanprocess] { node[concept] (c3) {UAS} }
+    child [concept color=OliveGreen] { node[concept] (c1) {Operator} }
+    child [concept color=Maroon] { node[concept] (c2) {Pilot} }
+    child [concept color=black] { node[concept] (c5) {Manned Air Traffic Control} }
+    child [concept color=YellowOrange] { node[concept] (c4) {Civil Aviation Authority} }
+    child [concept color=Violet] { node[concept ] (c0) {Manufacturer} };
+    \begin{pgfonlayer}{background}
+	    \draw [concept connection]  (c1) edge (c2)
+                                             edge (c3)
+                                        (c2) edge (c3);
+    \end{pgfonlayer}
+\end{tikzpicture}
+	  \column{.45\textwidth}
+	  Contents split \newline into two lines
+  \end{columns}
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{UTM: an overview}
+
+\begin{frame}
+  \frametitle{Need}
 \begin{itemize}
 \item Lorem ipsum dolor sit amet, consectetur adipiscing elit
 \item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
@@ -174,12 +235,85 @@ Unmanned Aviation Working Groups
 \item Nam cursus est eget velit posuere pellentesque
 \item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
 \end{itemize}
+
+	\footnote{refer to ISO study}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Blocks of Highlighted Text}
+  \frametitle{Functions: Registration}
+\begin{itemize}
+\item UAS \\
+	UIN Application, UAS Acquisition
+\item Manufacturer \\
+	Profile Management
+
+\item Operator \\
+	Profile \& Permission Management, UAOP Application
+
+\item Pilot \\
+	Profile Management
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+  \frametitle{Functions: Operational}
+\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+\column{.45\textwidth} % Left column and width
+\begin{itemize}
+\item Flight Planning
+\item Flight Awareness
+\item Communication \& Navigation
+\item Dynamic Airspace Density
+\item Discovery
+\end{itemize}
+
+\column{.45\textwidth} % Right column and width
+\begin{itemize}
+\item Log Management
+\item Weather
+\item Mapping
+\item Airspace authorisation
+\item Incident Reporting
+\end{itemize}
+\end{columns}
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Functions: Operational (contd.)}
+\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+\column{.45\textwidth} % Left column and width
+\begin{itemize}
+\item Deconfliction
+\begin{itemize}
+\item Advisory \& Alert
+\item Strategic
+\item Tactical / Dynamic Reroute
+\end{itemize}
+\end{itemize}
+
+\column{.45\textwidth} % Right column and width
+\begin{itemize}
+\item Restrictions
+\item Conformance Monitoring
+\item Risk reduction
+\item Messaging
+\item Flight Notification
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+\subsection{Nomenclature}
+
+\begin{frame}
+\frametitle{High level}
 \begin{block}{Block 1}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
 \end{block}
@@ -196,7 +330,7 @@ Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenati
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Multiple Columns}
+  \frametitle{High level (contd.)}
 \begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
 
 \column{.45\textwidth} % Left column and width
@@ -214,34 +348,116 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ul
 \end{frame}
 
 %------------------------------------------------
-\section{Second Section}
+\section{Services}
 %------------------------------------------------
 
+\subsection{Registration}
 \begin{frame}
-\frametitle{Table}
-\begin{table}
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
+	\frametitle{Registration}
+	\framesubtitle{UAS}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Registration}
+	\framesubtitle{Manufacturer}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Registration}
+	\framesubtitle{Operator}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Registration}
+	\framesubtitle{Pilot}
 \end{frame}
 
 %------------------------------------------------
 
+
+\subsection{Operations}
 \begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
+	\frametitle{Flight Planning}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Flight Awareness}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Communication \& Navigation}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Dynamic Airspace Density}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Discovery}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Log Management}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Weather}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mapping}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Airspace authorisation}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Incident Reporting}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Restrictions}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conformance Monitoring}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Risk reduction}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Messaging}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Flight Notification}
+\end{frame}
+
+
+\subsection{Deconfliction}
+
+\begin{frame}
+	\frametitle{Deconfliction}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Deconfliction}
+	\framesubtitle{Advisory \& Alert}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Deconfliction}
+	\framesubtitle{Strategic}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Deconfliction}
+	\framesubtitle{Tactical / Dynamic Reroute}
+\end{frame}
 %------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
@@ -258,6 +474,7 @@ $E = mc^2$
 \end{frame}
 
 %------------------------------------------------
+
 
 \begin{frame}
 \frametitle{Figure}
@@ -277,6 +494,16 @@ This statement requires citation \cite{FAA-ConOps-v2}.
 This statement requires citation \cite{EASA-UAS-ATM-Assessment-2018}.
 This statement requires citation \cite{RPASGM2020}.
 This statement requires citation \cite{FAA-NPRM-2019-1100}.
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Figure}
+Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
+%\begin{figure}
+%\includegraphics[width=0.8\linewidth]{test}
+%\end{figure}
 \end{frame}
 
 %------------------------------------------------
