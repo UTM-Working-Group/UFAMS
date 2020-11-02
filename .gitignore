@@ -1,3 +1,4 @@
+# LyX
 research/papers/*.lyx~
 research/tech-reports/*.lyx~
 research/papers/#*.lyx#
@@ -6,10 +7,13 @@ research/papers/*.pdf
 research/tech-reports/*.pdf
 research/questionnaires/*.pdf
 research/VERSION.pdf
+publications/*/*.pdf
 
+# OS X
 .DS_Store
 ._*
 
+# LaTeX
 *.aux
 *.bbl
 *.blg
@@ -22,3 +26,6 @@ research/VERSION.pdf
 *.pdf
 *.vrb
 *.snm
+
+# VIM
+*.swp
