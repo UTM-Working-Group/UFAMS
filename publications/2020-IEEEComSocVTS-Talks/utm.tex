@@ -201,27 +201,35 @@
    \frametitle{Stakeholders}
    % MIND MAP
 
-   \begin{columns}[t] % the "c" option specifies center vertical alignment
-      \column{.45\textwidth} % column designated by a command
-      \begin{tikzpicture}[scale=0.5,transform shape]
-         \ttfamily
-         \path[mindmap,concept color=cyanprocess,text=white]
-         node[concept] {Unmanned Traffic Management}
-         [clockwise from=0]
-         child [concept color=RoyalBlue!50!cyanprocess] { node[concept] (c3) {UAS} }
-         child [concept color=OliveGreen] { node[concept] (c1) {Operator} }
-         child [concept color=Maroon] { node[concept] (c2) {Pilot} }
-         child [concept color=black] { node[concept] (c5) {Manned Air Traffic Control} }
-         child [concept color=YellowOrange] { node[concept] (c4) {Civil Aviation Authority} }
-         child [concept color=Violet] { node[concept ] (c0) {Manufacturer} };
-         \begin{pgfonlayer}{background}
-            \draw [concept connection]  (c1) edge (c2)
-            edge (c3)
-            (c2) edge (c3);
-         \end{pgfonlayer}
-      \end{tikzpicture}
-      \column{.45\textwidth}
-      Contents split \newline into two lines
+   \begin{columns}[c] % the "c" option specifies center vertical alignment
+      \begin{column}{.6\textwidth} % column designated by a command
+         \begin{tikzpicture}[scale=0.5,transform shape]
+            \ttfamily
+            \path[mindmap,concept color=cyanprocess,text=white]
+            node[concept] {Unmanned Traffic Management}
+            [clockwise from=0]
+            child [concept color=RoyalBlue!50!cyanprocess] { node[concept] (c3) {UAS} }
+            child [concept color=OliveGreen] { node[concept] (c1) {Operator} }
+            child [concept color=Maroon] { node[concept] (c2) {Pilot} }
+            child [concept color=black] { node[concept] (c5) {Manned Air Traffic Control} }
+            child [concept color=YellowOrange] { node[concept] (c4) {Civil Aviation Authority} }
+            child [concept color=Violet] { node[concept ] (c0) {Manufacturer} };
+            % \begin{pgfonlayer}{background}
+            %    \draw [concept connection]  (c1) edge (c2)
+            %    edge (c3)
+            %    (c2) edge (c3);
+            % \end{pgfonlayer}
+         \end{tikzpicture}
+      \end{column}
+      \begin{column}{.4\textwidth}
+         Others
+         \begin{itemize}
+            \item Military
+            \item Law Enforcement
+            \item Airports
+            \item Insurance providers
+         \end{itemize}
+      \end{column}
    \end{columns}
 \end{frame}
 
@@ -372,11 +380,23 @@
 \begin{frame}
    \frametitle{Registration}
    \framesubtitle{UAS}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Registration}
    \framesubtitle{Manufacturer}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -387,6 +407,12 @@
 \begin{frame}
    \frametitle{Registration}
    \framesubtitle{Pilot}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 %------------------------------------------------
@@ -395,63 +421,196 @@
 \subsection{Operations}
 \begin{frame}
    \frametitle{Flight Planning}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         {Objective: To support the operator in defining a flight geography that meets the needs of their mission while complying with the spatial/temporal boundaries and constraints of the Performance Authorization}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         Operator Use: A UAS Operator would utilize this service by submitting their flight path during pre-departure mission planning. The service would request input from the UAS Operator regarding the performance of the aircraft, communication and navigation performance, contingency actions, launch/recovery behavior, etc. The service would also utilize data from other available services (e.g. weather service). \\
+         Output: Suggestions on flight path modifications and Flight Geography Volume generated from the flight path
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Flight Awareness}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         Objective: Flight awareness services provides a UAS operator contextual geographic information that supports an operator’s awareness of areas in which flight operations and/or launch and recover are not permitted.
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         Operator Use: A UAS Operator would utilize this service by submitting their operation volume during pre-departure mission planning. The service would consider flight restricted and conditionally restricted areas and notify an operator of the potential hazard or restriction. This is a foundational service that is utilized by other services.
+         Output: Notification of existing or future known restrictions that intersect with the operation volume
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Communication \& Navigation}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         Objective: Communication and Navigation Services consist of set of strategic and tactical services that can provide historical performance data during for airspace surveying during the safety development phase, coverage maps during the flight planning phase, and real-time integrity, availability, quality of service, and security monitoring during the operation phase.
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         Operator Use:
+         \begin{itemize}
+            \item  Flight Planning: The UAS operator would utilize these coverage maps to ensure develop flight plans and contingency management procedures are consistent with the Performance Authorization limitations, the UAS performance, and the mission objectives.
+            \item  Real-time Monitoring support using a Communication and Navigation Service would entail the service provider supplying a monitor of the integrity and quality of service of the communication network, system and/or navigation solution over a given geographic area. Monitors would identify areas of degraded coverage, increased latency, or high probability of interference. The real-time monitoring capability would also notify the UAS operator of any reported communication blackout or jamming.
+         \end{itemize}
+         Output: Notifications and information associated with the quality of service and performance of the third party communication systems.
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Dynamic Airspace Density}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Discovery}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Log Management}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Weather}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         Objective: The weather services supports a UAS Operators awareness of lower boundary layer atmospheric conditions in the geographic area in which they will be conducting operations.
+         \begin{itemize}
+         \item  a Weather Service can provide support for a UAS Operator with the following capabilities:
+         \item  Near term, short term and long term forecasting of local and regional atmospheric conditions
+         \item  Real-time weather reporting
+         \item  User provided hazardous weather reports, known as UAS Reports (UREP).
+         \item  Weather advisories and alerts for a given geographic area
+         \item  Operation specific weather alerts that highlight areas in the operation volume where weather posses an elevated to risk to mission success and/or safety.
+         \item  Interfacing weather information with the Dynamic Rerouting Service to provide dynamic weather routes to avoid hazardous conditions.
+         \end{itemize}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         Operator Use:
+         Historical weather data and trends can support a UAS Operator’s request for a Performance Authorization, can provide support in determining whether compliance with limitations of the Performance Authorization are met prior to departure and weather can be monitored during operation and can provide situation awareness to a UAS Operator as to what conditions their vehicle is currently experiencing and will be encountering in the near future.
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Mapping}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Airspace authorisation}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Incident Reporting}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 
 \begin{frame}
    \frametitle{Restrictions}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Conformance Monitoring}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         Objective: Conformance Monitoring Service supports a UAS operator with compliance to with their Operation Volume and notifying other proximal UAS operators in the event that compliance cannot be maintained.
+         Operator Use: A UAS Operator would utilize this service by submitting their operation volume during pre-departure mission planning. The service monitors the UAS position and notifies the UAS Operator if they deviate from the Flight Geography. A conformance threshold is applied between the Flight Geography and Operation Volume (defined as Conformance Volume) and if the UAS crosses the threshold the service provides a traffic advisory to other proximal UAS Operators.
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         Output:
+         \begin{itemize}
+         \item  Notification of deviation from Flight Geography
+         \item  Notification of other UAS Operators of deviation from Conformance Volume
+         \item  Position sharing to other UAS Operators if deviation from Operation Volume occurs (via a USS)
+         \end{itemize}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Risk reduction}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Messaging}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Flight Notification}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         Objective: Flight notification services is intended as a means to promote transparency and disseminating information regarding UAS operations in a given geographic areas to other airspace users, non-UAS stakeholders, local, state, and tribal governments, and the general public.
+         Operator Use: A UAS Operator would utilize this service by submitting their operation volume during pre-departure mission planning. The UAS Operator would get an indication of the level of UAS traffic anticipated during their operation. This service would then collate the operation volume with the operation volumes of other UTM operations into a current and forecasted measures that will be published and accessible to other stakeholders.
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         Output: Notification of existing or future known traffic demand for a given geographic area.
+         Example Service Outputs:
+         \begin{itemize}
+         \item  Density of operations
+         \item  Expected duration at given density levels
+         \item  Expected maximum UAS cruise altitudes
+         \item  Approximate launch/recovery locations
+         \end{itemize}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 
@@ -459,21 +618,60 @@
 
 \begin{frame}
    \frametitle{Deconfliction}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Deconfliction}
    \framesubtitle{Advisory \& Alert}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         Objective: Conflict Advisory and Alert Service supports a UAS operator by providing real-time or in-time data regarding the proximity to potential conflicting aircraft. The main functions of the Conflict Advisory Service is to provide a UAS Operator (or Remote Pilot in Command) informative, suggestive, or directive guidance with regards to proximal airborne hazards. This service relies on surveillance data sources to provide awareness of hazards in the airspace.
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         Operator Use: A UAS Operator would utilize this service by subscribing to the service and providing relevant UAS ownship information and use surveillance information to provide informative, suggestive, or directive guidance to the UAS operator when in conflict with manned and unmanned aircraft. This service helps reduce the performance burden of a onboard DAA.
+         Output: Informative, suggestive, and directive guidance to support the UAS Operator in conflict resolution
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Deconfliction}
    \framesubtitle{Strategic}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         ?? (Duplicated from Notification)
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \begin{frame}
    \frametitle{Deconfliction}
    \framesubtitle{Tactical / Dynamic Reroute}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         Objective: Dynamic Rerouting Service supports a UAS operator by providing modifications to intended operation volumes and directives to changes in flight path to minimize the likelihood of airborne conflicts and maximize the likelihood of conforming to airspace restrictions and maintaining mission objectives.
+         Operator Use: A UAS Operator would utilize this service by subscribing to the service and providing relevant UAS ownship information and the service provides directive guidance in order to perform conflict resolution, excusion recovery, and return to mission. The directive guidance could be delivered to the UAS Operator or UAS depending on the mode of operation (e.g. pilot on-the-loop). Dynamic re-routing is an advanced service and relies on several other services.
+         Output: Directive guidance to resolve conflicts, remain clear or flight restricted areas, return to mission to support more automated UAS capabilities.
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         Output: Notification of existing or future known traffic demand for a given geographic area.
+         Example Service Outputs:
+         \begin{itemize}
+         \item  Density of operations
+         \item  Expected duration at given density levels
+         \item  Expected maximum UAS cruise altitudes
+         \item  Approximate launch/recovery locations
+         \end{itemize}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 %------------------------------------------------
