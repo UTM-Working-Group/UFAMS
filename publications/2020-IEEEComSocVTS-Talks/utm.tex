@@ -253,6 +253,7 @@
             \item Airports
             \item Insurance providers
          \end{itemize}
+         See also FAA Concept of Operations \cite{FAA-ConOps-v2}.
       \end{column}
    \end{columns}
 \end{frame}
@@ -286,25 +287,29 @@
          \item Identification of risk factors for complex operations
       \end{itemize}
    \end{columns}
-
+   See also \cite{ISO-TR-23629-1-2020}.
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-   \frametitle{Services: Registration}
-   \begin{itemize}
-      \item UAS \\
-         UIN Application, UAS Acquisition
-      \item Manufacturer \\
-         Profile Management
+   \frametitle{Services: CAA Registration}
+   See DGCA RPAS Guidance Manual \cite{RPASGM2020}.
+   \begin{block}{UAS}
+      UIN Application, UAS Acquisition
+   \end{block}
 
-      \item Operator \\
-         Profile \& Permission Management, UAOP Application
+   \begin{block}{Manufacturer}
+      Profile Management \& Permission Management
+   \end{block}
 
-      \item Pilot \\
-         Profile Management
-   \end{itemize}
+   \begin{block}{Operator}
+      Profile \& Permission Management, UAOP Application
+   \end{block}
+
+   \begin{block}{Pilot}
+      Profile Management \& Permission Management
+   \end{block}
 \end{frame}
 
 %------------------------------------------------
@@ -360,69 +365,52 @@
 
 \end{frame}
 
-\begin{frame}
-   \frametitle{High level (contd.)}
-   \begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-
-      \column{.45\textwidth} % Left column and width
-      \textbf{Heading}
-      \begin{enumerate}
-         \item Statement
-         \item Explanation
-         \item Example
-      \end{enumerate}
-
-      \column{.5\textwidth} % Right column and width
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-
-   \end{columns}
-\end{frame}
-
 %------------------------------------------------
 \section{Services}
 %------------------------------------------------
 
-\subsection{Registration}
-\begin{frame}
-   \frametitle{Registration}
-   \framesubtitle{UAS}
-   \begin{columns}[t]
-      \begin{column}{0.5\textwidth}
-      \end{column}
-      \begin{column}{0.5\textwidth}
-      \end{column}
-   \end{columns}
-\end{frame}
-
-\begin{frame}
-   \frametitle{Registration}
-   \framesubtitle{Manufacturer}
-   \begin{columns}[t]
-      \begin{column}{0.5\textwidth}
-      \end{column}
-      \begin{column}{0.5\textwidth}
-      \end{column}
-   \end{columns}
-\end{frame}
-
-\begin{frame}
-   \frametitle{Registration}
-   \framesubtitle{Operator}
-\end{frame}
-
-\begin{frame}
-   \frametitle{Registration}
-   \framesubtitle{Pilot}
-   \begin{columns}[t]
-      \begin{column}{0.5\textwidth}
-      \end{column}
-      \begin{column}{0.5\textwidth}
-      \end{column}
-   \end{columns}
-\end{frame}
-
+% \subsection{Registration}
+% \begin{frame}
+%    \frametitle{Registration}
+%    \framesubtitle{UAS}
+%    \begin{columns}[t]
+%       \begin{column}{0.5\textwidth}
+%       \end{column}
+%       \begin{column}{0.5\textwidth}
+%       \end{column}
+%    \end{columns}
+% \end{frame}
+%
+% \begin{frame}
+%    \frametitle{Registration}
+%    \framesubtitle{Manufacturer}
+%    \begin{columns}[t]
+%       \begin{column}{0.5\textwidth}
+%       \end{column}
+%       \begin{column}{0.5\textwidth}
+%       \end{column}
+%    \end{columns}
+% \end{frame}
+%
+% \begin{frame}
+%    \frametitle{Registration}
+%    \framesubtitle{Operator}
+% \end{frame}
+%
+% \begin{frame}
+%    \frametitle{Registration}
+%    \framesubtitle{Pilot}
+%    \begin{columns}[t]
+%       \begin{column}{0.5\textwidth}
+%       \end{column}
+%       \begin{column}{0.5\textwidth}
+%       \end{column}
+%    \end{columns}
+% \end{frame}
+%
 %------------------------------------------------
 
+%% FLIGHT PLANNING
 
 \subsection{Operations}
 \begin{frame}
@@ -438,10 +426,16 @@
    \end{columns}
 \end{frame}
 
+%% FLIGHT AWARENESS
+
 \begin{frame}
    \frametitle{Flight Awareness}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Pre-flight \\
+         Related services: Flight Planning \\
+         APIs: UAO/S $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
          Objective: Flight awareness services provides a UAS operator contextual geographic information that supports an operator's awareness of areas in which flight operations and/or launch and recover are not permitted.
       \end{column}
       \begin{column}{0.5\textwidth}
@@ -472,8 +466,14 @@
    \frametitle{Dynamic Airspace Density}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Pre-flight \\
+         Related services: Flight Planning \\
+         APIs: UAO/S $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
       \end{column}
       \begin{column}{0.5\textwidth}
+         Objective: Provide pilot/operator predicted air traffic density in volume and time restrictions of operation
+         Output: Air traffic density
       \end{column}
    \end{columns}
 \end{frame}
@@ -492,8 +492,13 @@
    \frametitle{Log Management}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Post-flight \\
+         APIs: UAO/S $\rightarrow$ UTM; UTM $\rightarrow$ CAA \\
       \end{column}
       \begin{column}{0.5\textwidth}
+         Objective: Provide CAA flight log
+         Output: None
       \end{column}
    \end{columns}
 \end{frame}
@@ -502,6 +507,9 @@
    \frametitle{Weather}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Pre-flight \& during-flight \\
+         APIs: UAO/S $\rightarrow$ UTM \\
          Objective: The weather services supports a UAS Operators awareness of lower boundary layer atmospheric conditions in the geographic area in which they will be conducting operations.
          \begin{itemize}
          \item  a Weather Service can provide support for a UAS Operator with the following capabilities:
@@ -524,8 +532,13 @@
    \frametitle{Mapping}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Pre-flight \& during-flight \\
+         APIs: UAO/S $\rightarrow$ UTM \\
       \end{column}
       \begin{column}{0.5\textwidth}
+         Objective: \\
+         Example output: \\
       \end{column}
    \end{columns}
 \end{frame}
@@ -534,8 +547,13 @@
    \frametitle{Airspace authorisation}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Post-flight \\
+         APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
       \end{column}
       \begin{column}{0.5\textwidth}
+         Objective: \\
+         Example output: \\
       \end{column}
    \end{columns}
 \end{frame}
@@ -544,8 +562,13 @@
    \frametitle{Incident Reporting}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Post-flight \\
+         APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
       \end{column}
       \begin{column}{0.5\textwidth}
+         Objective: \\
+         Example output: \\
       \end{column}
    \end{columns}
 \end{frame}
@@ -555,8 +578,13 @@
    \frametitle{Restrictions}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Post-flight \\
+         APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
       \end{column}
       \begin{column}{0.5\textwidth}
+         Objective: \\
+         Example output: \\
       \end{column}
    \end{columns}
 \end{frame}
@@ -583,8 +611,13 @@
    \frametitle{Risk reduction}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Post-flight \\
+         APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
       \end{column}
       \begin{column}{0.5\textwidth}
+         Objective: \\
+         Example output: \\
       \end{column}
    \end{columns}
 \end{frame}
@@ -593,8 +626,13 @@
    \frametitle{Messaging}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Post-flight \\
+         APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
       \end{column}
       \begin{column}{0.5\textwidth}
+         Objective: \\
+         Example output: \\
       \end{column}
    \end{columns}
 \end{frame}
@@ -637,6 +675,10 @@
    \framesubtitle{Advisory \& Alert}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
+         Actor: Pilot/Operator \\
+         Stage: Pre-flight \\
+         Related services: Flight Planning \\
+         APIs: UAO/S $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
          Objective: Conflict Advisory and Alert Service supports a UAS operator by providing real-time or in-time data regarding the proximity to potential conflicting aircraft. The main functions of the Conflict Advisory Service is to provide a UAS Operator (or Remote Pilot in Command) informative, suggestive, or directive guidance with regards to proximal airborne hazards. This service relies on surveillance data sources to provide awareness of hazards in the airspace.
       \end{column}
       \begin{column}{0.5\textwidth}
@@ -646,14 +688,24 @@
    \end{columns}
 \end{frame}
 
+%% 9 STRATEGIC DECONFLICTION
+
 \begin{frame}
    \frametitle{Deconfliction}
    \framesubtitle{Strategic}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
-         ?? (Duplicated from Notification)
+         Actor: Pilot/Operator \\
+         Stage: Pre-flight \\
+         Related services: Flight Planning \\
+         APIs: UAO/S $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
+
+         Objective: Before filing a flight plan with CAA, the Operator or Flight may be provided a version of intended flight plan that is modified so it is not is conflict with other known operations.
       \end{column}
       \begin{column}{0.5\textwidth}
+
+         Operator use: \\
+         Example output: Deconflicted flight plan
       \end{column}
    \end{columns}
 \end{frame}
@@ -740,49 +792,28 @@
    \begin{columns}[t]
       \column{.45\textwidth} % column designated by a command
       \begin{itemize}
-         \item Hello
+         \item No concerted effort on standardising the way operational practices or risk assessments are evaluated by regulatory bodies
       \end{itemize}
       \column{.45\textwidth} % column designated by a command
       \begin{itemize}
-         \item No concerted effort on standardising the way operational practices or risk assessments are evaluated by regulatory bodies
+         \item TBD
       \end{itemize}
    \end{columns}
 \end{frame}
 
 %------------------------------------------------
 
-
-\begin{frame}
-   \frametitle{Figure}
-   Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-   %\begin{figure}
-   %\includegraphics[width=0.8\linewidth]{test}
-   %\end{figure}
-\end{frame}
-
-%------------------------------------------------
-
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
    \frametitle{Citation}
-   An example of the \verb|\cite| command to cite within the presentation:\\~
 
-   This statement requires citation \cite{FAA-ConOps-v2}.
-   This statement requires citation \cite{EASA-UAS-ATM-Assessment-2018}.
-   This statement requires citation \cite{RPASGM2020}.
-   This statement requires citation \cite{FAA-NPRM-2019-1100}.
+   .
+   \cite{EASA-UAS-ATM-Assessment-2018}.
+   \cite{FAA-NPRM-2019-1100}.
 \end{frame}
 
 %------------------------------------------------
 
-\begin{frame}
-   \frametitle{Figure}
-   Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-   %\begin{figure}
-   %\includegraphics[width=0.8\linewidth]{test}
-   %\end{figure}
-\end{frame}
-
-%------------------------------------------------
+\section*{References}
 
 \begin{frame}[t, allowframebreaks]
    \frametitle{References}

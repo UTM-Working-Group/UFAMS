@@ -1,6 +1,6 @@
 all: 2020-IEEEComSocVTS-Talks/utm.pdf
 
-2020-IEEEComSocVTS-Talks/utm.pdf: 2020-IEEEComSocVTS-Talks/utm.tex
+2020-IEEEComSocVTS-Talks/utm.pdf: 2020-IEEEComSocVTS-Talks/utm.tex ../research/Bibliography.bib
 	export TEXINPUTS="..:" && \
 	  cd 2020-IEEEComSocVTS-Talks && \
 	  pdflatex utm.tex && \
