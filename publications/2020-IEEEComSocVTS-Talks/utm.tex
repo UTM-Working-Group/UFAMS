@@ -143,7 +143,7 @@
 
 \title[UTM \& Stdn.]{Unmanned Traffic Management and Standardisation} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{Sayandeep Purkayasth} % Your name
+\author{Sayandeep Purkayasth, PhD} % Your name
 \institute[UAWGs] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
    \href{mailto:sayandeep@deepcyan.ai}{sayandeep@deepcyan.ai}  \\ % Your email address
@@ -358,12 +358,12 @@
          \item Flight Awareness
          \item Communication \& Navigation
          \item Dynamic Airspace Density
+         \item Weather
       \end{itemize}
 
       \column{.45\textwidth} % Right column and width
       \begin{itemize}
          \item Log Management
-         \item Weather
          \item Mapping
          \item Airspace authorisation
          \item Incident Reporting
@@ -384,11 +384,11 @@
                \item Strategic
                \item Tactical / Dynamic Reroute
             \end{itemize}
+         \item Restrictions
       \end{itemize}
 
       \column{.45\textwidth} % Right column and width
       \begin{itemize}
-         \item Restrictions
          \item Conformance Monitoring
          \item Risk reduction
          \item Messaging
@@ -450,8 +450,10 @@
    \frametitle{Flight Planning}
    \begin{columns}[T]
       \begin{column}{0.75\textwidth}
-         {Objective: To support the operator in defining a flight geography that meets the needs of their mission while complying with the spatial/temporal boundaries and constraints of the Performance Authorization}
-         Operator Use: A UAS Operator would utilize this service by submitting their flight path during pre-departure mission planning. The service would request input from the UAS Operator regarding the performance of the aircraft, communication and navigation performance, contingency actions, launch/recovery behavior, etc. The service would also utilize data from other available services (e.g. weather service). \\
+         Actor: Pilot/Operator \\
+         Stage: Pre-flight \\
+         {Objective: Support operator in defining flight geography that meets the needs of their mission while complying with the spatial/temporal boundaries and authorisation constraints} \\
+         Input: UAS performance, communication and navigation performance, contingency actions, launch/recovery behavior, etc. The service would also utilize data from other available services (e.g. weather service). \\
          Output: Suggestions on flight path modifications and Flight Geography Volume generated from the flight path
       \end{column}
       \begin{column}{0.25\textwidth}
@@ -465,17 +467,17 @@
 \begin{frame}
    \frametitle{Flight Awareness}
    \begin{columns}[T]
-      \begin{column}{0.5\textwidth}
+      \begin{column}{0.65\textwidth}
          Actor: Pilot/Operator \\
          Stage: Pre-flight \\
          Related services: Flight Planning \\
-         APIs: UAO/S $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
-         Objective: Flight awareness services provides a UAS operator contextual geographic information that supports an operator's awareness of areas in which flight operations and/or launch and recover are not permitted.  \\
-         Operator Use: A UAS Operator would utilize this service by submitting their operation volume during pre-departure mission planning. The service would consider flight restricted and conditionally restricted areas and notify an operator of the potential hazard or restriction. This is a foundational service that is utilized by other services.
+         APIs: Pilot $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
+         Objective: Provides a UAS operator contextual geographic information that supports awareness of areas in which flight operations and/or launch and recover are not permitted.  \\
+         Input: Intended Operation volume. The service would consider flight restricted and conditionally restricted areas and notify an operator of the potential hazard or restriction.
       \end{column}
-      \begin{column}{0.5\textwidth}
+      \begin{column}{0.35\textwidth}
          Output: Notification of existing or future known restrictions that intersect with the operation volume \\
-         \includegraphics[height=0.45\textwidth]{img/flight-awareness.png}
+         \includegraphics[height=0.65\textwidth]{img/flight-awareness.png}
       \end{column}
    \end{columns}
 \end{frame}
@@ -484,16 +486,38 @@
    \frametitle{Communication \& Navigation}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
-         Objective: Communication and Navigation Services consist of set of strategic and tactical services that can provide historical performance data during for airspace surveying during the safety development phase, coverage maps during the flight planning phase, and real-time integrity, availability, quality of service, and security monitoring during the operation phase.
+         Objective: Provide
+         \begin{itemize}
+            \item historical performance data during for airspace surveying during the safety development phase
+            \item coverage maps during the flight planning phase
+            \item real-time integrity, availability, quality of service, and security monitoring during the operation phase.
+         \end{itemize}
       \end{column}
       \begin{column}{0.5\textwidth}
          Operator Use:
          \begin{itemize}
-            \item  Flight Planning: The UAS operator would utilize these coverage maps to ensure develop flight plans and contingency management procedures are consistent with the Performance Authorization limitations, the UAS performance, and the mission objectives.
-            \item  Real-time Monitoring support using a Communication and Navigation Service would entail the service provider supplying a monitor of the integrity and quality of service of the communication network, system and/or navigation solution over a given geographic area. Monitors would identify areas of degraded coverage, increased latency, or high probability of interference. The real-time monitoring capability would also notify the UAS operator of any reported communication blackout or jamming.
+            \item  Flight Planning: UAS operator would utilize coverage maps to ensure develop flight plans and contingency management procedures are consistent with CAA requirements, UAS performance, and mission objectives.
          \end{itemize}
          Output: Notifications and information associated with the quality of service and performance of the third party communication systems. \\
-         \includegraphics[height=0.45\textwidth]{img/flight-notification.png}
+      \end{column}
+   \end{columns}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Communication \& Navigation (contd.)}
+   \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+         Operator Use:
+         \begin{itemize}
+            \item  Real-time Monitoring support using a Communication and Navigation Service would entail the service provider supplying a monitor of the integrity and QoS of the communication network, system and/or navigation solution over a given geographic area.
+         \end{itemize}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         Operator Use:
+         \begin{itemize}
+            \item Monitors would identify areas of degraded coverage, increased latency, or high probability of interference.
+            \item The real-time monitoring capability would also notify the UAS operator of any reported communication blackout or jamming.
+         \end{itemize}
       \end{column}
    \end{columns}
 \end{frame}
@@ -504,18 +528,18 @@
       \begin{column}{0.5\textwidth}
          \begin{block}{Dynamic Airspace Density}
          Actor: Pilot/Operator \\
-         Stage: Pre-flight \\
+         Stage: Pre- or during-flight \\
          Related services: Flight Planning \\
-         APIs: UAO/S $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
-         Objective: Provide pilot/operator predicted air traffic density in volume and time restrictions of operation \\
-         Output: Air traffic density
+         APIs: Pilot $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
+         Input: Operational volume (intended or otherwise) \\
+         Output: Predicted air traffic density in volume and time restrictions of operation
          \end{block}
       \end{column}
       \begin{column}{0.5\textwidth}
          \begin{block}{Log Management}
          Actor: Pilot/Operator \\
          Stage: Post-flight \\
-         APIs: UAO/S $\rightarrow$ UTM; UTM $\rightarrow$ CAA \\
+         APIs: Pilot $\rightarrow$ UTM; UTM $\rightarrow$ CAA \\
          Objective: Provide CAA flight log
          Output: None
          \end{block}
@@ -530,18 +554,18 @@
          \begin{block}{Incident Reporting}
          Actor: Pilot/Operator \\
          Stage: Post-flight \\
-         APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
-         Objective: \\
-         Example output: \\
+         APIs: Pilot $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
+         Input: Incident Report\\
+         Output: None \\
          \end{block}
       \end{column}
       \begin{column}{0.5\textwidth}
          \begin{block}{Restrictions}
          Actor: Pilot/Operator \\
-         Stage: Post-flight \\
-         APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
-         Objective: \\
-         Example output: \\
+         Stage: Pre-flight \\
+         APIs: Pilot $\leftrightarrow$ UTM, UTM $\leftrightarrow$ CAA \\
+         Input: Operational volume (intended or otherwise)\\
+         Output: Temporary Flight Restrictions (manned) or Volume Restrictions (unmanned)
          \end{block}
       \end{column}
    \end{columns}
@@ -553,21 +577,20 @@
       \begin{column}{0.5\textwidth}
          Actor: Pilot/Operator \\
          Stage: Pre-flight \& during-flight \\
-         APIs: UAO/S $\rightarrow$ UTM \\
-         Objective: The weather services supports a UAS Operators awareness of lower boundary layer atmospheric conditions in the geographic area in which they will be conducting operations.
-         \begin{itemize}
-         \item  a Weather Service can provide support for a UAS Operator with the following capabilities:
+         APIs: Pilot $\leftrightarrow$ UTM \\
+         Objective: Support UAS Operator's awareness of atmospheric conditions in the geographic area in which they will be conducting operations.
+         \begin{itemize}\small
          \item  Near term, short term and long term forecasting of local and regional atmospheric conditions
-         \item  Real-time weather reporting
          \item  User provided hazardous weather reports, known as UAS Reports (UREP).
+         \end{itemize}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+         \begin{itemize}\small
+         \item  Real-time weather reporting
          \item  Weather advisories and alerts for a given geographic area
          \item  Operation specific weather alerts that highlight areas in the operation volume where weather posses an elevated to risk to mission success and/or safety.
          \item  Interfacing weather information with the Dynamic Rerouting Service to provide dynamic weather routes to avoid hazardous conditions.
          \end{itemize}
-      \end{column}
-      \begin{column}{0.5\textwidth}
-         Operator Use:
-         Historical weather data and trends can support a UAS Operator's request for a Performance Authorization, can provide support in determining whether compliance with limitations of the Performance Authorization are met prior to departure and weather can be monitored during operation and can provide situation awareness to a UAS Operator as to what conditions their vehicle is currently experiencing and will be encountering in the near future.
       \end{column}
    \end{columns}
 \end{frame}
@@ -578,7 +601,7 @@
 %       \begin{column}{0.5\textwidth}
 %          Actor: Pilot/Operator \\
 %          Stage: Pre-flight \& during-flight \\
-%          APIs: UAO/S $\rightarrow$ UTM \\
+%          APIs: Pilot $\rightarrow$ UTM \\
 %       \end{column}
 %       \begin{column}{0.5\textwidth}
 %          Objective: \\
@@ -593,7 +616,7 @@
 %       \begin{column}{0.5\textwidth}
 %          Actor: Pilot/Operator \\
 %          Stage: Post-flight \\
-%          APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
+%          APIs: Pilot $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
 %       \end{column}
 %       \begin{column}{0.5\textwidth}
 %          Objective: \\
@@ -606,15 +629,16 @@
    \frametitle{Conformance Monitoring}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
-         Objective: Conformance Monitoring Service supports a UAS operator with compliance to with their Operation Volume and notifying other proximal UAS operators in the event that compliance cannot be maintained.
-         Operator Use: A UAS Operator would utilize this service by submitting their operation volume during pre-departure mission planning. The service monitors the UAS position and notifies the UAS Operator if they deviate from the Flight Geography. A conformance threshold is applied between the Flight Geography and Operation Volume (defined as Conformance Volume) and if the UAS crosses the threshold the service provides a traffic advisory to other proximal UAS Operators.
+         Stage: During-flight \\
+         APIs: UAS $\leftrightarrow$ UTM, UTM $\rightarrow$ CAA \\
+         Operator Use: Service monitors the UAS position and notifies the UAS Operator if they deviate from the Flight Geography. A conformance threshold is applied between the Flight Geography and Operation Volume (Conformance Volume) and if the UAS crosses the threshold the service provides a traffic advisory to other proximal UAS Operators.
       \end{column}
       \begin{column}{0.5\textwidth}
          Output:
-         \begin{itemize}
-         \item  Notification of deviation from Flight Geography
-         \item  Notification of other UAS Operators of deviation from Conformance Volume
-         \item  Position sharing to other UAS Operators if deviation from Operation Volume occurs (via a USS)
+         \begin{itemize}\small
+         \item  Notification of deviations
+         \item  Notification to other UAS Operators of deviations
+         \item  Position sharing to other UAS Operators if deviation occurs
          \end{itemize}
          \includegraphics[height=0.45\textwidth]{img/conformance-monitoring.png}
 
@@ -627,13 +651,13 @@
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
          Actor: Pilot/Operator \\
-         Stage: Post-flight \\
-         APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
+         Stage: Pre-flight \\
+         APIs: Pilot $\leftrightarrow$ UTM, UTM $\rightarrow$ CAA \\
+         Input: Operational parameters, volume \\
+         Example output: Ground risk, Air risk categories Specific Assurance and Integrity Levels, Known risk factors \\
       \end{column}
       \begin{column}{0.5\textwidth}
-         Objective: \\
-         Example output: \\
-         See also: Technical Report on UA Risk Assessment (draft) \cite{UARRG-TR-1}, ATM airspace assessment \cite{EASA-UAS-ATM-Assessment-2018} and JARUS SORA process\cite{JARUS-SORA/JAR-DEL-WG6-D.04}
+         See also: Technical Report on UA Risk Assessment (draft) \cite{UARRG-TR-1}, ATM airspace assessment \cite{EASA-UAS-ATM-Assessment-2018} and JARUS SORA process \cite{JARUS-SORA/JAR-DEL-WG6-D.04}
       \end{column}
    \end{columns}
 \end{frame}
@@ -644,7 +668,7 @@
 %       \begin{column}{0.5\textwidth}
 %          Actor: Pilot/Operator \\
 %          Stage: Post-flight \\
-%          APIs: UAO/S $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
+%          APIs: Pilot $\rightarrow$ UTM, UTM $\rightarrow$ CAA \\
 %       \end{column}
 %       \begin{column}{0.5\textwidth}
 %          Objective: \\
@@ -657,18 +681,19 @@
    \frametitle{Flight Notification}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
-         Objective: Flight notification services is intended as a means to promote transparency and disseminating information regarding UAS operations in a given geographic areas to other airspace users, non-UAS stakeholders, local, state, and tribal governments, and the general public.
-         Operator Use: A UAS Operator would utilize this service by submitting their operation volume during pre-departure mission planning. The UAS Operator would get an indication of the level of UAS traffic anticipated during their operation. This service would then collate the operation volume with the operation volumes of other UTM operations into a current and forecasted measures that will be published and accessible to other stakeholders.
+         Actor: Pilot/Operator, Any \\
+         APIs: Pilot $\leftrightarrow$ UTM, UTM $\leftrightarrow$ CAA \\
+         Objective: Disseminate information regarding UAS operations in a given geographic areas to other airspace users, non-UAS stakeholders, local, state, and tribal governments, and the general public. UAS Operator would get an indication of anticipated level of UAS traffic. \\
+         Example Service Outputs:
       \end{column}
       \begin{column}{0.5\textwidth}
-         Output: Notification of existing or future known traffic demand for a given geographic area.
-         Example Service Outputs:
-         \begin{itemize}
+         \begin{itemize}\small
          \item  Density of operations
          \item  Expected duration at given density levels
          \item  Expected maximum UAS cruise altitudes
          \item  Approximate launch/recovery locations
          \end{itemize}
+         \includegraphics[height=0.35\textwidth]{img/flight-notification.png}
       \end{column}
    \end{columns}
 \end{frame}
@@ -683,7 +708,7 @@
       \end{column}
       \begin{column}{0.5\textwidth}
          \begin{block}{Conflict}
-            Two or more UASs, flight plans or operations are in conflict if they overlap in positional (latitude, longitude, altitude) and temporal dimensions.
+            Two or more UASs, flight plans or operations are in conflict if they overlap in spatial (latitude, longitude, altitude) and temporal dimensions.
          \end{block}
       \end{column}
       \begin{column}{0.25\textwidth}
@@ -699,11 +724,10 @@
          Actor: Pilot/Operator \\
          Stage: Pre-flight \\
          Related services: Flight Planning \\
-         APIs: UAO/S $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
-         Objective: Conflict Advisory and Alert Service supports a UAS operator by providing real-time or in-time data regarding the proximity to potential conflicting aircraft. The main functions of the Conflict Advisory Service is to provide a UAS Operator (or Remote Pilot in Command) informative, suggestive, or directive guidance with regards to proximal airborne hazards. This service relies on surveillance data sources to provide awareness of hazards in the airspace.
+         APIs: Pilot $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
+         Objective: Supports a UAS operator by providing real-time or in-time data regarding the proximity to potential conflicting aircraft.
       \end{column}
       \begin{column}{0.5\textwidth}
-         Operator Use: A UAS Operator would utilize this service by subscribing to the service and providing relevant UAS ownship information and use surveillance information to provide informative, suggestive, or directive guidance to the UAS operator when in conflict with manned and unmanned aircraft. This service helps reduce the performance burden of a onboard DAA.
          Output: Informative, suggestive, and directive guidance to support the UAS Operator in conflict resolution \\
          \includegraphics[height=0.45\textwidth]{img/conflict-advisory.png}
 
@@ -721,13 +745,11 @@
          Actor: Pilot/Operator \\
          Stage: Pre-flight \\
          Related services: Flight Planning \\
-         APIs: UAO/S $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
+         APIs: Pilot $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
 
          Objective: Before filing a flight plan with CAA, the Operator or Flight may be provided a version of intended flight plan that is modified so it is not is conflict with other known operations.
       \end{column}
       \begin{column}{0.5\textwidth}
-
-         Operator use: \\
          Example output: Deconflicted flight plan \\
          \includegraphics[height=0.45\textwidth]{img/strategic-deconfliction.png}
       \end{column}
@@ -739,19 +761,14 @@
    \framesubtitle{Tactical / Dynamic Reroute}
    \begin{columns}[t]
       \begin{column}{0.5\textwidth}
-         Objective: Dynamic Rerouting Service supports a UAS operator by providing modifications to intended operation volumes and directives to changes in flight path to minimize the likelihood of airborne conflicts and maximize the likelihood of conforming to airspace restrictions and maintaining mission objectives.
-         Operator Use: A UAS Operator would utilize this service by subscribing to the service and providing relevant UAS ownship information and the service provides directive guidance in order to perform conflict resolution, excusion recovery, and return to mission. The directive guidance could be delivered to the UAS Operator or UAS depending on the mode of operation (e.g. pilot on-the-loop). Dynamic re-routing is an advanced service and relies on several other services.
-         Output: Directive guidance to resolve conflicts, remain clear or flight restricted areas, return to mission to support more automated UAS capabilities.
+         Actor: UAS/Pilot/Operator \\
+         Stage: During-flight \\
+         APIs: UAS/Pilot $\leftrightarrow$ UTM; UTM $\leftrightarrow$ UTM; UTM $\leftrightarrow$ CAA \\
+         Objective: Minimize the likelihood of airborne conflicts and maximize the likelihood of conforming to airspace restrictions and maintaining mission objectives. \\
+         Operator Use: The directive guidance could be delivered to the UAS Operator or UAS depending on the mode of operation (e.g. pilot on-the-loop). Dynamic re-routing is an advanced service and relies on several other services.
       \end{column}
       \begin{column}{0.5\textwidth}
-         Output: Notification of existing or future known traffic demand for a given geographic area.
-         Example Service Outputs:
-         \begin{itemize}
-         \item  Density of operations
-         \item  Expected duration at given density levels
-         \item  Expected maximum UAS cruise altitudes
-         \item  Approximate launch/recovery locations
-         \end{itemize}
+         Output: Directive guidance to resolve conflicts, remain clear or flight restricted areas, return to mission to support more automated UAS capabilities.
          \includegraphics[height=0.45\textwidth]{img/dynamic-rerouting.png}
 
       \end{column}
@@ -761,7 +778,7 @@
 %------------------------------------------------
 
 \section{Standardisation}
-\subsection{Standardisation}
+\subsection{Efforts}
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
    \frametitle{Standardisaton}
    \framesubtitle{Efforts}
@@ -788,7 +805,7 @@
          \item Rapidly evolving technology
             \begin{itemize}
                \item UAS internals
-               \item Mobile Connectivity Infrastructure
+               \item Reliable Mobile Connectivity Infrastructure
                \item New commercial applications
             \end{itemize}
          \item Industry consensus difficult to achieve
@@ -805,7 +822,6 @@
                \item Remote Identification and tracking
             \end{itemize}
          \item Chicken before egg: Regulatory effort underway before industry has reached scale
-         \item Reliable network connectivity
       \end{itemize}
    \end{columns}
 \end{frame}
@@ -819,10 +835,6 @@
       \column{.45\textwidth} % column designated by a command
       \begin{itemize}
          \item No concerted effort on standardising the way operational practices or risk assessments are evaluated by regulatory bodies
-      \end{itemize}
-      \column{.45\textwidth} % column designated by a command
-      \begin{itemize}
-         \item TBD
       \end{itemize}
    \end{columns}
 \end{frame}
