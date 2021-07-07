@@ -193,7 +193,7 @@ Abhiroop
 \begin_inset space ~
 \end_inset
 
-Bhatnagar is with AlgoPixel Technologies, India, e-mail: 
+Bhatnagar is with Algopixel Technologies, India, e-mail: 
 \begin_inset CommandInset href
 LatexCommand href
 name "abhiroop@algopixel.tech"
@@ -427,24 +427,354 @@ Remote ID
 Introduction
 \end_layout
 
-\begin_layout Subsection
-Use cases
+\begin_layout Standard
+As per FAA, "Remote identification (or Remote ID) is the ability of an unmanned
+ aircraft in flight to provide certain identification and location information
+ that people on the ground and other airspace users can receive." Thus, Remote
+ Id is essentially an electronic license plate system for the sky.
+ As of today's date, it is extremely difficult to trace the owner/pilot
+ while spotting an unmanned aircraft in flight, especially since these can
+ be controlled anywhere from 2 km to hundreds of kilometers away.
+ The inclusion of Remote Id in unmanned aircrafts is expected to increase
+ public trust and ease apprehensions of security agencies when it comes
+ to widespread operations of these unmanned aircrafts over heavily-populated
+ or security-sensitive areas.
+ Remote Id is a fundamental building block of Unmanned Traffic Management
+ (UTM) systems and is an enabler of high-density and long-range operations.
+ 
 \end_layout
 
 \begin_layout Subsection
-FAA NPRM
+Forms of Remote Id
+\end_layout
+
+\begin_layout Standard
+There are two forms of Remote Id: Broadcast Remote Id and Network Remote
+ Id.
+ Broadcast Remote Id utilizes direct radio broadcasts from the UAS to receivers
+ in UAS' vicinity.
+ Network Remote Id involves transmitting the information over the Internet
+ to certain designated cloud-based servers which are then responsible for
+ disseminating this information.
+ 
 \end_layout
 
 \begin_layout Subsection
-ASTM
+Remote Id Standards Across The Globe
 \end_layout
 
-\begin_layout Subsection
-Other Remote ID specifications, policies and regulation
+\begin_layout Standard
+Globally, there are two published documents till date on remote identification
+ of unmanned aircrafts.
+ The first is in fact the only real technical standard , published by ASTM
+ International, an international standards organization, after several years
+ of research .The second Notice for Proposed Rulemaking (NPRM) released by
+ Federal Aviation Authority (FAA) of the USA.The NPRM is more of a proposed
+ regulation rather than a technical standard.
+ We'll provide a brief description of both the proposals, comparing the
+ similarities and differences.
+ 
 \end_layout
 
+\begin_layout Subsubsection
+FAA NPRM on Remote Identification of Unmanned Aircraft Systems 
+\end_layout
+
+\begin_layout Standard
+The NPRM was released by FAA on 12 December 2019.
+ The NPRM is meant to be a precursor of regulations which would govern operation
+ of unmanned aircrafts in the US airspace.
+ Its focus is on adding a capability for the law enforcement agencies to
+ detect and monitor unmanned aircrafts.
+ As such, the primary aim of the regulation is to alleviate the security
+ and safety concerns of the law enforcement agencies.
+ Salient features of this proposal are as follows: 
+\end_layout
+
+\begin_layout Itemize
+Applicable only for drones weighing more than 250g.
+ 
+\end_layout
+
+\begin_layout Itemize
+Provides for both Broadcast-based Remote Id and Network-based Remote Id.
+ 
+\end_layout
+
+\begin_layout Itemize
+Message elements: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Aircraft identifier such as serial number, registration number etc.
+\end_layout
+
+\begin_layout Itemize
+Latitude, longitude and barometric pressure altitude of unmanned aircraft
+\end_layout
+
+\begin_layout Itemize
+Latitude, longitude and barometric pressure altitude of control station
+\end_layout
+
+\begin_layout Itemize
+A coordinated timestamp 
+\end_layout
+
+\begin_layout Itemize
+Indication of emergency status of the aircraft 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Complete Remote Id message will be unencrypted and publicly available 
+\end_layout
+
+\begin_layout Itemize
+Network Remote Id messages need to be sent to a Remote Id USS Provider.
+ The message can be sent either by the aircraft or the control station.
+ 
+\end_layout
+
+\begin_layout Itemize
+The proposal defines 3 types of capabilities, Standard, Limited and No RemoteId.
+ 
+\backslash
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Standard:
+\series default
+ Aircrafts under standard category will have the ability to transmit the
+ Remote Id messages through Network-based Remote Id in case internet connectivit
+y is available.
+ When internet connectivity is not available, the aircraft should switch
+ to Broadcast-based Remote Id.
+ Aircrafts with Standard Capability can fly VLoS as well as BVLoS operations.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Limited:
+\series default
+ No requirement to support Broadcast-base Remote Id but the aircraft should
+ remain within 400ft of the operator and transmit Remote Id messages through
+ Network-based Remote Id.
+ In case internet connectivity is not available, the aircraft should not
+ take-off.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+No Remote Id:
+\series default
+ An aircraft without both Standard and Limited Remote Id capabilities will
+ only be allowed in pre-designated FAA recognized identification areas.
+ Only VLoS operations will be allowed in these areas.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Manufacturers of Standard and Limited Capability Unmanned Aircrafts will
+ be required to submit a declaration of compliance along with supporting
+ documents for acceptance by the FAA.
+ 
+\end_layout
+
+\begin_layout Itemize
+Usage of ADS-B out is strictly prohibited 
+\end_layout
+
+\begin_layout Subsubsection
+ASTM Standard Specification for Remote Id and Tracking (F3411-19)
+\end_layout
+
+\begin_layout Standard
+This standard was released for public in February 2020.
+ Unlike the NPRM, which is a regulatory framework, this document is meant
+ to be a technical standard and it leaves regulatory aspects for the ANSPs
+ to figure out.
+ Salient features of this proposal are: 
+\end_layout
+
+\begin_layout Itemize
+Allows for using both Broadcast-based Remote Id and Network-based RemoteI
+ Id 
+\end_layout
+
+\begin_layout Itemize
+Broadcast-based Remote Id should transmit data using Bluetooth or Wi-fi
+ Aware (a specific and so far rare form of Wifi found on a limited number
+ of devices).
+ 
+\end_layout
+
+\begin_layout Itemize
+Allows signing and encryption of Remote Id messages
+\end_layout
+
+\begin_layout Itemize
+Operation of aircrafts with no Remote Id is allowed if the operator reports
+ the area and time of operation before-hand 
+\end_layout
+
+\begin_layout Itemize
+Network Remote Id Service Providers are entities which will be responsible
+ for maintaining records of operations within their specific geographical
+ areas 
+\end_layout
+
+\begin_layout Itemize
+Discovery and Synchronization Service(DSS) entities will be responsible
+ for maintaining airspace representation with respect to Net-RID Service
+ Providers 
+\end_layout
+
+\begin_layout Itemize
+Network Remote Id Display Providers will provide end users with interfaces
+ to monitor and carry out operations by interacting with the Net-RID Service
+ Providers for the relevant geographical areas 
+\end_layout
+
+\begin_layout Itemize
+Mandatory Message elements: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+UAS ID:
+\series default
+ This can be Serial Number, Registration Id or any other system-generated
+ unique identifier
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+UA Type:
+\series default
+ Fixed-wing, Rotary etc.
+ 
+\end_layout
+
+\begin_layout Itemize
+Timestamp and Timestamp Accuracy
+\end_layout
+
+\begin_layout Itemize
+Latitude and Longitudeof the aircraft
+\end_layout
+
+\begin_layout Itemize
+Geodetic Altitude of the aircraft
+\end_layout
+
+\begin_layout Itemize
+Geodetic Vertical Accuracy
+\end_layout
+
+\begin_layout Itemize
+Horizontal Accuracy
+\end_layout
+
+\begin_layout Itemize
+Speed Accuracy
+\end_layout
+
+\begin_layout Itemize
+Track Direction
+\end_layout
+
+\begin_layout Itemize
+Speed
+\end_layout
+
+\begin_layout Itemize
+Vertical Speed 
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
-Comparison ASTM vs others
+Comparison and Critique of Remote Id Standards 
+\end_layout
+
+\begin_layout Standard
+As discussed earlier, the ASTM Remote Id standard is a technical standard
+ while the FAA NPRM is a regulatory framework.
+ Therefore, we will focus only on the technical aspects of the FAA NPRM.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Remote Id Message 
+\end_layout
+
+\begin_layout Standard
+While both the standards require basic fields such as a UAS identifier,
+ location of UAS and a timestamp, the ASTM standard provides for including
+ a lot more fields than the FAA NPRM.
+ This could be beneficial for more complicated operations.
+ The ASTM standard also allows for encryption of the message elements while
+ there is no such provision in the FAA NPRM.
+ One difference that stands out is the inclusion of Ground Control Station
+ in the FAA NPRM which is not there in the ASTM standard.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Broadcast Remote Id 
+\end_layout
+
+\begin_layout Standard
+Both the FAA NPRM and ASTM standard allow for broadcasting Remote Id through
+ WiFi Aware and Bluetooth.
+ In the FAA NPRM, Broadcast-based Remote Id is taken to be a fallback in
+ case the UAS loses internet connectivity.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Network Remote Id 
+\end_layout
+
+\begin_layout Standard
+In the FAA NPRM, Network Remote Id is the mainstay of the Remote Id framework
+ and operational capability is severely limited in absence of it.
+ The FAA NPRM introduces the concept of UAS Service Suppliers (USS).
+ According to the NPRM, USS will be FAA-registered entities which will coordinat
+e the Remote Id information flow to/from a UAS directly or indirectly.
+ A UAS which wants to use Network Remote Id should be able to connect to
+ a Remote Id UAS through the internet before takeoff.
+ Similarly, the ASTM spec introduces parallel concepts of Net-RID service
+ providers and Net-RID display providers which will facilitate this information
+ flow.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+No Remote Id 
+\end_layout
+
+\begin_layout Standard
+The FAA NPRM has a very restrictive approach when it comes to devices without
+ Remote Id ability.
+ As per the NPRM, UAS without either Standard or Limited Remote Id ability
+ will only be able to fly in certain areas pre-designated for hobbyists.
+ On the other hand, the ASTM allows for operation of UAS without Remote
+ Id given the operator informs about the operation area and time beforehand.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -648,6 +978,103 @@ If encryption, who is the intended recipient?
 \end_layout
 
 \end_deeper
+\begin_layout Subsubsection
+Interfaces
+\end_layout
+
+\begin_layout Standard
+Even though UTM SPs will be standalone entities which will be able to provide
+ value-added services to their customers, it would be beneficial to the
+ industry to have a minimum set of standardized APIs that the UTM SPs provide.
+ This would have the following benefits: 
+\end_layout
+
+\begin_layout Itemize
+It would decrease switching costs for the end consumer who should now be
+ able to switch between different UTM SPs by simply selecting one from the
+ list or entering the UTM SP URL and account information manually.
+ This, in turn, would prevent vendor lock-ins for the end consumer.
+\end_layout
+
+\begin_layout Itemize
+It would increase UTM SP interoperability and would allow multiple UTM SPs
+ to seamlessly communicate with each other.
+ This would lead to decreased latencies and decreased load on the UFII servers.
+\end_layout
+
+\begin_layout Itemize
+It would allow third-party developers to develop much more robust and scalable
+ applications on top of the UTM SP APIs.
+\end_layout
+
+\begin_layout Standard
+List of interfaces:
+\end_layout
+
+\begin_layout Itemize
+\noindent
+Interface 1: Send Remote Id Message (GCS -> UTM SP)
+\end_layout
+
+\begin_layout Itemize
+Interface 2: Send Remote Id Message (UTM SP -> UFII)
+\end_layout
+
+\begin_layout Itemize
+Interface 3: Area UAS Activity (UFII -> UTM SP)
+\end_layout
+
+\begin_layout Itemize
+Interface 4: Send Remote Id Message (UAS -> UFII)
+\end_layout
+
+\begin_layout Itemize
+Interface 5: Store Flight Plan (UTM SP -> UFII) 
+\end_layout
+
+\begin_layout Standard
+The interfaces (I1-I5) are marked in the schematic below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/Abr/Desktop/Remote Id - DSP Architecture.jpg
+	lyxscale 50
+	width 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Open Questions:
+\end_layout
+
+\begin_layout Itemize
+What should be the interaction flow? Request-Response or PubSub?
+\end_layout
+
+\begin_layout Itemize
+What messaging protocol to use? Possible options: MQTT, XMPP
+\end_layout
+
+\begin_layout Itemize
+What network layer protocol to use? Possible options: TCP/IP, UDP
+\end_layout
+
+\begin_layout Itemize
+What should be the data format? Possible options: JSON, XML, Thrift, Protobuf
+\end_layout
+
+\begin_layout Itemize
+What data should be signed and how?
+\end_layout
+
+\begin_layout Itemize
+What data should be encrypted and how? 
+\end_layout
+
 \begin_layout Subsection
 Broadcast ID
 \end_layout
